@@ -7,15 +7,16 @@
     tools:context=".ui.LoginActivity">
 
     <ImageView
+        android:id="@+id/imgLogin"
         android:layout_width="72dp"
         android:layout_height="69dp"
+        android:layout_marginTop="92dp"
         android:contentDescription="image"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="103dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtLogin"
@@ -101,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@id/tilEmail" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPassword"
+        android:id="@+id/tilKataSandi"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="358dp"
         android:layout_height="47dp"
@@ -119,11 +120,11 @@
         app:layout_constraintTop_toBottomOf="@id/tvSandi">
 
         <EditText
-            android:id="@+id/etSignInSandi"
+            android:id="@+id/etKataSandi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan Kata Sandi"
-            android:inputType="textPassword"
+            android:hint="Masukkan kata sandi"
+            android:inputType="textVisiblePassword"
             android:textSize="@dimen/et_text_size"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -132,7 +133,7 @@
         android:id="@+id/tvLupaSandi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tilPassword"
+        app:layout_constraintTop_toBottomOf="@id/tilKataSandi"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
