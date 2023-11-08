@@ -154,8 +154,8 @@
         android:background="@drawable/button_bg"
         android:text="Login"
         android:fontFamily="@font/poppins_medium"
-        android:textColor="@color/grey"
-        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         />
 
     <TextView
