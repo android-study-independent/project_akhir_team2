@@ -1,4 +1,4 @@
-package com.msib.growsmart.ui
+package com.msib.growsmart.ui.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
