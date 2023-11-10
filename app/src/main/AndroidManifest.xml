@@ -21,8 +21,11 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
         <activity
+            android:name=".ui.LupaSandiActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.register.RegisterActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false"/>
