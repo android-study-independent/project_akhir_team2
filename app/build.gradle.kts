@@ -7,6 +7,10 @@ android {
     namespace = "com.msib.growsmart"
     compileSdk = 34
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.msib.growsmart"
         minSdk = 26
@@ -81,5 +85,13 @@ dependencies {
 
     //Circle Image
     implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    //Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.0-alpha01")
+    implementation("androidx.navigation:navigation-fragment:2.6.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.0-alpha01")
+
+    //RxTextView
+    implementation("com.jakewharton.rxbinding2:rxbinding:2.2.0")
 
 }
