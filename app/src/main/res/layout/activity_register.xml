@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.register.RegisterActivity">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imgRegis"
         android:layout_width="72dp"
@@ -66,7 +76,7 @@
         android:id="@+id/tilNama"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="358dp"
-        android:layout_height="47dp"
+        android:layout_height="60dp"
         android:layout_marginStart="@dimen/start_end_margin"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="@dimen/start_end_margin"
@@ -107,7 +117,7 @@
         android:id="@+id/tilEmail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="358dp"
-        android:layout_height="47dp"
+        android:layout_height="60dp"
         android:layout_marginStart="@dimen/start_end_margin"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="@dimen/start_end_margin"
@@ -147,7 +157,7 @@
         android:id="@+id/tilPengingat"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="358dp"
-        android:layout_height="47dp"
+        android:layout_height="60dp"
         android:layout_marginStart="@dimen/start_end_margin"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="@dimen/start_end_margin"
@@ -187,7 +197,7 @@
         android:id="@+id/tilSandi"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="358dp"
-        android:layout_height="47dp"
+        android:layout_height="55dp"
         android:layout_marginStart="@dimen/start_end_margin"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="@dimen/start_end_margin"
@@ -228,7 +238,7 @@
         android:id="@+id/tilConfSandi"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="358dp"
-        android:layout_height="47dp"
+        android:layout_height="55dp"
         android:layout_marginStart="@dimen/start_end_margin"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="@dimen/start_end_margin"
@@ -264,7 +274,7 @@
         android:textSize="18sp"
         android:textColor="@color/green_1" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnBuatAkun"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -274,11 +284,11 @@
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/button_bg"
+        android:backgroundTint="@color/green_2"
         android:text="Buat Akun"
         android:fontFamily="@font/poppins_medium"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         />
 
     <TextView
