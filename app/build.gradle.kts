@@ -44,7 +44,7 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -58,21 +58,21 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.15.1")
 
     //Lifecycle
-    implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.1")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
 
     //DataStore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
     //Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
 
     //Refresh Swipe Layout
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
 
     //Android Ktx
-    implementation("androidx.activity:activity-ktx:1.7.2")
-    implementation("androidx.fragment:fragment-ktx:1.6.0")
+    implementation("androidx.activity:activity-ktx:1.8.0")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -81,7 +81,7 @@ dependencies {
     //Logging Interceptor
     //noinspection GradleDependency
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
     //Gson
     implementation("com.google.code.gson:gson:2.10.1")
@@ -90,9 +90,9 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
     //Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.0-alpha01")
-    implementation("androidx.navigation:navigation-fragment:2.6.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.0-alpha01")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
+    implementation("androidx.navigation:navigation-fragment:2.7.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
 
     //RxTextView
     implementation("com.jakewharton.rxbinding2:rxbinding:2.2.0")
