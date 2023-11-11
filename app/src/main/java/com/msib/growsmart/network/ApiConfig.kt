@@ -1,7 +1,7 @@
 package com.msib.growsmart.network
 
+import com.msib.growsmart.BuildConfig
 import com.msib.growsmart.utils.Constant
-import de.hdodenhof.circleimageview.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -21,8 +21,8 @@ object ApiConfig {
         return Interceptor { chain ->
             var request = chain.request()
 
-            if(request.header("No-Authentication") == null) {
-                if(token.isNotEmpty()) {
+            if (request.header("No-Authentication") == null) {
+                if (token.isNotEmpty()) {
                     request = request.newBuilder()
                         .addHeader(Constant.TYPE_HEADERS, finalToken)
                         .build()
@@ -40,8 +40,8 @@ object ApiConfig {
         }
 
         val client = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
             .addInterceptor(getHeaderInterceptor())
+            .addInterceptor(loggingInterceptor)
             .build()
 
         val retrofit = Retrofit.Builder()

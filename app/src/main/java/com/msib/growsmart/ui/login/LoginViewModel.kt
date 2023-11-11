@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.msib.growsmart.data.UserModel
+import com.msib.growsmart.data.request.LoginRequest
 import com.msib.growsmart.network.ApiConfig
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.PostLoginResponse
@@ -32,7 +33,8 @@ class LoginViewModel(private val preference: UserPreference) : ViewModel() {
 
     fun postLogin(context: Context, email: String, password: String) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().postLogin(email, password)
+        val loginRequest = LoginRequest(email, password)
+        val client = ApiConfig.getApiService().postLogin(loginRequest)
         client.enqueue(object : Callback<PostLoginResponse> {
             override fun onResponse(
                 call: Call<PostLoginResponse>,
@@ -50,15 +52,23 @@ class LoginViewModel(private val preference: UserPreference) : ViewModel() {
                         val name = response.body()?.data?.name
                         val emailUser = response.body()?.data?.email
 
-                        if (idUser != null && name != null && emailUser != null ) {
+                        if (idUser != null && name != null && emailUser != null) {
                             saveUser(UserModel(token, idUser, name, emailUser, false))
                             println("DATA USER == $token, $idUser, $name, $emailUser")
                             UserPreference.setToken(token)
-                            Toast.makeText(context, "Selamat Datang di GrowSmart", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                context,
+                                "Selamat Datang di GrowSmart",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             Log.d("login", responseBody.token)
                         }
                     } else {
-                        Toast.makeText(context, "Silakan Cek Email dan Password Anda Kembali", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            context,
+                            "Silakan Cek Email dan Password Anda Kembali",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 } else {
                     Toast.makeText(context, "Fail: ${response.message()}", Toast.LENGTH_SHORT)

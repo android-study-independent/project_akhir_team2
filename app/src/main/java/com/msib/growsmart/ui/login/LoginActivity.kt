@@ -35,22 +35,26 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnLogin.setOnClickListener {
+            loginViewModel.postLogin(
+                this@LoginActivity,
+                binding.etSignInEmail.text.toString(),
+                binding.etKataSandi.text.toString()
+            )
+        }
+
         preference = UserPreference.getInstance(dataStore)
 
         initListener()
+        initObserver()
     }
 
     @SuppressLint("CheckResult")
     private fun initListener() {
         with(binding) {
-            btnLogin.setOnClickListener {
-                loginViewModel.postLogin(
-                    this@LoginActivity,
-                    etSignInEmail.text.toString(),
-                    etKataSandi.text.toString()
-                )
-                initObserver()
-            }
+//            btnLogin.setOnClickListener {
+//
+//            }
             onBackPressedDispatcher.addCallback(this@LoginActivity) {
                 exitProcess(0)
             }
