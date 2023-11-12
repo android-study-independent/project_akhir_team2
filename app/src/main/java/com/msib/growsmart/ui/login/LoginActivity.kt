@@ -17,6 +17,7 @@ import com.msib.growsmart.MainActivity
 import com.msib.growsmart.databinding.ActivityLoginBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.PostLoginResponse
+import com.msib.growsmart.ui.LupaSandiActivity
 import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.msib.growsmart.ui.register.RegisterActivity
 import io.reactivex.Observable
@@ -57,6 +58,10 @@ class LoginActivity : AppCompatActivity() {
 
             tvRegister.setOnClickListener {
                 RegisterActivity.start(this@LoginActivity)
+            }
+
+            tvLupaSandi.setOnClickListener {
+                LupaSandiActivity.start(this@LoginActivity)
             }
 
             val emailStream = RxTextView.textChanges(etSignInEmail)
