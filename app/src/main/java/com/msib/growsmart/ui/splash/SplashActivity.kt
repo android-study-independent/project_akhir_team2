@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
-import com.msib.growsmart.MainActivity
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivitySplashBinding
+import com.msib.growsmart.ui.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -25,7 +25,7 @@ class SplashActivity : AppCompatActivity() {
         // Optional: Tambahkan delay untuk menampilkan splash screen selama beberapa detik
         Handler().postDelayed({
             // Pindah ke activity utama setelah selesai splash screen
-            val mainIntent = Intent(this@SplashActivity, MainActivity::class.java)
+            val mainIntent = Intent(this@SplashActivity, LoginActivity::class.java)
             startActivity(mainIntent)
             finish()
         }, 1700)
