@@ -7,11 +7,11 @@
 
     <LinearLayout
         android:id="@+id/ly_alert"
-        android:layout_width="234dp"
-        android:layout_height="205dp"
+        android:layout_width="296dp"
+        android:layout_height="241dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/bg_lupa_sandi"
+        android:background="@drawable/bg_white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,27 +22,40 @@
             android:id="@+id/tvAlert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="55dp"
             android:gravity="center_horizontal"
-            android:text="Success"
+            android:text="Sukses"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="16sp"
             android:gravity="center_horizontal"
-            android:text="Kata sandi telah berhasil diganti!"
+            android:text="Selamat Anda berhasil\nmembuat Akun Baru"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSukses"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:backgroundTint="@color/green_1"
+            android:text="Tutup"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
