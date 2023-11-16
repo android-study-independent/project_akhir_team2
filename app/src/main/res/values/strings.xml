@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">GrowSmart</string>
+    <!--  navigation  -->
+    <string name="tv_nav_beranda">Beranda</string>
+    <string name="tv_nav_cuaca">Cuaca</string>
+    <string name="tv_nav_forum">Forum</string>
+    <string name="tv_nav_lms">LMS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

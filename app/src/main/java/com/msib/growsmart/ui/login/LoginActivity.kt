@@ -13,7 +13,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.jakewharton.rxbinding2.widget.RxTextView
-import com.msib.growsmart.MainActivity
+import com.msib.growsmart.ui.beranda.BerandaActivity
 import com.msib.growsmart.databinding.ActivityLoginBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.PostLoginResponse
@@ -118,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun postLogin(login: PostLoginResponse) {
         if (!login.error) {
-            MainActivity.start(this, "main")
+            BerandaActivity.start(this, "beranda")
         }
     }
 

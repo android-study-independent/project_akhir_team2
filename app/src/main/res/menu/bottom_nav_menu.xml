@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_beranda"
+        android:title="@string/tv_nav_beranda" />
+
+    <item
+        android:id="@+id/navigation_cuaca"
+        android:title="@string/tv_nav_cuaca"/>
+
+    <item
+        android:id="@+id/navigation_forum"
+        android:title="@string/tv_nav_forum" />
+
+    <item
+        android:id="@+id/navigation_lms"
+        android:title="@string/tv_nav_lms" />
+</menu>
