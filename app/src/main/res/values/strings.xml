@@ -7,4 +7,21 @@
     <string name="tv_nav_lms">LMS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tvTani">Hey, Mr.Tani!</string>
+    <string name="minggu_05_n">Minggu, 05 Nov 2023</string>
+    <string name="tvTanya">Mau menanam apa hari ini?</string>
+    <string name="berawan">Berawan</string>
+    <string name="kota">Bandung</string>
+    <string name="artikel">Artikel Terbaru</string>
+    <string name="lihat"> Lihat semua</string>
+    <string name="deskripsi_1"> Tips Sukses untuk Petani\nSayur Pemula</string>
+    <string name="deskripsi_2"> tips dan trik singkat untuk memulai bercocok tanam\nsayuran dari nol.</string>
+    <string name="deskripsi_3"> Pupuk, Hama, dan Teknologi</string>
+    <string name="deskripsi_4"> mengenal teknik pemupukan,\nmengatasi hama,\npemanfaatan teknologi untuk pertanian sayuran</string>
+
+
+
+
+
+
 </resources>
