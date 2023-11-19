@@ -51,7 +51,7 @@ class SplashActivity : AppCompatActivity() {
             delay(Constant.DELAY_SPLASH_SCREEN)
             runOnUiThread {
                 if (isLogin) {
-                    BerandaActivity.start(this@SplashActivity, "beranda")
+                    BerandaActivity.start(this@SplashActivity, "Beranda")
                 } else {
                     LoginActivity.start(this@SplashActivity)
                 }
@@ -60,17 +60,17 @@ class SplashActivity : AppCompatActivity() {
         }
 
 
-        // Tambahkan animasi
-        val slideLeft = AnimationUtils.loadAnimation(this, R.anim.slide_splash)
-        binding.splashLogo.startAnimation(slideLeft)
-
-        // Optional: Tambahkan delay untuk menampilkan splash screen selama beberapa detik
-        Handler().postDelayed({
-            // Pindah ke activity utama setelah selesai splash screen
-            val mainIntent = Intent(this@SplashActivity, LoginActivity::class.java)
-            startActivity(mainIntent)
-            finish()
-        }, 1700)
+//        // Tambahkan animasi
+//        val slideLeft = AnimationUtils.loadAnimation(this, R.anim.slide_splash)
+//        binding.splashLogo.startAnimation(slideLeft)
+//
+//        // Optional: Tambahkan delay untuk menampilkan splash screen selama beberapa detik
+//        Handler().postDelayed({
+//            // Pindah ke activity utama setelah selesai splash screen
+//            val mainIntent = Intent(this@SplashActivity, LoginActivity::class.java)
+//            startActivity(mainIntent)
+//            finish()
+//        }, 1700)
     }
 
     private fun initToken() {
