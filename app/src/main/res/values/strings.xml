@@ -7,6 +7,8 @@
     <string name="tv_nav_lms">LMS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Beranda-->
     <string name="tvTani">Hey, Mr.Tani!</string>
     <string name="minggu_05_n">Minggu, 05 Nov 2023</string>
     <string name="tvTanya">Mau menanam apa hari ini?</string>
@@ -18,6 +20,37 @@
     <string name="deskripsi_2"> tips dan trik singkat untuk memulai bercocok tanam\nsayuran dari nol.</string>
     <string name="deskripsi_3"> Pupuk, Hama, dan Teknologi</string>
     <string name="deskripsi_4"> mengenal teknik pemupukan,\nmengatasi hama,\npemanfaatan teknologi untuk pertanian sayuran</string>
+    <string name="alamat"> Bandung </string>
+    <string name="suhu"> 25℃ </string>
+    <string name="keterangan">Kelembaban 80%</string>
+
+    <!--Weather-->
+    <string name="tittle">Cuaca Hari Ini</string>
+    <string name="info">Informasi cuaca hari ini</string>
+    <string name="peluang">Peluang Hujan</string>
+    <string name="peluang_hujan">2%</string>
+    <string name="kelembapan">Kelembapan</string>
+    <string name="kelembapan_suhu">60%</string>
+    <string name="index_uv">Indeks UV</string>
+    <string name="index_uv_meter">0</string>
+    <string name="kegiatan">Yang bisa kamu lakukan hari ini:</string>
+    <string name="kegiatanKet"> Walaupun cuacanya berawan, kamu harus tetap menyiram tanamanmu, ya!</string>
+    <string name="hari_ini">Hari Ini</string>
+    <string name="lihat_cuaca">Lihat cuaca minggu ini</string>
+    <string name="jam1">11:00</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
