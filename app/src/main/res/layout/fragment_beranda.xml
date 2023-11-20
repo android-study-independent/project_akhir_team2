@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.beranda.BerandaFragment">
 
     <ScrollView
@@ -15,10 +15,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv1"
@@ -36,7 +36,7 @@
                         android:src="@drawable/profile" />
 
                     <TextView
-                        android:id="@+id/tvTani"
+                        android:id="@+id/tvCuaca"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="100dp"
@@ -65,8 +65,8 @@
                         android:src="@drawable/notification" />
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="344dp"
-                        android:layout_height="198dp"
+                        android:layout_width="345dp"
+                        android:layout_height="212dp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="32dp"
@@ -76,46 +76,96 @@
                         android:paddingTop="30dp"
                         app:cardCornerRadius="15dp">
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="314dp"
-                            android:layout_height="173dp"
-                            android:layout_marginLeft="15dp"
+
+                        <LinearLayout
+                            android:layout_width="315dp"
+                            android:layout_height="183dp"
+                            android:layout_marginStart="15dp"
                             android:layout_marginTop="15dp"
-                            android:elevation="6dp"
-                            app:cardCornerRadius="20dp">
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@drawable/bg_white"
+                            android:orientation="horizontal"
+                            tools:layout_marginStart="15dp">
 
 
-                            <TextView
-                                android:id="@+id/minggu_05_n"
-                                android:layout_width="144dp"
-                                android:layout_height="20dp"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="15dp"
-                                android:fontFamily="@font/poppins_medium"
-                                android:gravity="top"
-                                android:lineSpacingExtra="-1sp"
-                                android:text="@string/minggu_05_n"
-                                android:textSize="14sp" />
+                            <LinearLayout
+                                android:layout_width="250dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
-                            <ImageView
-                                android:id="@+id/weather"
-                                android:layout_width="157dp"
-                                android:layout_height="131dp"
-                                android:layout_alignParentLeft="true"
-                                android:layout_alignParentTop="true"
-                                android:layout_marginTop="22.35dp"
-                                android:src="@drawable/weather" />
+                                <TextView
+                                    android:id="@+id/minggu_05_n"
+                                    android:layout_width="144dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:gravity="top"
+                                    android:lineSpacingExtra="-1sp"
+                                    android:text="@string/minggu_05_n"
+                                    android:textSize="14sp" />
 
-                            <TextView
-                                android:id="@+id/berawan"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="60dp"
-                                android:layout_marginTop="120dp"
-                                android:text="@string/berawan" />
+                                <ImageView
+                                    android:id="@+id/imageWeather"
+                                    android:layout_width="159dp"
+                                    android:layout_height="223dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/weather" />
 
-                        </androidx.cardview.widget.CardView>
+                                <TextView
+                                    android:id="@+id/berawan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="55dp"
+                                    android:layout_marginBottom="20dp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="@string/berawan"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
 
+
+                            <LinearLayout
+                                android:layout_width="213dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/alamat"
+                                    android:layout_width="91dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="15dp"
+                                    android:layout_marginTop="47dp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="@string/alamat"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/suhu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="30dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="@string/suhu"
+                                    android:textSize="30sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/keterangan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:text="@string/keterangan"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
                     </androidx.cardview.widget.CardView>
 
                     <LinearLayout
@@ -138,26 +188,26 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="160dp"
                             android:text="@string/lihat"
-                            android:textColor="@color/green_nav"/>
+                            android:textColor="@color/green_nav" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
                             android:layout_marginStart="5dp"
-                            android:src="@drawable/arrow_right"/>
+                            android:layout_marginTop="3dp"
+                            android:src="@drawable/arrow_right" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="400dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="400dp"
                 app:cardCornerRadius="15dp">
 
                 <LinearLayout
@@ -181,8 +231,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="20dp"
-                        android:text="@string/deskripsi_1"
                         android:fontFamily="@font/poppins_medium"
+                        android:text="@string/deskripsi_1"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -195,9 +245,9 @@
                     android:layout_marginStart="125dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="@string/deskripsi_2"
-                    android:textSize="16sp"
-                    android:fontFamily="@font/poppins_medium"/>
+                    android:textSize="16sp" />
 
             </androidx.cardview.widget.CardView>
 
@@ -206,8 +256,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cv2"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
                 app:cardCornerRadius="15dp">
 
                 <LinearLayout
@@ -230,8 +280,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="@string/deskripsi_3"
                         android:fontFamily="@font/poppins_medium"
+                        android:text="@string/deskripsi_3"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -255,8 +305,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cv3"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
                 app:cardCornerRadius="15dp">
 
                 <LinearLayout
@@ -279,8 +329,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:text="@string/deskripsi_3"
                         android:fontFamily="@font/poppins_medium"
+                        android:text="@string/deskripsi_3"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
