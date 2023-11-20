@@ -11,4 +11,7 @@ object Constant {
     const val EMAIL_USER = "emailUser"
     const val PASSWORD_USER = "passwordUser"
     const val THEME_KEY = "theme"
+
+    @JvmStatic
+    val LOCATION_REQUEST_CODE = 2000
 }

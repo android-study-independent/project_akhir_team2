@@ -86,7 +86,7 @@
 
 
                             <TextView
-                                android:id="@+id/minggu_05_n"
+                                android:id="@+id/tvTanggal"
                                 android:layout_width="144dp"
                                 android:layout_height="20dp"
                                 android:layout_marginStart="15dp"
@@ -98,7 +98,7 @@
                                 android:textSize="14sp" />
 
                             <ImageView
-                                android:id="@+id/weather"
+                                android:id="@+id/ivWeather"
                                 android:layout_width="157dp"
                                 android:layout_height="131dp"
                                 android:layout_alignParentLeft="true"
@@ -107,7 +107,7 @@
                                 android:src="@drawable/weather" />
 
                             <TextView
-                                android:id="@+id/berawan"
+                                android:id="@+id/tvWeather"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="60dp"
