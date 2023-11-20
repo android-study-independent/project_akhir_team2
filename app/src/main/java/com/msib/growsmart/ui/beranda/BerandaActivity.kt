@@ -4,30 +4,26 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Location
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivityBerandaBinding
 import com.msib.growsmart.preference.UserPreference
-import com.msib.growsmart.utils.AppPermission
+import com.msib.growsmart.utils.Constant
 
 class BerandaActivity : AppCompatActivity() {
 
-    private lateinit var permission: AppPermission
     private lateinit var binding: ActivityBerandaBinding
     private lateinit var navController: NavController
     private lateinit var navView: BottomNavigationView
@@ -42,17 +38,36 @@ class BerandaActivity : AppCompatActivity() {
 
         preference = UserPreference.getInstance(dataStore)
 
-        permission = AppPermission()
-
-        if(permission.isLocationOk(this)) {
-            println("Allowed")
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            // Permission already granted
         } else {
-            permission.requestLocationPermission(this)
-            println("denied")
+            // Request permission
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), Constant.LOCATION_REQUEST_CODE)
         }
 
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            // Prompt the user to enable GPS
+        }
 
         initBottomNav()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            Constant.LOCATION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission granted, proceed with location-related tasks
+                } else {
+                    // Permission denied, handle accordingly
+                }
+            }
+        }
     }
 
     private fun initBottomNav() {

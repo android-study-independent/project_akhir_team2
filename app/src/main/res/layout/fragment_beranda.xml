@@ -66,7 +66,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="345dp"
-                        android:layout_height="212dp"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="32dp"
@@ -96,72 +96,72 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/minggu_05_n"
+                                    android:id="@+id/tvTanggal"
                                     android:layout_width="144dp"
-                                    android:layout_height="20dp"
+                                    android:layout_height="wrap_content"
                                     android:layout_marginStart="15dp"
                                     android:layout_marginTop="15dp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:gravity="top"
                                     android:lineSpacingExtra="-1sp"
-                                    android:text="@string/minggu_05_n"
+                                    tools:text="@string/minggu_05_n"
                                     android:textSize="14sp" />
 
                                 <ImageView
-                                    android:id="@+id/imageWeather"
+                                    android:id="@+id/ivWeather"
                                     android:layout_width="159dp"
                                     android:layout_height="223dp"
                                     android:layout_weight="1"
                                     android:src="@drawable/weather" />
 
                                 <TextView
-                                    android:id="@+id/berawan"
+                                    android:id="@+id/tvWeather"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="55dp"
                                     android:layout_marginBottom="20dp"
                                     android:fontFamily="@font/poppins_medium"
-                                    android:text="@string/berawan"
+                                    tools:text="@string/berawan"
                                     android:textSize="14sp" />
                             </LinearLayout>
 
 
                             <LinearLayout
-                                android:layout_width="213dp"
+                                android:layout_width="@dimen/_185sdp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/alamat"
-                                    android:layout_width="91dp"
+                                    android:id="@+id/tvKota"
+                                    android:layout_width="@dimen/_80sdp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="15dp"
-                                    android:layout_marginTop="47dp"
+                                    android:layout_marginStart="@dimen/_15sdp"
+                                    android:layout_marginTop="@dimen/_40sdp"
                                     android:fontFamily="@font/poppins_medium"
-                                    android:text="@string/alamat"
+                                    tools:text="@string/alamat"
                                     android:textSize="20dp"
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:id="@+id/suhu"
+                                    android:id="@+id/tvSuhu"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
-                                    android:layout_marginTop="15dp"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_10sdp"
                                     android:fontFamily="@font/poppins_medium"
-                                    android:text="@string/suhu"
+                                    tools:text="@string/suhu"
                                     android:textSize="30sp"
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:id="@+id/keterangan"
+                                    android:id="@+id/tvKelembapan"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="5dp"
-                                    android:layout_marginTop="15dp"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:layout_marginTop="@dimen/_10sdp"
                                     android:fontFamily="@font/poppins_medium"
-                                    android:text="@string/keterangan"
+                                    tools:text="@string/keterangan"
                                     android:textSize="14sp" />
                             </LinearLayout>
 
