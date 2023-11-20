@@ -53,7 +53,7 @@ class BerandaFragment : Fragment() {
         with(binding) {
             berandaViewModel.getUser().observe(viewLifecycleOwner) {
                 if(it.isLogin) {
-                    tvTani.text = "Hey, ${it.name}"
+                    tvCuaca.text = "Hey, ${it.name}"
                 }
             }
             ivProfile.setOnClickListener {
