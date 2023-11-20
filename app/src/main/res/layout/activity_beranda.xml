@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.beranda.BerandaActivity"
+    android:background="@color/green_4"
     style="@style/bg_body"
     >
 
