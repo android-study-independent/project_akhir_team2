@@ -37,7 +37,16 @@
     <string name="kegiatanKet"> Walaupun cuacanya berawan, kamu harus tetap menyiram tanamanmu, ya!</string>
     <string name="hari_ini">Hari Ini</string>
     <string name="lihat_cuaca">Lihat cuaca minggu ini</string>
-    <string name="jam1">11:00</string>
+    <string name="jam11">11:00</string>
+    <string name="jam12">12:00</string>
+    <string name="jam13">13:00</string>
+    <string name="jam14">14:00</string>
+    <string name="jam15">15:00</string>
+    <string name="jam16">16:00</string>
+    <string name="jam17">17:00</string>
+    <string name="jam18">18:00</string>
+    <string name="suhu_hari_ini">25℃</string>
+
 
 
 
