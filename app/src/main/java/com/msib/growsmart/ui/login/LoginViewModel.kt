@@ -53,7 +53,9 @@ class LoginViewModel(private val preference: UserPreference) : ViewModel() {
                         val emailUser = response.body()?.data?.email
 
                         if (idUser != null && name != null && emailUser != null) {
-                            saveUser(UserModel(token, idUser, name, emailUser, false))
+                            // cek responsebody
+
+                            saveUser(UserModel(token, idUser, name, emailUser, true))
                             println("DATA USER == $token, $idUser, $name, $emailUser")
                             UserPreference.setToken(token)
                             Toast.makeText(
@@ -62,6 +64,7 @@ class LoginViewModel(private val preference: UserPreference) : ViewModel() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             Log.d("login", responseBody.token)
+//                            Log.d("login", token)
                         }
                     } else {
                         Toast.makeText(
