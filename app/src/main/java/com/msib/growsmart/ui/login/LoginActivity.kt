@@ -118,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun postLogin(login: PostLoginResponse) {
         if (!login.error) {
-            BerandaActivity.start(this, "beranda")
+            BerandaActivity.start(this, "Beranda")
         }
     }
 
