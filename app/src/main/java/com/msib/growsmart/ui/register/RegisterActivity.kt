@@ -90,7 +90,7 @@ class RegisterActivity : AppCompatActivity() {
             passwordStream.subscribe { isPasswordValid ->
                 if (!isPasswordValid) {
                     etSandi.setError(
-                        "Password harus mengandung minimal 6 karakter yang terdiri dari 1 huruf besar, 1 huruf kecil, dan 1 angka",
+                        "Password harus mengandung minimal 8 karakter yang terdiri dari 1 huruf besar, 1 huruf kecil, dan 1 angka",
                         null
                     )
                 }
