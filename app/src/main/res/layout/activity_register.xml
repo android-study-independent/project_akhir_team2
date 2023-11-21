@@ -93,7 +93,7 @@
             android:id="@+id/etNama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan nama"
+            android:hint="Masukkan Nama Anda"
             android:inputType="textPersonName"
             android:textSize="@dimen/et_text_size"
             tools:ignore="TouchTargetSizeCheck" />
@@ -134,7 +134,7 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan email"
+            android:hint="Masukkan Email"
             android:inputType="textEmailAddress"
             android:textSize="@dimen/et_text_size"
             tools:ignore="TouchTargetSizeCheck" />
@@ -146,7 +146,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
-        android:text="Siapa Nama Ibu Anda?"
+        android:text="Siapa Nama Sahabat Anda ?"
         android:textColor="@color/black"
         android:textSize="12sp"
         android:textStyle="bold"
@@ -174,7 +174,7 @@
             android:id="@+id/etPengingat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan nama ibu anda"
+            android:hint="Masukkan Nama Sahabat Anda"
             android:inputType="textPersonName"
             android:textSize="@dimen/et_text_size"
             tools:ignore="TouchTargetSizeCheck" />
@@ -215,7 +215,7 @@
             android:id="@+id/etSandi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan kata sandi"
+            android:hint="Masukkan Kata Sandi"
             android:inputType="textVisiblePassword"
             android:textSize="@dimen/et_text_size"
             tools:ignore="TouchTargetSizeCheck" />
@@ -256,7 +256,7 @@
             android:id="@+id/etConfSandi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan kata sandi"
+            android:hint="Masukkan Ulang Sandi"
             android:inputType="textVisiblePassword"
             android:textSize="@dimen/et_text_size"
             tools:ignore="TouchTargetSizeCheck" />
