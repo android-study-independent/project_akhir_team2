@@ -162,7 +162,8 @@
                                     android:layout_marginTop="@dimen/_10sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="@string/keterangan"
-                                    android:textSize="@dimen/_12sdp" />
+                                    android:textSize="@dimen/_12sdp"
+                                    tools:ignore="TextSizeCheck" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -234,7 +235,8 @@
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/deskripsi_1"
                         android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="TextSizeCheck" />
 
                 </LinearLayout>
 
@@ -247,7 +249,8 @@
                     android:layout_marginEnd="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/deskripsi_2"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="TextSizeCheck" />
 
             </androidx.cardview.widget.CardView>
 
@@ -285,7 +288,8 @@
                         android:fontFamily="@font/poppins_medium"
                         android:text="@string/deskripsi_3"
                         android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        tools:ignore="TextSizeCheck" />
 
                 </LinearLayout>
 
@@ -295,11 +299,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_95sdp"
                     android:layout_marginTop="@dimen/_40sdp"
-                    android:layout_marginBottom="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/deskripsi_4"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    tools:ignore="TextSizeCheck" />
 
             </androidx.cardview.widget.CardView>
 
