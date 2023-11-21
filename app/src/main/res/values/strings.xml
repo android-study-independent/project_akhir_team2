@@ -47,6 +47,17 @@
     <string name="jam18">18:00</string>
     <string name="suhu_hari_ini">25℃</string>
 
+    <!--forum-->
+    <string name="txContent">Apa yang anda pikirkan?</string>
+    <string name="pengguna">Joel HR</string>
+    <string name="update_postingan">1 Jam lalu</string>
+    <string name="deskripsi"> Sudah musim hujan,tanaman apa yang cocok yaa?</string>
+    <string name="komentari">Komentari</string>
+
+
+
+
+
 
 
 
