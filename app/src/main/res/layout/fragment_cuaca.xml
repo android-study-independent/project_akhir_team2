@@ -22,60 +22,60 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="578dp"
+                    android:layout_height="@dimen/_478sdp"
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cv1"
                         android:layout_width="match_parent"
-                        android:layout_height="602dp"
-                        android:layout_marginBottom="50dp"
+                        android:layout_height="@dimen/_502sdp"
+                        android:layout_marginBottom="@dimen/_50sdp"
                         android:background="@drawable/bg_white">
 
                         <TextView
                             android:id="@+id/tvCuaca"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="140dp"
-                            android:layout_marginTop="20dp"
+                            android:layout_marginStart="@dimen/_110sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/tittle"
-                            android:textSize="18sp"
+                            android:textSize="@dimen/_16sdp"
                             android:textStyle="bold" />
 
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
-                            android:layout_height="187dp"
+                            android:layout_height="@dimen/_147sdp"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentTop="true"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginTop="70dp"
-                            android:paddingTop="30dp"
+                            android:layout_marginLeft="@dimen/_32sdp"
+                            android:layout_marginTop="@dimen/_50sdp"
+                            android:paddingTop="@dimen/_30sdp"
                             app:cardCornerRadius="15dp">
 
 
                             <LinearLayout
-                                android:layout_width="315dp"
-                                android:layout_height="183dp"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginTop="15dp"
-                                android:layout_marginEnd="15dp"
-                                android:layout_marginBottom="15dp"
+                                android:layout_width="@dimen/_215sdp"
+                                android:layout_height="@dimen/_123sdp"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:layout_marginBottom="@dimen/_15sdp"
                                 android:background="@drawable/bg_white"
                                 android:orientation="horizontal"
-                                tools:layout_marginStart="15dp">
+                                tools:layout_marginStart="@dimen/_15sdp">
 
 
                                 <LinearLayout
-                                    android:layout_width="250dp"
+                                    android:layout_width="@dimen/_210sdp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
                                     <ImageView
                                         android:id="@+id/imageWeather"
-                                        android:layout_width="159dp"
-                                        android:layout_height="223dp"
+                                        android:layout_width="@dimen/_119sdp"
+                                        android:layout_height="@dimen/_223sdp"
                                         android:layout_weight="1"
                                         android:src="@drawable/weather" />
 
@@ -83,42 +83,43 @@
 
 
                                 <LinearLayout
-                                    android:layout_width="213dp"
+                                    android:layout_width="@dimen/_213sdp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
                                     <TextView
                                         android:id="@+id/alamat"
-                                        android:layout_width="91dp"
+                                        android:layout_width="@dimen/_91sdp"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="15dp"
-                                        android:layout_marginTop="20dp"
+                                        android:layout_marginStart="@dimen/_15sdp"
+                                        android:layout_marginTop="@dimen/_20sdp"
                                         android:fontFamily="@font/poppins_medium"
                                         android:text="@string/alamat"
-                                        android:textSize="20dp"
+                                        android:textSize="@dimen/_20sdp"
                                         android:textStyle="bold" />
 
                                     <TextView
                                         android:id="@+id/suhu"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="30dp"
-                                        android:layout_marginTop="15dp"
+                                        android:layout_marginStart="@dimen/_30sdp"
+                                        android:layout_marginTop="@dimen/_5sdp"
                                         android:fontFamily="@font/poppins_medium"
                                         android:text="@string/suhu"
-                                        android:textSize="30sp"
+                                        android:textSize="@dimen/_20sdp"
                                         android:textStyle="bold" />
 
                                     <TextView
                                         android:id="@+id/keterangan"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="5dp"
-                                        android:layout_marginTop="15dp"
+                                        android:layout_marginStart="@dimen/_5sdp"
+                                        android:layout_marginTop="@dimen/_5sdp"
                                         android:fontFamily="@font/poppins_medium"
                                         android:text="@string/keterangan"
-                                        android:textSize="14sp" />
+                                        android:textSize="@dimen/_12sdp"
+                                        tools:ignore="TextSizeCheck" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -129,28 +130,29 @@
                             android:id="@+id/info"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
-                            android:layout_marginTop="290dp"
+                            android:layout_marginStart="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_215sdp"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/info"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            tools:ignore="TextSizeCheck" />
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="345dp"
+                            android:layout_width="@dimen/_245sdp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
-                            android:layout_marginTop="320dp"
+                            android:layout_marginStart="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_240sdp"
                             app:cardCornerRadius="15dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginBottom="20dp"
+                                android:layout_marginStart="@dimen/_20sdp"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_marginBottom="@dimen/_20sdp"
                                 android:orientation="vertical"
-                                android:paddingEnd="20dp">
+                                android:paddingEnd="@dimen/_20sdp">
 
                                 <ImageView
                                     android:id="@+id/imageKategori"
@@ -163,7 +165,7 @@
                                     android:id="@+id/imageKategori2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="@dimen/_10sdp"
                                     android:layout_weight="1"
                                     android:src="@drawable/weather_category2" />
 
@@ -171,61 +173,65 @@
 
                             <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginStart="20dp"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginBottom="20dp"
+                                android:layout_height="113dp"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_10sdp"
                                 android:orientation="vertical"
-                                android:paddingEnd="20dp">
+                                android:paddingEnd="@dimen/_10sdp">
 
 
                                 <TextView
                                     android:id="@+id/tvPeluang"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
+                                    android:layout_marginStart="@dimen/_40sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="@string/peluang"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/_12sdp"
+                                    android:textStyle="bold"
+                                    tools:ignore="TextSizeCheck" />
 
                                 <TextView
                                     android:id="@+id/tvPeluangHujan"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
+                                    android:layout_marginStart="@dimen/_40sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="@string/peluang_hujan"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_12sdp"
+                                    tools:ignore="TextSizeCheck" />
 
                                 <TextView
                                     android:id="@+id/tvKelembapan"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
-                                    android:layout_marginTop="20dp"
+                                    android:layout_marginStart="@dimen/_40sdp"
+                                    android:layout_marginTop="@dimen/_20sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="@string/kelembapan"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/_12sdp"
+                                    android:textStyle="bold"
+                                    tools:ignore="TextSizeCheck,TextSizeCheck" />
 
                                 <TextView
                                     android:id="@+id/tvKelembapanSuhu"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
+                                    android:layout_marginStart="@dimen/_40sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="@string/kelembapan_suhu"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_12sdp"
+                                    tools:ignore="TextSizeCheck" />
 
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginStart="160dp"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginBottom="20dp"
+                                android:layout_marginStart="@dimen/_140sdp"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_marginBottom="@dimen/_20sdp"
                                 android:orientation="vertical"
                                 android:paddingEnd="20dp">
 
@@ -233,7 +239,7 @@
                                     android:id="@+id/imageKategori3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="70dp"
+                                    android:layout_marginTop="@dimen/_40sdp"
                                     android:layout_weight="1"
                                     android:src="@drawable/weather_category3" />
 
@@ -242,31 +248,33 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginStart="160dp"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginBottom="20dp"
+                                android:layout_marginStart="@dimen/_140sdp"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_marginBottom="@dimen/_20sdp"
                                 android:orientation="vertical"
-                                android:paddingEnd="20dp">
+                                android:paddingEnd="@dimen/_20sdp">
 
                                 <TextView
                                     android:id="@+id/tvIndexUv"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
-                                    android:layout_marginTop="60dp"
+                                    android:layout_marginStart="@dimen/_30sdp"
+                                    android:layout_marginTop="@dimen/_50sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="@string/index_uv"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/_12sdp"
+                                    android:textStyle="bold"
+                                    tools:ignore="TextSizeCheck" />
 
                                 <TextView
                                     android:id="@+id/tvIndexUvMeter"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="30dp"
+                                    android:layout_marginStart="@dimen/_30sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="@string/index_uv_meter"
-                                    android:textSize="14sp" />
+                                    android:textSize="@dimen/_12sdp"
+                                    tools:ignore="TextSizeCheck" />
                             </LinearLayout>
 
                         </androidx.cardview.widget.CardView>
@@ -275,38 +283,40 @@
                             android:id="@+id/kegiatan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
-                            android:layout_marginTop="470dp"
+                            android:layout_marginStart="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_370sdp"
                             android:fontFamily="@font/poppins_medium"
                             android:text="@string/kegiatan"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold"
+                            tools:ignore="TextSizeCheck" />
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="350dp"
+                            android:layout_width="@dimen/_260sdp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
-                            android:layout_marginTop="500dp"
+                            android:layout_marginStart="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_390sdp"
                             android:backgroundTint="@color/green_nav"
                             app:cardCornerRadius="10dp">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp">
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_10sdp">
 
                                 <TextView
                                     android:id="@+id/kegiatanKet"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="20dp"
-                                    android:layout_marginEnd="20dp"
+                                    android:layout_marginStart="@dimen/_20sdp"
+                                    android:layout_marginEnd="@dimen/_20sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="@string/kegiatanKet"
                                     android:textColor="@color/white"
-                                    android:textSize="16sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/_10sdp"
+                                    android:textStyle="bold"
+                                    tools:ignore="TextSizeCheck" />
 
                             </LinearLayout>
 
@@ -315,7 +325,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="570dp"
+                            android:layout_marginTop="@dimen/_440sdp"
                             android:background="@drawable/bg_white"
                             android:orientation="horizontal">
 
@@ -323,22 +333,22 @@
                                 android:id="@+id/tvHariIni"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="30dp"
+                                android:layout_marginStart="@dimen/_30sdp"
                                 android:text="@string/hari_ini" />
 
                             <TextView
                                 android:id="@+id/lihat"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="150dp"
+                                android:layout_marginStart="@dimen/_105sdp"
                                 android:text="@string/lihat_cuaca"
                                 android:textColor="@color/green_nav" />
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
-                                android:layout_marginTop="3dp"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
                                 android:src="@drawable/arrow_right" />
                         </LinearLayout>
 
@@ -358,9 +368,9 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
+                            android:layout_marginStart="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginEnd="@dimen/_20sdp"
                             android:background="@color/green_5">
 
                             <LinearLayout
@@ -379,6 +389,7 @@
                                         android:id="@+id/lihat1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/jam11"
                                         android:textColor="@color/white" />
 
@@ -390,7 +401,7 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/suhu_hari_ini"
                                         android:textColor="@color/white" />
 
@@ -406,7 +417,7 @@
                                         android:id="@+id/lihat2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/jam12"
                                         android:textColor="@color/white" />
 
@@ -418,7 +429,7 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/suhu_hari_ini"
                                         android:textColor="@color/white" />
 
@@ -435,7 +446,7 @@
                                         android:id="@+id/lihat3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/jam13"
                                         android:textColor="@color/white" />
 
@@ -447,7 +458,7 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/suhu_hari_ini"
                                         android:textColor="@color/white" />
 
@@ -464,7 +475,7 @@
                                         android:id="@+id/lihat4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/jam14"
                                         android:textColor="@color/white" />
 
@@ -476,7 +487,7 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/suhu_hari_ini"
                                         android:textColor="@color/white" />
 
@@ -493,7 +504,7 @@
                                         android:id="@+id/lihat5"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/jam15"
                                         android:textColor="@color/white" />
 
@@ -505,7 +516,7 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/suhu_hari_ini"
                                         android:textColor="@color/white" />
 
@@ -522,7 +533,7 @@
                                         android:id="@+id/lihat6"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/jam16"
                                         android:textColor="@color/white" />
 
@@ -534,7 +545,7 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/suhu_hari_ini"
                                         android:textColor="@color/white" />
 
@@ -551,7 +562,7 @@
                                         android:id="@+id/lihat7"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/jam17"
                                         android:textColor="@color/white" />
 
@@ -563,7 +574,7 @@
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="20dp"
+                                        android:layout_marginStart="@dimen/_20sdp"
                                         android:text="@string/suhu_hari_ini"
                                         android:textColor="@color/white" />
 
