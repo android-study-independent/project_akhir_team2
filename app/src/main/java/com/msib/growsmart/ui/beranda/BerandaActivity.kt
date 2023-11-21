@@ -1,10 +1,15 @@
 package com.msib.growsmart.ui.beranda
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -15,6 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivityBerandaBinding
 import com.msib.growsmart.preference.UserPreference
+import com.msib.growsmart.utils.Constant
 
 class BerandaActivity : AppCompatActivity() {
 
@@ -32,7 +38,36 @@ class BerandaActivity : AppCompatActivity() {
 
         preference = UserPreference.getInstance(dataStore)
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            // Permission already granted
+        } else {
+            // Request permission
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), Constant.LOCATION_REQUEST_CODE)
+        }
+
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            // Prompt the user to enable GPS
+        }
+
         initBottomNav()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            Constant.LOCATION_REQUEST_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission granted, proceed with location-related tasks
+                } else {
+                    // Permission denied, handle accordingly
+                }
+            }
+        }
     }
 
     private fun initBottomNav() {
