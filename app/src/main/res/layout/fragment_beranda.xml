@@ -96,7 +96,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/minggu_05_n"
+                                    android:id="@+id/tvTanggal"
                                     android:layout_width="@dimen/_124sdp"
                                     android:layout_height="@dimen/_20sdp"
                                     android:layout_marginStart="@dimen/_15sdp"
@@ -104,24 +104,24 @@
                                     android:fontFamily="@font/poppins_medium"
                                     android:gravity="top"
                                     android:lineSpacingExtra="-1sp"
-                                    android:text="@string/minggu_05_n"
+                                    tools:text="@string/minggu_05_n"
                                     android:textSize="14sp" />
 
                                 <ImageView
-                                    android:id="@+id/imageWeather"
+                                    android:id="@+id/ivWeather"
                                     android:layout_width="@dimen/_159sdp"
                                     android:layout_height="@dimen/_223sdp"
                                     android:layout_weight="1"
                                     android:src="@drawable/weather" />
 
                                 <TextView
-                                    android:id="@+id/berawan"
+                                    android:id="@+id/tvWeather"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/_55sdp"
                                     android:layout_marginBottom="@dimen/_20sdp"
                                     android:fontFamily="@font/poppins_medium"
-                                    android:text="@string/berawan"
+                                    tools:text="@string/berawan"
                                     android:textSize="@dimen/_14sdp" />
                             </LinearLayout>
 
@@ -133,7 +133,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/alamat"
+                                    android:id="@+id/tvKota"
                                     android:layout_width="@dimen/_91sdp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/_8sdp"
@@ -144,25 +144,25 @@
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:id="@+id/suhu"
+                                    android:id="@+id/tvSuhu"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="@dimen/_30sdp"
                                     android:layout_marginStart="@dimen/_20sdp"
                                     android:layout_marginTop="@dimen/_10sdp"
                                     android:fontFamily="@font/poppins_medium"
                                     android:text="@string/suhu"
-                                    android:textSize="@dimen/_30sdp"
+                                    android:textSize="30sp"
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:id="@+id/keterangan"
+                                    android:id="@+id/tvKelembapan"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/_5sdp"
                                     android:layout_marginTop="@dimen/_10sdp"
                                     android:fontFamily="@font/poppins_medium"
-                                    android:text="@string/keterangan"
-                                    android:textSize="@dimen/_12sdp"
+                                    tools:text="@string/keterangan"
+                                    android:textSize="14sp"
                                     tools:ignore="TextSizeCheck" />
                             </LinearLayout>
 

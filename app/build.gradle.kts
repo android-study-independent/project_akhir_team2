@@ -95,6 +95,15 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment:2.7.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
 
+    //Location
+    implementation("com.google.android.gms:play-services-location:21.0.1")
+
+    //Glide
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+
+    //Text Scalability
+    implementation("com.intuit.sdp:sdp-android:1.1.0")
+
     //RxTextView
     implementation("com.jakewharton.rxbinding2:rxbinding:2.2.0")
     implementation("com.android.support:support-annotations:28.0.0")
