@@ -49,27 +49,7 @@ class BerandaFragment : Fragment() {
 
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            Constant.LOCATION_REQUEST_CODE -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Permission granted, proceed with location-related tasks
-                } else {
-                    // Permission denied, handle accordingly
-                }
-            }
-        }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        preference = UserPreference.getInstance(requireContext().dataStore)
-
-
+    private fun mFused() {
         val mFusedLocation = LocationServices.getFusedLocationProviderClient(requireContext())
         if (ActivityCompat.checkSelfPermission(
                 requireContext(),
@@ -81,6 +61,7 @@ class BerandaFragment : Fragment() {
         ) {
             return
         }
+
         mFusedLocation.lastLocation.addOnSuccessListener { location ->
             if(location != null){
                 with(binding) {
@@ -117,12 +98,16 @@ class BerandaFragment : Fragment() {
                 "Lat : ${location?.latitude} Long : ${location?.longitude}",
                 Toast.LENGTH_LONG
             ).show()
-
-
         }
+    }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        preference = UserPreference.getInstance(requireContext().dataStore)
 
         initObserver()
+        mFused()
     }
 
     private fun initObserver() {
