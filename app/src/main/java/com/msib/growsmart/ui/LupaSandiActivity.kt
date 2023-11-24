@@ -3,57 +3,83 @@ package com.msib.growsmart.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.msib.growsmart.R
+import com.google.android.material.textfield.TextInputLayout
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import com.msib.growsmart.databinding.ActivityLupaSandiBinding
+import com.msib.growsmart.ui.resetPassword.ApiService
+import com.msib.growsmart.ui.resetPassword.NewPasswordActivity
 
 class LupaSandiActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLupaSandiBinding // Declare the binding variable
+    private lateinit var binding: ActivityLupaSandiBinding
+
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("http://195.35.32.179:8002/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLupaSandiBinding.inflate(layoutInflater) // Initialize the binding
+        binding = ActivityLupaSandiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val etSignInEmail = binding.etSignInEmail
-        val etPengingat = binding.etPengingat
+        val etSecurityAnswer = binding.etPengingat
         val btnNext = binding.btnNext
 
-        binding.btnNext.setOnClickListener {
-            if (isValidInput()) {
-                showSuccessDialog()
-            } else {
-                showErrorDialog("Invalid input. Please check your email and reminder.")
-            }
+        btnNext.setOnClickListener {
+            val email = etSignInEmail.text.toString()
+            val securityAnswer = etSecurityAnswer.text.toString()
+            resetPassword(email, securityAnswer)
         }
     }
 
-    private fun isValidInput(): Boolean {
-        val email = binding.etSignInEmail.text.toString()
-        val reminder = binding.etPengingat.text.toString()
+    private fun resetPassword(email: String, securityAnswer: String) {
+        val apiService = retrofit.create(ApiService::class.java)
+        val call = apiService.setNewPassword(email, securityAnswer)
 
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            return false
-        }
-        return true
+        call.enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful) {
+                    showSuccessDialog()
+                } else {
+                    showErrorDialog("Error: ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                showErrorDialog("Error: ${t.message}")
+            }
+        })
     }
 
     private fun showSuccessDialog() {
-        val view = View.inflate(this@LupaSandiActivity, R.layout.dialog_sukses, null)
-
-        val builder = AlertDialog.Builder(this@LupaSandiActivity)
-        builder.setView(view)
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Success")
+        builder.setMessage("Password reset instructions sent to your email.")
+        builder.setPositiveButton("OK") { dialog, _ ->
+            dialog.dismiss()
+            navigateToNewPasswordActivity()
+        }
 
         val dialog = builder.create()
         dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+    }
+
+    private fun navigateToNewPasswordActivity() {
+        NewPasswordActivity.start(this)
+        finish()
     }
 
     private fun showErrorDialog(errorMessage: String) {
-        val builder = AlertDialog.Builder(this@LupaSandiActivity)
+        val builder = AlertDialog.Builder(this)
         builder.setTitle("Error")
         builder.setMessage(errorMessage)
         builder.setPositiveButton("OK") { dialog, _ ->
