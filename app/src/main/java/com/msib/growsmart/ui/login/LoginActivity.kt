@@ -103,7 +103,7 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun passwordValidate(password: String): Boolean {
-        val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$"
+        val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$"
         return password.matches(passwordPattern.toRegex())
     }
 

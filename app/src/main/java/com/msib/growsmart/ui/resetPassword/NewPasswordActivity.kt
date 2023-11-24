@@ -1,4 +1,4 @@
-package com.msib.growsmart.ui
+package com.msib.growsmart.ui.resetPassword
 
 import android.content.Context
 import android.content.Intent
@@ -12,13 +12,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.msib.growsmart.databinding.ActivityLupaSandiBinding
+import com.msib.growsmart.databinding.ActivityNewPasswordBinding
 import com.msib.growsmart.ui.resetPassword.ApiService
-import com.msib.growsmart.ui.resetPassword.NewPasswordActivity
 
-class LupaSandiActivity : AppCompatActivity() {
+class NewPasswordActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLupaSandiBinding
+    private lateinit var binding: ActivityNewPasswordBinding
 
     private val retrofit = Retrofit.Builder()
         .baseUrl("http://195.35.32.179:8002/")
@@ -27,23 +26,23 @@ class LupaSandiActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLupaSandiBinding.inflate(layoutInflater)
+        binding = ActivityNewPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val etSignInEmail = binding.etSignInEmail
-        val etSecurityAnswer = binding.etPengingat
-        val btnNext = binding.btnNext
+        val etNewPassword = binding.etNewPassword
+        val btnSetNewPassword = binding.btnSetNewPassword
 
-        btnNext.setOnClickListener {
+        btnSetNewPassword.setOnClickListener {
             val email = etSignInEmail.text.toString()
-            val securityAnswer = etSecurityAnswer.text.toString()
-            resetPassword(email, securityAnswer)
+            val newPassword = etNewPassword.text.toString()
+            setNewPassword(email, newPassword)
         }
     }
 
-    private fun resetPassword(email: String, securityAnswer: String) {
+    private fun setNewPassword(email: String, newPassword: String) {
         val apiService = retrofit.create(ApiService::class.java)
-        val call = apiService.setNewPassword(email, securityAnswer)
+        val call = apiService.setNewPassword(email, newPassword)
 
         call.enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
@@ -63,19 +62,13 @@ class LupaSandiActivity : AppCompatActivity() {
     private fun showSuccessDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Success")
-        builder.setMessage("Password reset instructions sent to your email.")
+        builder.setMessage("Password successfully set.")
         builder.setPositiveButton("OK") { dialog, _ ->
             dialog.dismiss()
-            navigateToNewPasswordActivity()
         }
 
         val dialog = builder.create()
         dialog.show()
-    }
-
-    private fun navigateToNewPasswordActivity() {
-        NewPasswordActivity.start(this)
-        finish()
     }
 
     private fun showErrorDialog(errorMessage: String) {
@@ -93,7 +86,7 @@ class LupaSandiActivity : AppCompatActivity() {
     companion object {
         @JvmStatic
         fun start(context: Context) {
-            val starter = Intent(context, LupaSandiActivity::class.java)
+            val starter = Intent(context, NewPasswordActivity::class.java)
             context.startActivity(starter)
         }
     }
