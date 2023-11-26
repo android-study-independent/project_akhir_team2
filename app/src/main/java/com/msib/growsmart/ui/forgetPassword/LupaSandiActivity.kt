@@ -1,4 +1,4 @@
-package com.msib.growsmart.ui.resetPassword
+package com.msib.growsmart.ui.forgetPassword
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,19 +9,18 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.msib.growsmart.databinding.ActivityNewPasswordBinding
-import com.msib.growsmart.response.PutNewPasswordResponse
-import com.msib.growsmart.ui.login.LoginActivity
+import com.msib.growsmart.databinding.ActivityLupaSandiBinding
+import com.msib.growsmart.response.ForgetPasswordResponse
+import com.msib.growsmart.ui.resetPassword.NewPasswordActivity
 
-class NewPasswordActivity : AppCompatActivity() {
+class LupaSandiActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityNewPasswordBinding
-    private val newPasswordViewModel by viewModels<NewPasswordViewModel>()
-
+    private lateinit var binding: ActivityLupaSandiBinding
+    private val lupaSandiViewModel by viewModels<LupaSandiViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityNewPasswordBinding.inflate(layoutInflater)
+        binding = ActivityLupaSandiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initListener()
@@ -29,49 +28,48 @@ class NewPasswordActivity : AppCompatActivity() {
     }
 
     private fun initObserver() {
-        newPasswordViewModel.putNewPass.observe(this) {
-            putNewPass(it)
+        lupaSandiViewModel.postForgetPass.observe(this) {
+            postForgetPass(it)
         }
-        newPasswordViewModel.isLoading.observe(this) {
+        lupaSandiViewModel.isLoading.observe(this) {
             showLoading(it)
         }
     }
-
     @SuppressLint("CheckResult")
     private fun initListener() {
         with(binding) {
-            btnSetNewPassword.setOnClickListener{
-                if (binding.etSignInEmail.text.toString().isEmpty() && binding.etNewPassword.text.toString().isEmpty()
+            btnNext.setOnClickListener{
+                if (binding.etEmail.text.toString().isEmpty() && binding.etAnswerQuestion.text.toString().isEmpty()
                 ) {
                     Toast.makeText(
-                        this@NewPasswordActivity,
+                        this@LupaSandiActivity,
                         "Silakan Masukan Email dan Pertanyaan Keamanan",
                         Toast.LENGTH_SHORT
                     )
                         .show()
                 } else {
-                    newPasswordViewModel.putNewPass(
-                        this@NewPasswordActivity,
-                        binding.etSignInEmail.text.toString(),
-                        binding.etNewPassword.text.toString(),
+                    lupaSandiViewModel.forgetPassword(
+                        this@LupaSandiActivity,
+                        binding.etEmail.text.toString(),
+                        binding.etAnswerQuestion.text.toString(),
                     )
                 }
             }
         }
     }
 
-    private fun putNewPass(data: PutNewPasswordResponse) {
+    private fun postForgetPass(data: ForgetPasswordResponse) {
         if(data.error == true) {
-            if (binding.etSignInEmail.text.toString().isEmpty()) {
+            if (binding.etEmail.text.toString().isEmpty()) {
                 Toast.makeText(
-                    this@NewPasswordActivity,
+                    this@LupaSandiActivity,
                     "Silakan Masukan Email dengan Benar",
                     Toast.LENGTH_SHORT
                 )
                     .show()
-            } else if (binding.etNewPassword.text.toString().isEmpty()) {
+            } else if (binding.etAnswerQuestion.text.toString().isEmpty()) {
                 Toast.makeText(
-                    this@NewPasswordActivity,
+                    this@LupaSandiActivity,
                     "Silakan Masukan Pertanyaan Keamanan dengan Benar",
                     Toast.LENGTH_SHORT
                 )
@@ -89,18 +87,18 @@ class NewPasswordActivity : AppCompatActivity() {
     private fun showSuccessDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Success")
-        builder.setMessage("Password successfully set.")
+        builder.setMessage("Password reset instructions sent to your email.")
         builder.setPositiveButton("OK") { dialog, _ ->
             dialog.dismiss()
-            navigateToLoginActivity()
+            navigateToNewPasswordActivity()
         }
 
         val dialog = builder.create()
         dialog.show()
     }
 
-    private fun navigateToLoginActivity() {
-        LoginActivity.start(this)
+    private fun navigateToNewPasswordActivity() {
+        NewPasswordActivity.start(this)
         finish()
     }
 
@@ -119,7 +117,7 @@ class NewPasswordActivity : AppCompatActivity() {
     companion object {
         @JvmStatic
         fun start(context: Context) {
-            val starter = Intent(context, NewPasswordActivity::class.java)
+            val starter = Intent(context, LupaSandiActivity::class.java)
             context.startActivity(starter)
         }
     }

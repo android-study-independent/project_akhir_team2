@@ -17,7 +17,7 @@ import com.msib.growsmart.ui.beranda.BerandaActivity
 import com.msib.growsmart.databinding.ActivityLoginBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.PostLoginResponse
-import com.msib.growsmart.ui.LupaSandiActivity
+import com.msib.growsmart.ui.forgetPassword.LupaSandiActivity
 import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.msib.growsmart.ui.register.RegisterActivity
 import io.reactivex.Observable

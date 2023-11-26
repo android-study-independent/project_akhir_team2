@@ -31,7 +31,7 @@
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.LupaSandiActivity"
+            android:name=".ui.forgetPassword.LupaSandiActivity"
             android:exported="false" />
         <activity
             android:name=".ui.register.RegisterActivity"
