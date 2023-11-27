@@ -84,11 +84,7 @@ class BerandaFragment : Fragment() {
             mFusedClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, token)
                 .addOnCompleteListener(requireActivity()) { task ->
                     val location: Location? = task.result
-                    Toast.makeText(
-                        requireContext(),
-                        "${location!!.latitude} and ${location.longitude}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Log.d("GPS Beranda", "${location!!.latitude} and ${location.longitude}")
                 }
         } else {
             Toast.makeText(requireContext(), "Please turn on location", Toast.LENGTH_LONG).show()
