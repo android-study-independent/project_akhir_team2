@@ -174,12 +174,7 @@ class BerandaFragment : Fragment() {
                 "My Current location",
                 "Lat : ${location?.latitude} Long : ${location?.longitude}"
             )
-            // Display in Toast
-            Toast.makeText(
-                requireContext(),
-                "Lat : ${location?.latitude} Long : ${location?.longitude}",
-                Toast.LENGTH_LONG
-            ).show()
+
         }
     }
 
@@ -209,6 +204,5 @@ class BerandaFragment : Fragment() {
             }
         }
     }
-
 
 }

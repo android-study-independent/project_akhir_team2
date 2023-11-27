@@ -1,15 +1,12 @@
 package com.msib.growsmart.ui.cuaca
 
-import android.content.Context
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.msib.growsmart.network.ApiConfig
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.HourlyWeatherItem
-import com.msib.growsmart.ui.beranda.BerandaViewModel
 import com.msib.growsmart.utils.Constant.WEATHER_API_KEY
 import com.msib.growsmart.utils.Constant.WEATHER_UNIT
 import retrofit2.Call
@@ -24,7 +21,6 @@ class CuacaViewModel : ViewModel() {
     val isLoading : LiveData<Boolean> = _isLoading
 
     fun getListHourlyWeather(
-        context: Context,
         lon: Double,
         lat: Double
     ){
@@ -39,16 +35,20 @@ class CuacaViewModel : ViewModel() {
                 if(response.isSuccessful) {
                     _getHourlyWeather.value = response.body()?.hourlyWeather
                 }else {
-                    Toast.makeText(context, "onFailure : ${response.message()}", Toast.LENGTH_SHORT).show()
+                    Log.e(TAG, "onFailure : ${response.message()}")
                 }
             }
 
             override fun onFailure(call: Call<GetWeatherResponse>, t: Throwable) {
                 _isLoading.value = false
-                Toast.makeText(context, "onFailure: ${t.message.toString()}", Toast.LENGTH_SHORT)
-                    .show()
+                Log.e(TAG, "onFailure : ${t.message.toString()}")
             }
         })
     }
+
+    companion object {
+        const val TAG = "Cuaca"
+    }
+
 
 }
