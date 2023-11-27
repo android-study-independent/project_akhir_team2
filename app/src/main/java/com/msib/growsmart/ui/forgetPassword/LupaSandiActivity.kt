@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivityLupaSandiBinding
 import com.msib.growsmart.response.ForgetPasswordResponse
 import com.msib.growsmart.ui.resetPassword.NewPasswordActivity
@@ -86,15 +88,17 @@ class LupaSandiActivity : AppCompatActivity() {
 
     private fun showSuccessDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Success")
-        builder.setMessage("Password reset instructions sent to your email.")
-        builder.setPositiveButton("OK") { dialog, _ ->
+        val inflater = layoutInflater
+        val dialogView = inflater.inflate(R.layout.dialog_keamanan_benar, null)
+
+        builder.setView(dialogView)
+        val dialog = builder.create()
+        dialog.show()
+
+        dialogView.findViewById<Button>(R.id.btnOK).setOnClickListener {
             dialog.dismiss()
             navigateToNewPasswordActivity()
         }
-
-        val dialog = builder.create()
-        dialog.show()
     }
 
     private fun navigateToNewPasswordActivity() {

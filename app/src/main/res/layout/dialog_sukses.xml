@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16sp"
             android:gravity="center_horizontal"
@@ -43,6 +43,20 @@
             android:textColor="@color/black"
             android:textSize="15sp"
             android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:textColor="#008774"
+            app:backgroundTint="#FFFFFF"
+            android:textStyle="bold"
+            app:strokeColor="@color/black"
+            app:strokeWidth="2dp"
+            android:layout_gravity="center"
+            />
+
 
     </LinearLayout>
 
@@ -56,5 +70,7 @@
         app:layout_constraintTop_toTopOf="@id/ly_alert"
         app:layout_constraintStart_toStartOf="@id/ly_alert"
         app:layout_constraintEnd_toEndOf="@id/ly_alert"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
