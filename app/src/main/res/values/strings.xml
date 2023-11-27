@@ -65,6 +65,14 @@
     <string name="cara5">Macam-macam Media Tanam</string>
     <string name="cara6">Jenis Penyakit dan Pencegahannya</string>
 
+    <!--Modul-->
+    <string name="modul">Modul</string>
+    <string name="benefit">Benefit</string>
+    <string name="ulasan">Ulasan</string>
+    <string name="tampilan">Fitur Informasi Cuaca</string>
+    <string name="tampilan2">Artikel Pengetahuan Pertanian</string>
+    <string name="tampilan3">Forum Diskusi Komunitas</string>
+    <string name="mulai"> Mulai Belajar</string>
 
 
 </resources>
