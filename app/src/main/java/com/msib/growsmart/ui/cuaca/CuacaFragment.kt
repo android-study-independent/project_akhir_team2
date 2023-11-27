@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.google.android.gms.location.LocationServices
 import com.msib.growsmart.databinding.FragmentCuacaBinding
 import com.msib.growsmart.response.HourlyWeatherItem
@@ -54,10 +55,26 @@ class CuacaFragment : Fragment() {
 
         mFusedLocation.lastLocation.addOnSuccessListener { location ->
             if(location != null){
-                    cuacaViewModel.getListHourlyWeather(location.longitude, location.latitude)
-                    cuacaViewModel.getHourlyWeather.observe(viewLifecycleOwner) { list ->
-                        showHourlyList(list)
+                cuacaViewModel.getListHourlyWeather(location.longitude, location.latitude)
+                cuacaViewModel.getHourlyWeather.observe(viewLifecycleOwner) { list ->
+                    showHourlyList(list)
+                }
+                cuacaViewModel.getCurrentWeather(location.longitude, location.latitude)
+                cuacaViewModel.getCurrentWeather.observe(viewLifecycleOwner) { data ->
+                    with(binding) {
+                        Glide.with(requireContext())
+                            .load(data.currentWeather.weatherIcon)
+                            .into(ivWeather)
+                        tvKota.text = data.currentWeather.city
+                        tvSuhu.text = " ${data.currentWeather.temperature}℃ "
+                        tvKelembapan.text = "Kelembapan ${data.currentWeather.humidity}%"
+                        tvInfoPeluangHujan.text = data.currentWeather.rainChance
+                        tvInfoKelembapan.text = "${data.currentWeather.humidity}%"
+                        tvIndexUvMeter.text = data.currentWeather.indexUv
+                        tvKegiatanKet.text = data.currentWeather.suggest
                     }
+                }
+
             }
 
             Log.d(

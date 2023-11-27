@@ -26,7 +26,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cvCuacaSaatIni"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_147sdp"
+            android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/_10sdp"
@@ -39,7 +39,7 @@
 
             <LinearLayout
                 android:layout_width="@dimen/_215sdp"
-                android:layout_height="@dimen/_123sdp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginEnd="@dimen/_15sdp"
@@ -56,7 +56,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageWeather"
+                        android:id="@+id/ivWeather"
                         android:layout_width="@dimen/_119sdp"
                         android:layout_height="@dimen/_223sdp"
                         android:layout_weight="1"
@@ -67,12 +67,12 @@
 
                 <LinearLayout
                     android:layout_width="@dimen/_213sdp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/alamat"
+                        android:id="@+id/tvKota"
                         android:layout_width="@dimen/_91sdp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_15sdp"
@@ -83,7 +83,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/suhu"
+                        android:id="@+id/tvSuhu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_30sdp"
@@ -94,7 +94,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/keterangan"
+                        android:id="@+id/tvKelembapan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_5sdp"
@@ -178,7 +178,7 @@
                     tools:ignore="TextSizeCheck" />
 
                 <TextView
-                    android:id="@+id/tvPeluangHujan"
+                    android:id="@+id/tvInfoPeluangHujan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_40sdp"
@@ -188,7 +188,7 @@
                     tools:ignore="TextSizeCheck" />
 
                 <TextView
-                    android:id="@+id/tvKelembapan"
+                    android:id="@+id/tvKelembapanSuhu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_40sdp"
@@ -200,7 +200,7 @@
                     tools:ignore="TextSizeCheck,TextSizeCheck" />
 
                 <TextView
-                    android:id="@+id/tvKelembapanSuhu"
+                    android:id="@+id/tvInfoKelembapan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_40sdp"
@@ -303,6 +303,7 @@
                     android:text="@string/kegiatanKet"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_10sdp"
+                    android:justificationMode="inter_word"
                     android:textStyle="bold"
                     tools:ignore="TextSizeCheck" />
 
@@ -346,6 +347,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHourlyWeather"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="@+id/cvKegiatan"
