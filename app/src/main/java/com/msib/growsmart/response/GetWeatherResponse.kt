@@ -38,7 +38,13 @@ data class CurrentWeather(
 	val windSpeed: Any,
 
 	@field:SerializedName("rainChance")
-	val rainChance: String
+	val rainChance: String,
+
+	@field:SerializedName("suggest")
+	val suggest: String,
+
+	@field:SerializedName("indexUV")
+	val indexUv: String,
 )
 
 data class WeeklyWeatherItem(
