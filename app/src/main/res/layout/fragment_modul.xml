@@ -43,7 +43,7 @@
                         android:layout_marginStart="@dimen/_40sdp"
                         android:layout_marginTop="@dimen/_18sdp"
                         android:fontFamily="@font/poppins_medium"
-                        android:textSize="@dimen/_16sdp"
+                        android:textSize="@dimen/_14sdp"
                         android:textStyle="bold"
                         tools:text="@string/cara" />
                 </androidx.cardview.widget.CardView>
@@ -113,10 +113,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_145sdp"
                             android:layout_marginTop="@dimen/_25sdp"
-                            android:text="@string/tampilan"
+                            android:layout_marginEnd="@dimen/_145sdp"
                             android:fontFamily="@font/poppins_medium"
+                            android:text="@string/tampilan"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -214,7 +214,8 @@
                 android:layout_marginTop="@dimen/_385sdp"
                 android:backgroundTint="@color/green_5"
                 android:text="@string/mulai"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
         </RelativeLayout>
     </ScrollView>
 </FrameLayout>
