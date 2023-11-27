@@ -55,4 +55,16 @@
     <string name="komentari">Komentari</string>
 
 
+    <!--LMS-->
+    <string name="lms">LMS</string>
+    <string name="tanam">Bercocok Tanam</string>
+    <string name="cara"> Cara Menggunakan Aplikasi</string>
+    <string name="cara2">Cara Menanam Tanaman di Rumah</string>
+    <string name="cara3"> Cara Memilih Tanaman yang Tepat untuk dibudidayakan</string>
+    <string name="cara4">Cara Merawat Tanaman</string>
+    <string name="cara5">Macam-macam Media Tanam</string>
+    <string name="cara6">Jenis Penyakit dan Pencegahannya</string>
+
+
+
 </resources>
