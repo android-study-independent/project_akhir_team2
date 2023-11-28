@@ -9,9 +9,8 @@ object Constant {
     const val ID_USER = "idUser"
     const val NAME_USER = "nameUser"
     const val EMAIL_USER = "emailUser"
-    const val PASSWORD_USER = "passwordUser"
     const val THEME_KEY = "theme"
+    const val WEATHER_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNiwiaWF0IjoxNzAwMDI3MjA1fQ.jGI0_QbGbNLBsHYObv4yCm418sovX2LGKz1AwUpY68A"
+    const val WEATHER_UNIT = "metric"
 
-    @JvmStatic
-    val LOCATION_REQUEST_CODE = 2000
 }

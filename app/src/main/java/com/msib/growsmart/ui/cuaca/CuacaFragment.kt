@@ -1,60 +1,100 @@
 package com.msib.growsmart.ui.cuaca
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.msib.growsmart.R
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.google.android.gms.location.LocationServices
+import com.msib.growsmart.databinding.FragmentCuacaBinding
+import com.msib.growsmart.response.HourlyWeatherItem
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CuacaFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CuacaFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentCuacaBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var cuacaAdapter: CuacaAdapter
+    private val cuacaViewModel by viewModels<CuacaViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cuaca, container, false)
+    ): View {
+        _binding = FragmentCuacaBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CuacaFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CuacaFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initView()
+        mFused()
     }
+
+    private fun mFused() {
+        val mFusedLocation = LocationServices.getFusedLocationProviderClient(requireContext())
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+
+        mFusedLocation.lastLocation.addOnSuccessListener { location ->
+            if(location != null){
+                cuacaViewModel.getListHourlyWeather(location.longitude, location.latitude)
+                cuacaViewModel.getHourlyWeather.observe(viewLifecycleOwner) { list ->
+                    showHourlyList(list)
+                }
+                cuacaViewModel.getCurrentWeather(location.longitude, location.latitude)
+                cuacaViewModel.getCurrentWeather.observe(viewLifecycleOwner) { data ->
+                    with(binding) {
+                        Glide.with(requireContext())
+                            .load(data.currentWeather.weatherIcon)
+                            .into(ivWeather)
+                        tvKota.text = data.currentWeather.city
+                        tvSuhu.text = " ${data.currentWeather.temperature}℃ "
+                        tvKelembapan.text = "Kelembapan ${data.currentWeather.humidity}%"
+                        tvInfoPeluangHujan.text = data.currentWeather.rainChance
+                        tvInfoKelembapan.text = "${data.currentWeather.humidity}%"
+                        tvIndexUvMeter.text = data.currentWeather.indexUv
+                        tvKegiatanKet.text = data.currentWeather.suggest
+                    }
+                }
+
+            }
+
+            Log.d(
+                "My Current location",
+                "Lat : ${location?.latitude} Long : ${location?.longitude}"
+            )
+
+        }
+    }
+
+    private fun initView() {
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, true)
+        binding.rvHourlyWeather.layoutManager = layoutManager
+    }
+
+    private fun showHourlyList(data : List<HourlyWeatherItem>) {
+        with(binding) {
+            cuacaAdapter = CuacaAdapter(requireContext(), data)
+            rvHourlyWeather.adapter= cuacaAdapter
+        }
+    }
+
 }

@@ -9,6 +9,8 @@ import com.msib.growsmart.data.UserModel
 import com.msib.growsmart.network.ApiConfig
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.GetWeatherResponse
+import com.msib.growsmart.utils.Constant.WEATHER_API_KEY
+import com.msib.growsmart.utils.Constant.WEATHER_UNIT
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,8 +26,7 @@ class BerandaViewModel (
     }
 
     fun getWeather(lon: Double, lat: Double){
-        val apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxNiwiaWF0IjoxNzAwMDI3MjA1fQ.jGI0_QbGbNLBsHYObv4yCm418sovX2LGKz1AwUpY68A"
-        val client = ApiConfig.getApiService().getWeather(apiKey, lon, lat, "metric" )
+        val client = ApiConfig.getApiService().getWeather(WEATHER_API_KEY, lon, lat, WEATHER_UNIT)
         client.enqueue(object: Callback<GetWeatherResponse> {
             override fun onResponse(
                 call: Call<GetWeatherResponse>,
