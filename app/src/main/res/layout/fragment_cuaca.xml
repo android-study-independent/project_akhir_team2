@@ -115,47 +115,183 @@
             app:layout_constraintStart_toStartOf="@+id/cvCuacaSaatIni"
             app:layout_constraintTop_toBottomOf="@id/cvCuacaSaatIni" />
 
-        <RelativeLayout
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvKegiatan"
             android:layout_width="@dimen/_245sdp"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="@color/blue_5"
+            app:cardCornerRadius="15dp"
+            app:cardPreventCornerOverlap="false"
+            android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="@+id/cvCuacaSaatIni"
             app:layout_constraintStart_toStartOf="@+id/cvCuacaSaatIni"
-            app:layout_constraintTop_toBottomOf="@id/rvHourlyWeather">
+            app:layout_constraintTop_toBottomOf="@+id/rvHourlyWeather">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cvKegiatan"
-                android:layout_width="@dimen/_245sdp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="13dp"
-                android:backgroundTint="@color/blue_5"
-                app:cardCornerRadius="15dp">
-
-                <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp">
+                <TextView
+                    android:id="@+id/tvKegiatanKet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp">
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:justificationMode="inter_word"
+                    android:text="@string/kegiatanKet"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    tools:ignore="TextSizeCheck" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvInfoCuaca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Informasi cuaca Hari Ini"
+            android:fontFamily="@font/poppins_med"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/cvKegiatan"
+            app:layout_constraintTop_toBottomOf="@+id/cvKegiatan" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvInfoCuaca"
+            android:layout_width="@dimen/_260sdp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:paddingTop="@dimen/_30sdp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/cvKegiatan"
+            app:layout_constraintStart_toStartOf="@+id/cvKegiatan"
+            app:layout_constraintTop_toBottomOf="@id/tvInfoCuaca">
+
+            <LinearLayout
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:orientation="horizontal"
+                tools:layout_marginStart="@dimen/_10sdp">
+
+
+                <LinearLayout
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivPeluangHujan"
+                        android:src="@drawable/iv_peluang_hujan"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        />
 
                     <TextView
-                        android:id="@+id/tvKegiatanKet"
+                        android:id="@+id/tvInfoPeluangHujan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginEnd="@dimen/_20sdp"
-                        android:fontFamily="@font/poppins_medium"
-                        android:justificationMode="inter_word"
-                        android:text="@string/kegiatanKet"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_med"
+                        tools:text="2%"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvPeluang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_med"
                         android:textStyle="bold"
+                        android:text="@string/fragment_cuaca_peluang_hujan"
                         tools:ignore="TextSizeCheck" />
-
                 </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivInfondexUV"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/iv_index_uv" />
+
+                    <TextView
+                        android:id="@+id/tvInfoIndexUV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_med"
+                        tools:text="0"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvKetIndexUV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_med"
+                        android:textStyle="bold"
+                        android:text="@string/fragment_cuaca_index_uv"
+                        tools:ignore="TextSizeCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivInfoKelembapan"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/iv_kelembapan" />
+
+                    <TextView
+                        android:id="@+id/tvInfoKelembapan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_med"
+                        tools:text="@string/suhu" />
+
+                    <TextView
+                        android:id="@+id/tvKetKelembapan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/poppins_med"
+                        android:textStyle="bold"
+                        android:text="@string/fragment_cuaca_kelembapan"
+                        tools:ignore="TextSizeCheck" />
+                </LinearLayout>
 
 
-        </RelativeLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
 
 
 

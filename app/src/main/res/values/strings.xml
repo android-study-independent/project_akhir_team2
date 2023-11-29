@@ -74,7 +74,9 @@
     <string name="tampilan3">Forum Diskusi Komunitas</string>
     <string name="mulai"> Mulai Belajar</string>
     <string name="desk">1. Memberikan panduan komprehensif tentang penggunaan fitur cuaca, artikel, dan forum dalam aplikasi petani.\n\n2. Membantu pengguna mengoptimalkan informasi cuaca untuk pengambilan keputusan pertanian yang lebih baik.\n\n3. Mendorong kolaborasi dan pertukaran pengetahuan antarpetani melalui forum diskusi yang bermanfaat.</string>
-
+    <string name="fragment_cuaca_peluang_hujan">Peluang Hujan</string>
+    <string name="fragment_cuaca_index_uv">Index Uv</string>
+    <string name="fragment_cuaca_kelembapan">Kelembapan</string>
 
 
 </resources>
