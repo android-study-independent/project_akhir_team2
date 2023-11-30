@@ -12,9 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.gms.location.LocationServices
 import com.msib.growsmart.databinding.FragmentCuacaBinding
 import com.msib.growsmart.response.HourlyWeatherItem
+import com.squareup.picasso.Picasso
 
 
 class CuacaFragment : Fragment() {
@@ -61,11 +63,10 @@ class CuacaFragment : Fragment() {
                 cuacaViewModel.getCurrentWeather(location.longitude, location.latitude)
                 cuacaViewModel.getCurrentWeather.observe(viewLifecycleOwner) { data ->
                     with(binding) {
-                        Glide.with(requireContext())
-                            .load(data.currentWeather.weatherIcon)
-                            .into(ivWeather)
+                        Picasso.get().load(data.currentWeather.weatherIcon).into(ivWeather)
+
                         tvKota.text = data.currentWeather.city
-                        tvSuhu.text = " ${data.currentWeather.temperature}℃ "
+                        tvSuhu.text = " ${data.currentWeather.temperature.toInt()}℃ "
                         tvKelembapan.text = "Kelembapan ${data.currentWeather.humidity}%"
                         tvKegiatanKet.text = data.currentWeather.suggest
                         tvInfoPeluangHujan.text = data.currentWeather.rainChance

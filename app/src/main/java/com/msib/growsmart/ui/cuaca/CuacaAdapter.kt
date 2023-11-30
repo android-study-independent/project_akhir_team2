@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.RecyclerviewHourlyWeatherItemBinding
 import com.msib.growsmart.response.HourlyWeatherItem
+import com.squareup.picasso.Picasso
 
 class CuacaAdapter(
     private val context: Context,
@@ -19,11 +20,9 @@ class CuacaAdapter(
 
         fun bindItem(data: HourlyWeatherItem){
             with(binding) {
-                Glide.with(context)
-                    .load(data.weatherIcon)
-                    .into(ivWeather)
+                Picasso.get().load(data.weatherIcon).into(ivWeather)
                 tvJam.text = data.time
-                tvSuhu.text = data.temperature.toString()
+                tvSuhu.text = data.temperature.toInt().toString()
             }
 
         }

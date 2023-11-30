@@ -32,7 +32,7 @@ data class CurrentWeather(
 	val indexUV: Int,
 
 	@field:SerializedName("temperature")
-	val temperature: Any,
+	val temperature: Double,
 
 	@field:SerializedName("humidity")
 	val humidity: Int,
@@ -83,7 +83,7 @@ data class HourlyWeatherItem(
 	val weatherDescription: String,
 
 	@field:SerializedName("temperature")
-	val temperature: Any,
+	val temperature: Double,
 
 	@field:SerializedName("wind_speed")
 	val windSpeed: Any,

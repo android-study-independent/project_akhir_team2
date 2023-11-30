@@ -30,6 +30,7 @@ import com.msib.growsmart.databinding.FragmentBerandaBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.msib.growsmart.ui.login.LoginActivity
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 import java.util.Calendar
 import java.util.Date
@@ -157,11 +158,10 @@ class BerandaFragment : Fragment() {
                         tvTanggal.text = "$dayOfWeek, $dayNum $month $year"
                         tvKota.text = data.currentWeather.city
                         tvWeather.text = data.currentWeather.weatherDescription
-                        tvSuhu.text = " ${data.currentWeather.temperature}℃ "
+                        tvSuhu.text = " ${data.currentWeather.temperature.toInt()}℃ "
                         tvKelembapan.text = "Kelembapan ${data.currentWeather.humidity}%"
-                        Glide.with(requireContext())
-                            .load(data.currentWeather.weatherIcon)
-                            .into(ivWeather)
+                        Picasso.get().load(data.currentWeather.weatherIcon).into(ivWeather)
+
                     }
                 }
             }

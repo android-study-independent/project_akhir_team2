@@ -101,6 +101,9 @@ dependencies {
     //Glide
     implementation("com.github.bumptech.glide:glide:4.15.1")
 
+    //Picasso
+    implementation("com.squareup.picasso:picasso:2.71828")
+
     //Text Scalability
     implementation("com.intuit.sdp:sdp-android:1.1.0")
 

@@ -10,7 +10,7 @@
         android:layout_marginStart="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_8sdp"
-        android:layout_width="@dimen/_50sdp"
+        android:layout_width="@dimen/_55sdp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,9 +21,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_13sdp"
             android:orientation="vertical"
+            android:gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -32,8 +32,7 @@
                 android:id="@+id/tvJam"
                 android:fontFamily="@font/poppins_med"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="@string/jam11"
                 />
@@ -42,12 +41,11 @@
                 android:id="@+id/ivWeather"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_40sdp"
-                android:scaleType="fitXY"
                 tools:src="@drawable/display_weather1" />
 
             <TextView
                 android:id="@+id/tvSuhu"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:fontFamily="@font/poppins_med"
