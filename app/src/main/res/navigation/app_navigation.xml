@@ -14,19 +14,31 @@
     <fragment
         android:id="@+id/navigation_cuaca"
         android:name="com.msib.growsmart.ui.cuaca.CuacaFragment"
-        tools:layout="@layout/fragment_beranda"
+        tools:layout="@layout/fragment_cuaca"
+        android:label="@string/tv_nav_cuaca"/>
+
+    <fragment
+        android:id="@+id/navigation_cuaca_perjam"
+        android:name="com.msib.growsmart.ui.cuaca.perjam.CuacaPerjamFragment"
+        tools:layout="@layout/fragment_cuaca_perjam"
+        android:label="@string/tv_nav_beranda"/>
+
+    <fragment
+        android:id="@+id/navigation_cuaca_perMinggu"
+        android:name="com.msib.growsmart.ui.cuaca.perminggu.CuacaPermingguFragment"
+        tools:layout="@layout/fragment_cuaca_perminggu"
         android:label="@string/tv_nav_beranda"/>
 
     <fragment
         android:id="@+id/navigation_forum"
         android:name="com.msib.growsmart.ui.forum.ForumFragment"
-        tools:layout="@layout/fragment_beranda"
-        android:label="@string/tv_nav_beranda"/>
+        tools:layout="@layout/fragment_forum"
+        android:label="@string/tv_nav_forum"/>
 
     <fragment
         android:id="@+id/navigation_lms"
         android:name="com.msib.growsmart.ui.lms.LmsFragment"
-        tools:layout="@layout/fragment_beranda"
-        android:label="@string/tv_nav_beranda"/>
+        tools:layout="@layout/fragment_lms"
+        android:label="@string/tv_nav_lms"/>
 
 </navigation>

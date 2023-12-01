@@ -26,10 +26,10 @@ data class CurrentWeather(
 	val city: String,
 
 	@field:SerializedName("rainVolume")
-	val rainVolume: Any,
+	val rainVolume: Double,
 
 	@field:SerializedName("indexUV")
-	val indexUV: Int,
+	val indexUV: Double,
 
 	@field:SerializedName("temperature")
 	val temperature: Double,
@@ -38,7 +38,7 @@ data class CurrentWeather(
 	val humidity: Int,
 
 	@field:SerializedName("windspeed")
-	val windspeed: Any,
+	val windspeed: Double,
 
 	@field:SerializedName("suggest")
 	val suggest: String,
@@ -53,28 +53,7 @@ data class WeeklyWeatherItem(
 	val date: String,
 
 	@field:SerializedName("uv_index")
-	val uvIndex: Any,
-
-	@field:SerializedName("weatherIcon")
-	val weatherIcon: String,
-
-	@field:SerializedName("weatherDescription")
-	val weatherDescription: String,
-
-	@field:SerializedName("temperature")
-	val temperature: Any,
-
-	@field:SerializedName("wind_speed")
-	val windSpeed: Any
-)
-
-data class HourlyWeatherItem(
-
-	@field:SerializedName("pop")
-	val pop: Any,
-
-	@field:SerializedName("uv_index")
-	val uvIndex: Any,
+	val uvIndex: Double,
 
 	@field:SerializedName("weatherIcon")
 	val weatherIcon: String,
@@ -86,7 +65,28 @@ data class HourlyWeatherItem(
 	val temperature: Double,
 
 	@field:SerializedName("wind_speed")
-	val windSpeed: Any,
+	val windSpeed: Double
+)
+
+data class HourlyWeatherItem(
+
+	@field:SerializedName("pop")
+	val pop: Double,
+
+	@field:SerializedName("uv_index")
+	val uvIndex: Double,
+
+	@field:SerializedName("weatherIcon")
+	val weatherIcon: String,
+
+	@field:SerializedName("weatherDescription")
+	val weatherDescription: String,
+
+	@field:SerializedName("temperature")
+	val temperature: Double,
+
+	@field:SerializedName("wind_speed")
+	val windSpeed: Double,
 
 	@field:SerializedName("time")
 	val time: String
