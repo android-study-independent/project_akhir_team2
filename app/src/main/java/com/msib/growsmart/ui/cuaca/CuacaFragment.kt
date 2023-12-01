@@ -11,8 +11,6 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.gms.location.LocationServices
 import com.msib.growsmart.databinding.FragmentCuacaBinding
 import com.msib.growsmart.response.HourlyWeatherItem
@@ -70,7 +68,7 @@ class CuacaFragment : Fragment() {
                         tvKelembapan.text = "Kelembapan ${data.currentWeather.humidity}%"
                         tvKegiatanKet.text = data.currentWeather.suggest
                         tvInfoPeluangHujan.text = data.currentWeather.rainChance
-                        tvInfoKelembapan.text = "${data.currentWeather.humidity}%"
+                        tvInfoKelembapan.text = "${data.currentWeather.humidity}℃"
                         tvInfoIndexUV.text = data.currentWeather.indexUV.toString()
                     }
                 }

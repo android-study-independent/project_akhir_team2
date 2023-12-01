@@ -97,7 +97,7 @@
                         android:id="@+id/ivWeather"
                         android:layout_width="@dimen/_119sdp"
                         android:layout_height="@dimen/_98sdp"
-                        android:scaleType="center"
+                        android:scaleType="fitXY"
                         android:src="@drawable/weather" />
 
                 </LinearLayout>
