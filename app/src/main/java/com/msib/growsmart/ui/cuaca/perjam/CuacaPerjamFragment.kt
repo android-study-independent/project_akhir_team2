@@ -11,8 +11,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.LocationServices
+import com.msib.growsmart.R
 import com.msib.growsmart.databinding.FragmentCuacaPerjamBinding
 import com.msib.growsmart.response.HourlyWeatherItem
 
@@ -36,6 +38,7 @@ class CuacaPerjamFragment : Fragment() {
 
         initView()
         mFused()
+        filterWeeklyWeather()
     }
 
     private fun mFused() {
@@ -83,6 +86,14 @@ class CuacaPerjamFragment : Fragment() {
         with(binding) {
             cuacaPerjamAdapter = CuacaPerjamAdapter(data)
             rvCuacaPerjam.adapter= cuacaPerjamAdapter
+        }
+    }
+
+    private fun filterWeeklyWeather() {
+        with(binding) {
+            ivFilter.setOnClickListener {
+                findNavController().navigate(R.id.navigation_cuaca_perMinggu)
+            }
         }
     }
 
