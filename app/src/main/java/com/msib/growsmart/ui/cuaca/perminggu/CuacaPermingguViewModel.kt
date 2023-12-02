@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import com.msib.growsmart.network.ApiConfig
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.WeeklyWeatherItem
-import com.msib.growsmart.ui.cuaca.perjam.CuacaPerjamViewModel
 import com.msib.growsmart.utils.Constant
 import retrofit2.Call
 import retrofit2.Callback
