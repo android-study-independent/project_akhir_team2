@@ -17,7 +17,6 @@ import com.google.android.gms.location.LocationServices
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.FragmentCuacaBinding
 import com.msib.growsmart.response.HourlyWeatherItem
-import com.msib.growsmart.ui.cuaca.perjam.CuacaPerjamFragment
 import com.squareup.picasso.Picasso
 
 

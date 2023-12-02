@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -56,7 +57,9 @@ class CuacaPerjamFragment : Fragment() {
                 cuacaPerjamViewModel.getHourlyWeather.observe(viewLifecycleOwner) { list ->
                     showHourlyList(list)
                 }
-
+                cuacaPerjamViewModel.isLoading.observe(viewLifecycleOwner) {
+                    showLoading(it)
+                }
             }
 
             Log.d(
@@ -65,6 +68,10 @@ class CuacaPerjamFragment : Fragment() {
             )
 
         }
+    }
+
+    private fun showLoading(value: Boolean) {
+        binding.progressBar.isVisible = value
     }
 
     private fun initView() {
