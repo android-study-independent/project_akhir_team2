@@ -43,14 +43,6 @@ interface ApiService {
         @Query("unit") unit: String,
     ): Call<GetWeatherResponse>
 
-    @GET("weather/weather")
-    fun getCurrentWeather(
-        @Header("x-api-key") apiKey: String,
-        @Query("lon") lon: Double,
-        @Query("lat") lat: Double,
-        @Query("unit") unit: String,
-    ): Call<CurrentWeather>
-
     @PUT("auth/new_pass")
     fun putNewPassword(
         @Body request: NewPasswordRequest
