@@ -15,13 +15,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.Glide
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
@@ -30,6 +30,7 @@ import com.msib.growsmart.databinding.FragmentBerandaBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.msib.growsmart.ui.login.LoginActivity
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
 import java.util.Calendar
 import java.util.Date
@@ -59,7 +60,7 @@ class BerandaFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentBerandaBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -147,21 +148,38 @@ class BerandaFragment : Fragment() {
                     berandaViewModel.getWeather.observe(viewLifecycleOwner) { data ->
 
                         val date = Date ()
-                        val dayOfWeek = DateFormat.format ("EEEE", date)
+                        val dayOfWeek = DateFormat.format ("dd/MM/yyyy", date)
                         val month = DateFormat.format ("MMM", date)
                         val c = Calendar.getInstance()
                         val dayNum = c.get(Calendar.DAY_OF_MONTH)
                         val year = c.get(Calendar.YEAR)
 
+                        val cal = Calendar.getInstance()
+                        if (dayOfWeek != null) {
+                            cal.time = Date ()
+                        }
+                        val dayName = when (cal.get(Calendar.DAY_OF_WEEK)) {
+                            1 -> "Minggu"
+                            2 -> "Senin"
+                            3 -> "Selasa"
+                            4 -> "Rabu"
+                            5 -> "Kamis"
+                            6 -> "Jumat"
+                            7 -> "Sabtu"
+                            else -> "Hari Tidak Valid"
+                        }
 
-                        tvTanggal.text = "$dayOfWeek, $dayNum $month $year"
+
+                        tvTanggal.text = "$dayName, $dayNum $month $year"
                         tvKota.text = data.currentWeather.city
                         tvWeather.text = data.currentWeather.weatherDescription
-                        tvSuhu.text = " ${data.currentWeather.temperature}℃ "
+                        tvSuhu.text = " ${data.currentWeather.temperature.toInt()}℃ "
                         tvKelembapan.text = "Kelembapan ${data.currentWeather.humidity}%"
-                        Glide.with(requireContext())
-                            .load(data.currentWeather.weatherIcon)
-                            .into(ivWeather)
+                        Picasso.get().load(data.currentWeather.weatherIcon).into(ivWeather)
+
+                    }
+                    berandaViewModel.isLoading.observe(viewLifecycleOwner) {
+                        showLoading(it)
                     }
                 }
             }
@@ -181,6 +199,10 @@ class BerandaFragment : Fragment() {
 
         initObserver()
         mFused()
+    }
+
+    private fun showLoading(value: Boolean) {
+        binding.progressBar.isVisible = value
     }
 
     private fun initObserver() {

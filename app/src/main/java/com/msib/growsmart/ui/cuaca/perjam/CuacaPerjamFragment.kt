@@ -1,4 +1,4 @@
-package com.msib.growsmart.ui.cuaca
+package com.msib.growsmart.ui.cuaca.perjam
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -15,23 +15,21 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.LocationServices
 import com.msib.growsmart.R
-import com.msib.growsmart.databinding.FragmentCuacaBinding
+import com.msib.growsmart.databinding.FragmentCuacaPerjamBinding
 import com.msib.growsmart.response.HourlyWeatherItem
-import com.squareup.picasso.Picasso
 
 
-class CuacaFragment : Fragment() {
-
-    private var _binding: FragmentCuacaBinding? = null
+class CuacaPerjamFragment : Fragment() {
+    private var _binding: FragmentCuacaPerjamBinding? = null
     private val binding get() = _binding!!
-    private lateinit var cuacaAdapter: CuacaAdapter
-    private val cuacaViewModel by viewModels<CuacaViewModel>()
+    private lateinit var cuacaPerjamAdapter: CuacaPerjamAdapter
+    private val cuacaPerjamViewModel by viewModels<CuacaPerjamViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCuacaBinding.inflate(inflater, container, false)
+        _binding = FragmentCuacaPerjamBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -40,7 +38,7 @@ class CuacaFragment : Fragment() {
 
         initView()
         mFused()
-        filterHoursWeather()
+        filterWeeklyWeather()
     }
 
     private fun mFused() {
@@ -58,25 +56,11 @@ class CuacaFragment : Fragment() {
 
         mFusedLocation.lastLocation.addOnSuccessListener { location ->
             if(location != null){
-                cuacaViewModel.getListHourlyWeather(location.longitude, location.latitude)
-                cuacaViewModel.getHourlyWeather.observe(viewLifecycleOwner) { list ->
+                cuacaPerjamViewModel.getListHourlyWeather(location.longitude, location.latitude)
+                cuacaPerjamViewModel.getHourlyWeather.observe(viewLifecycleOwner) { list ->
                     showHourlyList(list)
                 }
-                cuacaViewModel.getCurrentWeather(location.longitude, location.latitude)
-                cuacaViewModel.getCurrentWeather.observe(viewLifecycleOwner) { data ->
-                    with(binding) {
-                        Picasso.get().load(data.currentWeather.weatherIcon).into(ivWeather)
-
-                        tvKota.text = data.currentWeather.city
-                        tvSuhu.text = " ${data.currentWeather.temperature.toInt()}℃ "
-                        tvKelembapan.text = "Kelembapan ${data.currentWeather.humidity}%"
-                        tvKegiatanKet.text = data.currentWeather.suggest
-                        tvInfoPeluangHujan.text = "${data.currentWeather.rainChance}%"
-                        tvInfoKelembapan.text = "${data.currentWeather.humidity}℃"
-                        tvInfoIndexUV.text = data.currentWeather.indexUV.toString()
-                    }
-                }
-                cuacaViewModel.isLoading.observe(viewLifecycleOwner) {
+                cuacaPerjamViewModel.isLoading.observe(viewLifecycleOwner) {
                     showLoading(it)
                 }
             }
@@ -89,26 +73,26 @@ class CuacaFragment : Fragment() {
         }
     }
 
-    private fun initView() {
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.rvHourlyWeather.layoutManager = layoutManager
-    }
-
-    private fun showHourlyList(data : List<HourlyWeatherItem>) {
-        with(binding) {
-            cuacaAdapter = CuacaAdapter(requireContext(), data)
-            rvHourlyWeather.adapter= cuacaAdapter
-        }
-    }
-
     private fun showLoading(value: Boolean) {
         binding.progressBar.isVisible = value
     }
 
-    private fun filterHoursWeather() {
+    private fun initView() {
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
+        binding.rvCuacaPerjam.layoutManager = layoutManager
+    }
+
+    private fun showHourlyList(data : List<HourlyWeatherItem>) {
+        with(binding) {
+            cuacaPerjamAdapter = CuacaPerjamAdapter(data)
+            rvCuacaPerjam.adapter= cuacaPerjamAdapter
+        }
+    }
+
+    private fun filterWeeklyWeather() {
         with(binding) {
             ivFilter.setOnClickListener {
-                findNavController().navigate(R.id.navigation_cuaca_perjam)
+                findNavController().navigate(R.id.navigation_cuaca_perMinggu)
             }
         }
     }
