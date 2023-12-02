@@ -15,6 +15,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -162,6 +163,9 @@ class BerandaFragment : Fragment() {
                         Picasso.get().load(data.currentWeather.weatherIcon).into(ivWeather)
 
                     }
+                    berandaViewModel.isLoading.observe(viewLifecycleOwner) {
+                        showLoading(it)
+                    }
                 }
             }
 
@@ -180,6 +184,10 @@ class BerandaFragment : Fragment() {
 
         initObserver()
         mFused()
+    }
+
+    private fun showLoading(value: Boolean) {
+        binding.progressBar.isVisible = value
     }
 
     private fun initObserver() {

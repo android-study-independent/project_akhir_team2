@@ -21,17 +21,22 @@ class BerandaViewModel (
     private var _getWeather = MutableLiveData<GetWeatherResponse>()
     val getWeather: LiveData<GetWeatherResponse> = _getWeather
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     fun getUser(): LiveData<UserModel> {
         return preference.getUser().asLiveData()
     }
 
     fun getWeather(lon: Double, lat: Double){
+        _isLoading.value = true
         val client = ApiConfig.getApiService().getWeather(WEATHER_API_KEY, lon, lat, WEATHER_UNIT)
         client.enqueue(object: Callback<GetWeatherResponse> {
             override fun onResponse(
                 call: Call<GetWeatherResponse>,
                 response: Response<GetWeatherResponse>
             ) {
+                _isLoading.value = false
                 if(response.isSuccessful) {
                     _getWeather.value = response.body()
                 }else {
@@ -41,6 +46,7 @@ class BerandaViewModel (
             }
 
             override fun onFailure(call: Call<GetWeatherResponse>, t: Throwable) {
+                _isLoading.value = false
                 Log.e(TAG, "onFailure : ${t.message.toString()}")
             }
 
