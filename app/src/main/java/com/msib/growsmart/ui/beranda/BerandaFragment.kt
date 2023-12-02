@@ -60,7 +60,7 @@ class BerandaFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentBerandaBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -148,14 +148,29 @@ class BerandaFragment : Fragment() {
                     berandaViewModel.getWeather.observe(viewLifecycleOwner) { data ->
 
                         val date = Date ()
-                        val dayOfWeek = DateFormat.format ("EEEE", date)
+                        val dayOfWeek = DateFormat.format ("dd/MM/yyyy", date)
                         val month = DateFormat.format ("MMM", date)
                         val c = Calendar.getInstance()
                         val dayNum = c.get(Calendar.DAY_OF_MONTH)
                         val year = c.get(Calendar.YEAR)
 
+                        val cal = Calendar.getInstance()
+                        if (dayOfWeek != null) {
+                            cal.time = Date ()
+                        }
+                        val dayName = when (cal.get(Calendar.DAY_OF_WEEK)) {
+                            1 -> "Minggu"
+                            2 -> "Senin"
+                            3 -> "Selasa"
+                            4 -> "Rabu"
+                            5 -> "Kamis"
+                            6 -> "Jumat"
+                            7 -> "Sabtu"
+                            else -> "Hari Tidak Valid"
+                        }
 
-                        tvTanggal.text = "$dayOfWeek, $dayNum $month $year"
+
+                        tvTanggal.text = "$dayName, $dayNum $month $year"
                         tvKota.text = data.currentWeather.city
                         tvWeather.text = data.currentWeather.weatherDescription
                         tvSuhu.text = " ${data.currentWeather.temperature.toInt()}℃ "
