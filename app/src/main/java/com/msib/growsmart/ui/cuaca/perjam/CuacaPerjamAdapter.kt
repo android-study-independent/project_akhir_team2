@@ -1,11 +1,9 @@
 package com.msib.growsmart.ui.cuaca.perjam
 
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.load.engine.Resource
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.RecyclerviewFilterHourlyWeatherBinding
 import com.msib.growsmart.response.HourlyWeatherItem

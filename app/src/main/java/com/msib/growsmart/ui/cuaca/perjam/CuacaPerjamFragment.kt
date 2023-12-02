@@ -4,22 +4,16 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.LocationServices
-import com.msib.growsmart.R
-import com.msib.growsmart.databinding.FragmentCuacaBinding
 import com.msib.growsmart.databinding.FragmentCuacaPerjamBinding
-import com.msib.growsmart.response.CurrentWeather
 import com.msib.growsmart.response.HourlyWeatherItem
-import com.msib.growsmart.ui.cuaca.CuacaAdapter
-import com.msib.growsmart.ui.cuaca.CuacaViewModel
-import com.squareup.picasso.Picasso
 
 
 class CuacaPerjamFragment : Fragment() {

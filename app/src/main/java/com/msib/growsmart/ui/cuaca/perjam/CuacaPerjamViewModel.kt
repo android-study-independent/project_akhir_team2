@@ -5,10 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.msib.growsmart.network.ApiConfig
-import com.msib.growsmart.response.CurrentWeather
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.HourlyWeatherItem
-import com.msib.growsmart.ui.beranda.BerandaViewModel
 import com.msib.growsmart.utils.Constant
 import retrofit2.Call
 import retrofit2.Callback
