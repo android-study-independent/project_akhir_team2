@@ -21,7 +21,7 @@ class CuacaAdapter(
             with(binding) {
                 Picasso.get().load(data.weatherIcon).into(ivWeather)
                 tvJam.text = data.time
-                tvSuhu.text = data.temperature.toInt().toString()
+                tvSuhu.text = "${data.temperature.toInt().toString()}℃"
             }
 
         }

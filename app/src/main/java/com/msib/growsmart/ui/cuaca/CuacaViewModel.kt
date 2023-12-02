@@ -25,12 +25,14 @@ class CuacaViewModel : ViewModel() {
     val isLoading : LiveData<Boolean> = _isLoading
 
     fun getCurrentWeather(lon: Double, lat: Double){
+        _isLoading.value = true
         val client = ApiConfig.getApiService().getWeather(WEATHER_API_KEY, lon, lat, WEATHER_UNIT)
         client.enqueue(object: Callback<GetWeatherResponse> {
             override fun onResponse(
                 call: Call<GetWeatherResponse>,
                 response: Response<GetWeatherResponse>
             ) {
+                _isLoading.value = false
                 if(response.isSuccessful) {
                     _getCurrentWeather.value = response.body()
                 }else {
@@ -40,6 +42,7 @@ class CuacaViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<GetWeatherResponse>, t: Throwable) {
+                _isLoading.value = false
                 Log.e(BerandaViewModel.TAG, "onFailure : ${t.message.toString()}")
             }
 

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -71,12 +72,14 @@ class CuacaFragment : Fragment() {
                         tvSuhu.text = " ${data.currentWeather.temperature.toInt()}℃ "
                         tvKelembapan.text = "Kelembapan ${data.currentWeather.humidity}%"
                         tvKegiatanKet.text = data.currentWeather.suggest
-                        tvInfoPeluangHujan.text = data.currentWeather.rainChance
+                        tvInfoPeluangHujan.text = "${data.currentWeather.rainChance}%"
                         tvInfoKelembapan.text = "${data.currentWeather.humidity}℃"
                         tvInfoIndexUV.text = data.currentWeather.indexUV.toString()
                     }
                 }
-
+                cuacaViewModel.isLoading.observe(viewLifecycleOwner) {
+                    showLoading(it)
+                }
             }
 
             Log.d(
@@ -97,6 +100,10 @@ class CuacaFragment : Fragment() {
             cuacaAdapter = CuacaAdapter(requireContext(), data)
             rvHourlyWeather.adapter= cuacaAdapter
         }
+    }
+
+    private fun showLoading(value: Boolean) {
+        binding.progressBar.isVisible = value
     }
 
     private fun filterHoursWeather() {

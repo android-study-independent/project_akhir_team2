@@ -22,7 +22,6 @@
     <string name="deskripsi_4"> mengenal teknik pemupukan,\nmengatasi hama,\npemanfaatan teknologi untuk pertanian sayuran</string>
     <string name="alamat"> Bandung </string>
     <string name="suhu"> 25℃ </string>
-    <string name="suhuInput"> %d℃ </string>
     <string name="keterangan">Kelembaban 80%</string>
 
     <!--Weather-->
