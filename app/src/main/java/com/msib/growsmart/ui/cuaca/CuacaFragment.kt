@@ -10,10 +10,13 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.LocationServices
+import com.msib.growsmart.R
 import com.msib.growsmart.databinding.FragmentCuacaBinding
 import com.msib.growsmart.response.HourlyWeatherItem
+import com.msib.growsmart.ui.cuaca.perjam.CuacaPerjamFragment
 import com.squareup.picasso.Picasso
 
 
@@ -37,6 +40,7 @@ class CuacaFragment : Fragment() {
 
         initView()
         mFused()
+        filterHoursWeather()
     }
 
     private fun mFused() {
@@ -84,7 +88,7 @@ class CuacaFragment : Fragment() {
     }
 
     private fun initView() {
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, true)
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvHourlyWeather.layoutManager = layoutManager
     }
 
@@ -94,5 +98,14 @@ class CuacaFragment : Fragment() {
             rvHourlyWeather.adapter= cuacaAdapter
         }
     }
+
+    private fun filterHoursWeather() {
+        with(binding) {
+            ivFilter.setOnClickListener {
+                findNavController().navigate(R.id.navigation_cuaca_perjam)
+            }
+        }
+    }
+
 
 }

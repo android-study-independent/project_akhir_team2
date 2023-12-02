@@ -54,6 +54,7 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     tools:src="@tools:sample/avatars"
+                    android:scaleType="fitXY"
                     android:layout_marginStart="@dimen/_20sdp"
                     app:layout_constraintStart_toEndOf="@id/tvSuhu"
                     app:layout_constraintTop_toTopOf="parent"
@@ -73,6 +74,7 @@
                         android:src="@drawable/iv_white_peluang_hujan"
                         />
                     <TextView
+                        android:id="@+id/tvPeluangHujan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         tools:text="13%"
@@ -86,10 +88,10 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_marginStart="@dimen/_25sdp"
-                    app:layout_constraintStart_toEndOf="@id/layoutPeluangHujan"
-                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginEnd="@dimen/_10sdp"
                     android:src="@drawable/white_arrow_down"
-                    />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import com.msib.growsmart.data.request.ForgetPasswordRequest
 import com.msib.growsmart.data.request.LoginRequest
 import com.msib.growsmart.data.request.NewPasswordRequest
 import com.msib.growsmart.data.request.RegisterRequest
+import com.msib.growsmart.response.CurrentWeather
 import com.msib.growsmart.response.ForgetPasswordResponse
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.PostLoginResponse
@@ -41,6 +42,14 @@ interface ApiService {
         @Query("lat") lat: Double,
         @Query("unit") unit: String,
     ): Call<GetWeatherResponse>
+
+    @GET("weather/weather")
+    fun getCurrentWeather(
+        @Header("x-api-key") apiKey: String,
+        @Query("lon") lon: Double,
+        @Query("lat") lat: Double,
+        @Query("unit") unit: String,
+    ): Call<CurrentWeather>
 
     @PUT("auth/new_pass")
     fun putNewPassword(
