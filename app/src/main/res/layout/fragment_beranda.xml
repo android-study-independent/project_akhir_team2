@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -26,6 +27,7 @@
                     android:layout_height="@dimen/_282sdp"
                     android:layout_marginBottom="@dimen/_50sdp"
                     android:background="@drawable/bg_white">
+
 
                     <ImageView
                         android:id="@+id/ivProfile"
@@ -64,6 +66,7 @@
                         android:layout_marginEnd="@dimen/_30sdp"
                         android:src="@drawable/notification" />
 
+
                     <androidx.cardview.widget.CardView
                         android:layout_width="@dimen/_265sdp"
                         android:layout_height="@dimen/_165sdp"
@@ -88,6 +91,14 @@
                             android:orientation="horizontal"
                             tools:layout_marginStart="15dp">
 
+                            <ProgressBar
+                                android:id="@+id/progress_bar"
+                                android:textAlignment="center"
+                                android:layout_marginTop="@dimen/_50sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_30sdp"
+                                android:visibility="gone"
+                                />
 
                             <LinearLayout
                                 android:layout_width="@dimen/_190sdp"
@@ -101,8 +112,9 @@
                                     android:layout_height="@dimen/_20sdp"
                                     android:layout_marginStart="@dimen/_15sdp"
                                     android:layout_marginTop="@dimen/_15sdp"
-                                    android:fontFamily="@font/poppins_medium"
+                                    android:fontFamily="@font/poppins_med"
                                     android:gravity="top"
+                                    android:textColor="@color/black"
                                     android:lineSpacingExtra="-1sp"
                                     tools:text="@string/minggu_05_n"
                                     android:textSize="14sp" />
@@ -120,8 +132,9 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/_55sdp"
                                     android:layout_marginBottom="@dimen/_20sdp"
-                                    android:fontFamily="@font/poppins_medium"
+                                    android:fontFamily="@font/poppins_med"
                                     tools:text="@string/berawan"
+                                    android:textColor="@color/black"
                                     android:textSize="@dimen/_14sdp" />
                             </LinearLayout>
 
@@ -138,9 +151,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/_8sdp"
                                     android:layout_marginTop="@dimen/_17sdp"
-                                    android:fontFamily="@font/poppins_medium"
+                                    android:fontFamily="@font/poppins_med"
                                     android:text="@string/alamat"
-                                    android:textSize="@dimen/_20sdp"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -149,8 +163,9 @@
                                     android:layout_height="@dimen/_30sdp"
                                     android:layout_marginStart="@dimen/_20sdp"
                                     android:layout_marginTop="@dimen/_10sdp"
-                                    android:fontFamily="@font/poppins_medium"
+                                    android:fontFamily="@font/poppins_med"
                                     android:text="@string/suhu"
+                                    android:textColor="@color/black"
                                     android:textSize="30sp"
                                     android:textStyle="bold" />
 
@@ -160,9 +175,10 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginStart="@dimen/_5sdp"
                                     android:layout_marginTop="@dimen/_10sdp"
-                                    android:fontFamily="@font/poppins_medium"
+                                    android:fontFamily="@font/poppins_med"
                                     tools:text="@string/keterangan"
                                     android:textSize="14sp"
+                                    android:textColor="@color/black"
                                     tools:ignore="TextSizeCheck" />
                             </LinearLayout>
 
