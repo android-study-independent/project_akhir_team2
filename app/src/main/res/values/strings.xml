@@ -78,5 +78,12 @@
     <string name="fragment_cuaca_index_uv">Index Uv</string>
     <string name="fragment_cuaca_kelembapan">Kelembapan</string>
 
+    <!--Deskripsi Artikel-->
+    <string name="title3">Mengembangkan Bisnis Sayuran</string>
+    <string name="des3">langkah Awal untuk Petani Pemula</string>
+    <string name="title4">Rahasia Pemilihan Benih Wortel yang tepat</string>
+    <string name="des4">cara pemilihan benih wortel yang berkualitas untuk pemula</string>
+
+
 
 </resources>
