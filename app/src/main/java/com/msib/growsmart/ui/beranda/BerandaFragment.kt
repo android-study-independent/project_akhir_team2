@@ -22,14 +22,16 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.msib.growsmart.databinding.FragmentBerandaBinding
 import com.msib.growsmart.preference.UserPreference
-import com.msib.growsmart.ui.artikel.HalamanArtikel
-import com.msib.growsmart.ui.artikel_terbaru.Artikel_Terbaru
+import com.msib.growsmart.response.ArticlesItem
+import com.msib.growsmart.ui.artikel.ArtikelActivity
+import com.msib.growsmart.ui.artikel_terbaru.ArtikelActivityBaru
 import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.msib.growsmart.ui.login.LoginActivity
 import com.squareup.picasso.Picasso
@@ -42,6 +44,7 @@ class BerandaFragment : Fragment() {
 
     private var _binding: FragmentBerandaBinding? = null
     private val binding get() = _binding!!
+    private lateinit var berandaArticleAdapter: BerandaArticleAdapter
     private val berandaViewModel by viewModels<BerandaViewModel> {
         ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
     }
@@ -65,7 +68,6 @@ class BerandaFragment : Fragment() {
     ): View {
         _binding = FragmentBerandaBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
 
@@ -201,10 +203,23 @@ class BerandaFragment : Fragment() {
 
         initObserver()
         mFused()
+        initView()
+    }
+
+    private fun initView() {
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
+        binding.rvArticle.layoutManager = layoutManager
     }
 
     private fun showLoading(value: Boolean) {
         binding.progressBar.isVisible = value
+    }
+
+    private fun showAllArticle(data : List<ArticlesItem>) {
+        with(binding) {
+            berandaArticleAdapter = BerandaArticleAdapter(data)
+            rvArticle.adapter = berandaArticleAdapter
+        }
     }
 
     private fun initObserver() {
@@ -214,12 +229,13 @@ class BerandaFragment : Fragment() {
                     tvCuaca.text = "Hey, ${it.name}"
                 }
             }
+
             artikel.setOnClickListener {
-                val intent = Intent(requireContext(), Artikel_Terbaru::class.java)
+                val intent = Intent(requireContext(), ArtikelActivityBaru::class.java)
                 startActivity(intent)
             }
             lihatsemua.setOnClickListener {
-                val intent = Intent(requireContext(), HalamanArtikel::class.java)
+                val intent = Intent(requireContext(), ArtikelActivity::class.java)
                 startActivity(intent)
             }
 
@@ -230,6 +246,10 @@ class BerandaFragment : Fragment() {
                 }
                 LoginActivity.start(requireContext())
             }
+        }
+        berandaViewModel.getAllArticle()
+        berandaViewModel.getArticle.observe(viewLifecycleOwner) { list ->
+            showAllArticle(list)
         }
     }
 
