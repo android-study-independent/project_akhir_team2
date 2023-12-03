@@ -28,6 +28,8 @@ import com.google.android.gms.location.Priority
 import com.google.android.gms.tasks.CancellationTokenSource
 import com.msib.growsmart.databinding.FragmentBerandaBinding
 import com.msib.growsmart.preference.UserPreference
+import com.msib.growsmart.ui.artikel.HalamanArtikel
+import com.msib.growsmart.ui.artikel_terbaru.Artikel_Terbaru
 import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.msib.growsmart.ui.login.LoginActivity
 import com.squareup.picasso.Picasso
@@ -211,6 +213,14 @@ class BerandaFragment : Fragment() {
                 if(it.isLogin) {
                     tvCuaca.text = "Hey, ${it.name}"
                 }
+            }
+            artikel.setOnClickListener {
+                val intent = Intent(requireContext(), Artikel_Terbaru::class.java)
+                startActivity(intent)
+            }
+            lihatsemua.setOnClickListener {
+                val intent = Intent(requireContext(), HalamanArtikel::class.java)
+                startActivity(intent)
             }
 
 
