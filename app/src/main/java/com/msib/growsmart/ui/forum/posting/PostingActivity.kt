@@ -37,8 +37,8 @@ class PostingActivity : AppCompatActivity() {
         ActivityResultContracts.PickVisualMedia()
     ) { uri: Uri? ->
         if (uri != null) {
-            showImage()
             currentImageUri = uri
+            showImage()
             binding.btnPosting.isEnabled = true
             binding.previewImageView.visibility = View.VISIBLE
         } else {
