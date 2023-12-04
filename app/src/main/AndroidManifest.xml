@@ -19,19 +19,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.artikel_terbaru.Artikel_Terbaru"
+            android:name=".ui.artikel_terbaru.ArtikelActivityBaru"
             android:exported="false" />
         <activity
-            android:name=".ui.artikel.HalamanArtikel"
+            android:name=".ui.artikel.ArtikelActivity"
             android:exported="false" />
         <activity
             android:name=".ui.resetPassword.NewPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.resetPassword.ResetPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.NewPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"
