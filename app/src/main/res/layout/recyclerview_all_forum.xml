@@ -2,13 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/_267sdp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -16,6 +18,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -69,31 +72,22 @@
 
             <ImageView
                 android:id="@+id/ivImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="@dimen/_120sdp"
                 android:layout_margin="@dimen/_10sdp"
                 android:scaleType="fitXY"
-                tools:src="@tools:sample/avatars"/>
+                tools:src="@tools:sample/avatars" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="@dimen/_200sdp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_30sdp"
-                android:layout_marginEnd="@dimen/_30sdp"
                 android:backgroundTint="@color/grey_1"
-                app:cardCornerRadius="@dimen/_10sdp">
-
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="@dimen/_200sdp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/komentari"
-                    android:textColor="@color/black"
-                    android:backgroundTint="@color/grey_1"
-                    android:drawableLeft="@drawable/message"/>
-
-
-            </androidx.cardview.widget.CardView>
-
+                app:cornerRadius="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:drawableLeft="@drawable/message"
+                android:text="@string/komentari"
+                android:textColor="@color/black" />
 
 
         </LinearLayout>
