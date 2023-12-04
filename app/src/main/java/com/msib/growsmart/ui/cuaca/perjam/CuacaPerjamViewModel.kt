@@ -26,7 +26,7 @@ class CuacaPerjamViewModel: ViewModel() {
     ){
         _isLoading.value = true
         val client = ApiConfig.getApiService().getWeather(
-            Constant.WEATHER_API_KEY, lon, lat,
+            Constant.X_API_KEY, lon, lat,
             Constant.WEATHER_UNIT
         )
         client.enqueue(object : Callback<GetWeatherResponse> {

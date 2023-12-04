@@ -25,13 +25,13 @@
                 android:layout_height="@dimen/_300sdp"
                 android:orientation="vertical">
 
-                <androidx.cardview.widget.CardView
+                <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cv1"
+                    style="@style/MyCardView"
+                    android:backgroundTint="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_280sdp"
-                    android:layout_marginBottom="@dimen/_50sdp"
-                    android:background="@drawable/bg_white"
-                    app:cardCornerRadius="@dimen/_15sdp">
+                    android:layout_marginBottom="@dimen/_50sdp">
 
 
                     <ImageView
@@ -77,8 +77,8 @@
                         android:layout_height="@dimen/_165sdp"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentTop="true"
-                        android:layout_marginLeft="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_70sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_40sdp"
                         android:layout_marginBottom="@dimen/_30sdp"
                         android:backgroundTint="@color/green_4"
                         android:paddingTop="@dimen/_30sdp"
@@ -193,7 +193,8 @@
                         android:id="@+id/layoutLihatArticle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_250sdp"
+                        android:layout_marginTop="@dimen/_120sdp"
+                        android:layout_gravity="center"
                         android:background="@drawable/bg_white"
                         android:orientation="horizontal">
 
@@ -222,7 +223,7 @@
                             android:src="@drawable/arrow_right" />
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </RelativeLayout>
 
