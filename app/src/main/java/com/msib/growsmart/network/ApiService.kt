@@ -4,9 +4,9 @@ import com.msib.growsmart.data.request.ForgetPasswordRequest
 import com.msib.growsmart.data.request.LoginRequest
 import com.msib.growsmart.data.request.NewPasswordRequest
 import com.msib.growsmart.data.request.RegisterRequest
-import com.msib.growsmart.response.CurrentWeather
 import com.msib.growsmart.response.ForgetPasswordResponse
 import com.msib.growsmart.response.GetAllArticleResponse
+import com.msib.growsmart.response.GetAllForumResponse
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.PostLoginResponse
 import com.msib.growsmart.response.PostRegisterResponse
@@ -52,6 +52,10 @@ interface ApiService {
     @GET("article/all_article")
     fun getAllArticle(
         @Header("x-api-key") apiKey: String,
-        ): Call<GetAllArticleResponse>
+    ): Call<GetAllArticleResponse>
 
+    @GET("forum/allforum")
+    fun getAllForum(
+        @Header("x-api-key") apiKey: String,
+    ): Call<GetAllForumResponse>
 }
