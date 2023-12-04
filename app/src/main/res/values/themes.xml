@@ -10,4 +10,16 @@
     <style name="bg_body">
         <item name="android:background">@color/white</item>
     </style>
+
+    <style name="MyCardView" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/MyCardViewOverlay</item>
+    </style>
+
+    <style name="MyCardViewOverlay">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomRight">20dp</item>
+        <item name="cornerSizeBottomLeft">20dp</item>
+    </style>
 </resources>
