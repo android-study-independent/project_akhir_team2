@@ -12,7 +12,7 @@ import com.msib.growsmart.response.ArticlesItem
 import com.msib.growsmart.response.GetAllArticleResponse
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.ui.cuaca.CuacaViewModel
-import com.msib.growsmart.utils.Constant.WEATHER_API_KEY
+import com.msib.growsmart.utils.Constant.X_API_KEY
 import com.msib.growsmart.utils.Constant.WEATHER_UNIT
 import retrofit2.Call
 import retrofit2.Callback
@@ -36,7 +36,7 @@ class BerandaViewModel (
 
     fun getWeather(lon: Double, lat: Double){
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getWeather(WEATHER_API_KEY, lon, lat, WEATHER_UNIT)
+        val client = ApiConfig.getApiService().getWeather(X_API_KEY, lon, lat, WEATHER_UNIT)
         client.enqueue(object: Callback<GetWeatherResponse> {
             override fun onResponse(
                 call: Call<GetWeatherResponse>,
@@ -61,7 +61,7 @@ class BerandaViewModel (
 
     fun getAllArticle() {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getAllArticle(WEATHER_API_KEY)
+        val client = ApiConfig.getApiService().getAllArticle(X_API_KEY)
         client.enqueue(object: Callback<GetAllArticleResponse> {
             override fun onResponse(
                 call: Call<GetAllArticleResponse>,
