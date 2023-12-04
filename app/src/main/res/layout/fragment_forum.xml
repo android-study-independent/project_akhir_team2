@@ -122,6 +122,18 @@
             app:layout_constraintStart_toStartOf="@+id/cvNav"
             app:layout_constraintTop_toBottomOf="@id/cvNav">
 
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_20sdp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/rvCuacaPerjam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvAllForum"
                 android:layout_width="match_parent"

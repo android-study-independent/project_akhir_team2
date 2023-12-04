@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.msib.growsmart.network.ApiConfig
 import com.msib.growsmart.response.GetAllForumResponse
 import com.msib.growsmart.response.GetAllForumResponseItem
+import com.msib.growsmart.ui.cuaca.CuacaViewModel
 import com.msib.growsmart.utils.Constant.X_API_KEY
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,28 +23,30 @@ class ForumViewModel : ViewModel() {
     fun getAllForum() {
         _isLoading.value = true
         val client = ApiConfig.getApiService().getAllForum(X_API_KEY)
-        client.enqueue(object: Callback<GetAllForumResponse> {
+        client.enqueue(object: Callback<List<GetAllForumResponseItem>> {
             override fun onResponse(
-                call: Call<GetAllForumResponse>,
-                response: Response<GetAllForumResponse>
+                call: Call<List<GetAllForumResponseItem>>,
+                response: Response<List<GetAllForumResponseItem>>
             ) {
                 _isLoading.value = false
-                if(response.isSuccessful) {
-                    _getAllForum.value = response.body()?.getAllForumResponse
-                }else {
-                    Log.e(TAG, "onFailure : ${response.message()}")
-                }
+                    if(response.isSuccessful) {
+                        _getAllForum.value = response.body()
+                    } else {
+                        Log.e(TAG, "onFailure : ${response.message()}")
+                    }
             }
 
-            override fun onFailure(call: Call<GetAllForumResponse>, t: Throwable) {
+            override fun onFailure(call: Call<List<GetAllForumResponseItem>>, t: Throwable) {
                 _isLoading.value = false
-                Log.e(TAG, "onFailure : ${t.message.toString()}")
+                Log.e(CuacaViewModel.TAG, "onFailure : ${t.message.toString()}")
             }
+
         })
     }
 
+
     companion object {
-        const val TAG = "Cuaca"
+        const val TAG = "Forum"
     }
 
 }

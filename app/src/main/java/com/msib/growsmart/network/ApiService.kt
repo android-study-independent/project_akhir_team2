@@ -7,6 +7,7 @@ import com.msib.growsmart.data.request.RegisterRequest
 import com.msib.growsmart.response.ForgetPasswordResponse
 import com.msib.growsmart.response.GetAllArticleResponse
 import com.msib.growsmart.response.GetAllForumResponse
+import com.msib.growsmart.response.GetAllForumResponseItem
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.PostLoginResponse
 import com.msib.growsmart.response.PostRegisterResponse
@@ -57,5 +58,5 @@ interface ApiService {
     @GET("forum/allforum")
     fun getAllForum(
         @Header("x-api-key") apiKey: String,
-    ): Call<GetAllForumResponse>
+    ): Call<List<GetAllForumResponseItem>>
 }
