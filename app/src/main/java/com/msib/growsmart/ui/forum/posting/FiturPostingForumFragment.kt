@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.msib.growsmart.R
-import com.msib.growsmart.ui.ARG_PARAM1
-import com.msib.growsmart.ui.ARG_PARAM2
 
 /**
  * A simple [Fragment] subclass.
@@ -22,8 +20,7 @@ class FiturPostingForumFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -49,8 +46,7 @@ class FiturPostingForumFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             FiturPostingForumFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
                 }
             }
     }
