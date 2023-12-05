@@ -132,13 +132,52 @@
             android:text="@string/mulai"
             />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <TextView
+            android:id="@+id/tvBenefit"
+            android:layout_below="@id/btnMulai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnMulai"
+            android:text="@string/benefit"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_14sdp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reBen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvBenefit"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             />
+
+        <TextView
+            android:id="@+id/tvUl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/reBen"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/ulasan"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/poppins"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reUl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvUl"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            />
+
     </RelativeLayout>
 </ScrollView>
