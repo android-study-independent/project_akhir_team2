@@ -22,6 +22,9 @@
             android:name=".ui.artikel_terbaru.Halaman_Article_Terbaru"
             android:exported="false" />
         <activity
+            android:name=".ui.lms.LmsCaraMenggunakanAplikasiActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.artikel_terbaru.ArtikelActivityBaru"
             android:exported="false" />
         <activity
