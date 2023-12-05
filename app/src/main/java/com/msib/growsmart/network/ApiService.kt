@@ -13,6 +13,7 @@ import com.msib.growsmart.response.PostLoginResponse
 import com.msib.growsmart.response.PostRegisterResponse
 import com.msib.growsmart.response.PutNewPasswordResponse
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -68,7 +69,7 @@ interface ApiService {
     suspend fun postForum(
         @Header("x-api-key") apiKey: String,
         @Part file: MultipartBody.Part,
-        @Part("isi") isi: String
+        @Part("isi") isi: RequestBody
     ): PostForumResponse
 
 }

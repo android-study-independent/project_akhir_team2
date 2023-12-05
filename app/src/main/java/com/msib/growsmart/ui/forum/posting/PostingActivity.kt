@@ -78,14 +78,14 @@ class PostingActivity : AppCompatActivity() {
             val requestBody = description.toRequestBody("text/plain".toMediaType())
             val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
             val multipartBody = MultipartBody.Part.createFormData(
-                "photo",
+                "image",
                 imageFile.name,
                 requestImageFile
             )
             lifecycleScope.launch {
                 try {
                     val apiService = ApiConfig.getApiService()
-                    val responseSuccess = apiService.postForum(X_API_KEY, multipartBody, description)
+                    val responseSuccess = apiService.postForum(X_API_KEY, multipartBody, requestBody)
                     Log.e("Posting", responseSuccess.message)
                     showLoading(false)
                 } catch (e: HttpException) {
