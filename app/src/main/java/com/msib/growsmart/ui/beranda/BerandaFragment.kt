@@ -51,6 +51,7 @@ class BerandaFragment : Fragment() {
     private lateinit var preference: UserPreference
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
     private lateinit var mFusedClient: FusedLocationProviderClient
+    private lateinit var token: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -148,7 +149,7 @@ class BerandaFragment : Fragment() {
         mFusedLocation.lastLocation.addOnSuccessListener { location ->
             if(location != null){
                 with(binding) {
-                    berandaViewModel.getWeather(location.longitude, location.latitude)
+                    berandaViewModel.getWeather(token, location.longitude, location.latitude)
                     berandaViewModel.getWeather.observe(viewLifecycleOwner) { data ->
 
                         val date = Date ()
@@ -227,6 +228,7 @@ class BerandaFragment : Fragment() {
             berandaViewModel.getUser().observe(viewLifecycleOwner) {
                 if(it.isLogin) {
                     tvCuaca.text = "Hey, ${it.name}"
+                    token = it.token
                 }
             }
 

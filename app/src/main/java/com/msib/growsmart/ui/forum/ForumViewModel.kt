@@ -5,23 +5,31 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import com.msib.growsmart.data.UserModel
 import com.msib.growsmart.network.ApiConfig
+import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.GetAllForumResponseItem
-import com.msib.growsmart.utils.Constant.X_API_KEY
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ForumViewModel : ViewModel() {
+class ForumViewModel(
+    private val preference: UserPreference
+) : ViewModel() {
     private var _getAllForum = MutableLiveData<List<GetAllForumResponseItem>>()
     val getAllForum : LiveData<List<GetAllForumResponseItem>> = _getAllForum
 
     private var _isLoading = MutableLiveData<Boolean>()
     val isLoading : LiveData<Boolean> = _isLoading
 
-    fun getAllForum() {
+    fun getUser(): LiveData<UserModel> {
+        return preference.getUser().asLiveData()
+    }
+
+    fun getAllForum(token: String) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getAllForum(X_API_KEY)
+        val client = ApiConfig.getApiService().getAllForum(token)
         client.enqueue(object: Callback<List<GetAllForumResponseItem>> {
             @SuppressLint("SuspiciousIndentation")
             override fun onResponse(

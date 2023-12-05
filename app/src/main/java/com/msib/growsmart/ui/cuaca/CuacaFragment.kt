@@ -1,6 +1,7 @@
 package com.msib.growsmart.ui.cuaca
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -16,7 +20,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.LocationServices
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.FragmentCuacaBinding
+import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.HourlyWeatherItem
+import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.squareup.picasso.Picasso
 
 
@@ -25,7 +31,11 @@ class CuacaFragment : Fragment() {
     private var _binding: FragmentCuacaBinding? = null
     private val binding get() = _binding!!
     private lateinit var cuacaAdapter: CuacaAdapter
-    private val cuacaViewModel by viewModels<CuacaViewModel>()
+    private val cuacaViewModel by viewModels<CuacaViewModel>{
+        ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
+    }
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
+    private lateinit var token: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +48,7 @@ class CuacaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initObserver()
         initView()
         mFused()
         filterHoursWeather()
@@ -58,11 +69,11 @@ class CuacaFragment : Fragment() {
 
         mFusedLocation.lastLocation.addOnSuccessListener { location ->
             if(location != null){
-                cuacaViewModel.getListHourlyWeather(location.longitude, location.latitude)
+                cuacaViewModel.getListHourlyWeather(token, location.longitude, location.latitude)
                 cuacaViewModel.getHourlyWeather.observe(viewLifecycleOwner) { list ->
                     showHourlyList(list)
                 }
-                cuacaViewModel.getCurrentWeather(location.longitude, location.latitude)
+                cuacaViewModel.getCurrentWeather(token, location.longitude, location.latitude)
                 cuacaViewModel.getCurrentWeather.observe(viewLifecycleOwner) { data ->
                     with(binding) {
                         Picasso.get().load(data.currentWeather.weatherIcon).into(ivWeather)
@@ -86,6 +97,14 @@ class CuacaFragment : Fragment() {
                 "Lat : ${location?.latitude} Long : ${location?.longitude}"
             )
 
+        }
+    }
+
+    private fun initObserver() {
+        cuacaViewModel.getUser().observe(viewLifecycleOwner) {
+            if(it.isLogin) {
+                token = it.token
+            }
         }
     }
 
