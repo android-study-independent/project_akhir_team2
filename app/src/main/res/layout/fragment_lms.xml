@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.lms.LmsFragment">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/green_4">
+    tools:context=".ui.lms.LmsFragment"
+    android:background="@color/green_4">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -300,5 +296,4 @@
             </LinearLayout>
 
         </RelativeLayout>
-    </ScrollView>
-</FrameLayout>
+</ScrollView>
