@@ -11,6 +11,8 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.google.gson.Gson
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivityPostingBinding
@@ -30,6 +32,8 @@ import retrofit2.HttpException
 class PostingActivity : AppCompatActivity() {
     private var currentImageUri: Uri? = null
     private lateinit var binding: ActivityPostingBinding
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPostingBinding.inflate(layoutInflater)
@@ -88,6 +92,8 @@ class PostingActivity : AppCompatActivity() {
                     val responseSuccess = apiService.postForum(X_API_KEY, multipartBody, requestBody)
                     Log.e("Posting", responseSuccess.message)
                     showLoading(false)
+                    navController = findNavController(R.id.nav_host_fragment_activity_beranda)
+                    navController.navigate(R.id.navigation_forum)
                 } catch (e: HttpException) {
                     val errorBody = e.response()?.errorBody()?.string()
                     val errorResponse = Gson().fromJson(errorBody, PostForumResponse::class.java)
