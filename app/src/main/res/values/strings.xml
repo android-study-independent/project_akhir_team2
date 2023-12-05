@@ -86,5 +86,8 @@
 
     <string name="forum_cara">Buat Postingan</string>
     <string name="post">Posting</string>
+    <string name="forum_diskusi">Forum Diskusi Komunitas</string>
+    <string name="cara_artikel">Artikel Pengetahuan Pertanian</string>
+    <string name="info_fitur">Fitur Informasi Cuaca</string>
     <string name="masuk_gambar">Masukkan gambar</string>
 </resources>
