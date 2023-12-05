@@ -12,12 +12,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import com.google.gson.Gson
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivityPostingBinding
 import com.msib.growsmart.network.ApiConfig
 import com.msib.growsmart.response.PostForumResponse
+import com.msib.growsmart.ui.beranda.BerandaActivity
 import com.msib.growsmart.ui.forum.utils.reduceFileImage
 import com.msib.growsmart.ui.forum.utils.uriToFile
 import com.msib.growsmart.utils.Constant.X_API_KEY
@@ -32,7 +32,6 @@ import retrofit2.HttpException
 class PostingActivity : AppCompatActivity() {
     private var currentImageUri: Uri? = null
     private lateinit var binding: ActivityPostingBinding
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,8 +91,7 @@ class PostingActivity : AppCompatActivity() {
                     val responseSuccess = apiService.postForum(X_API_KEY, multipartBody, requestBody)
                     Log.e("Posting", responseSuccess.message)
                     showLoading(false)
-                    navController = findNavController(R.id.nav_host_fragment_activity_beranda)
-                    navController.navigate(R.id.navigation_forum)
+                    navigateToForum()
                 } catch (e: HttpException) {
                     val errorBody = e.response()?.errorBody()?.string()
                     val errorResponse = Gson().fromJson(errorBody, PostForumResponse::class.java)
@@ -103,6 +101,10 @@ class PostingActivity : AppCompatActivity() {
             }
         } ?: showToast(getString(R.string.peringatan_gambar_kosong))
 
+    }
+
+    private fun navigateToForum() {
+        BerandaActivity.start(this, "Forum")
     }
 
     private fun showLoading(isLoading: Boolean) {
