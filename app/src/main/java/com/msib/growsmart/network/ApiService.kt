@@ -6,7 +6,6 @@ import com.msib.growsmart.data.request.NewPasswordRequest
 import com.msib.growsmart.data.request.RegisterRequest
 import com.msib.growsmart.response.ForgetPasswordResponse
 import com.msib.growsmart.response.GetAllArticleResponse
-import com.msib.growsmart.response.GetAllForumResponse
 import com.msib.growsmart.response.GetAllForumResponseItem
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.PostForumResponse
@@ -14,10 +13,8 @@ import com.msib.growsmart.response.PostLoginResponse
 import com.msib.growsmart.response.PostRegisterResponse
 import com.msib.growsmart.response.PutNewPasswordResponse
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Multipart
@@ -71,15 +68,7 @@ interface ApiService {
     suspend fun postForum(
         @Header("x-api-key") apiKey: String,
         @Part file: MultipartBody.Part,
-        @Part("isi") isi: RequestBody
-    ): Call<PostForumResponse>
-
-//    @FormUrlEncoded
-//    @POST("forum/upload_and_add_forum")
-//    suspend fun postForum(
-//        @Header("x-api-key") apiKey: String,
-//        @Part file: MultipartBody.Part,
-//        @Part("isi") isi: String
-//    ): PostForumResponse
+        @Part("isi") isi: String
+    ): PostForumResponse
 
 }

@@ -85,13 +85,13 @@ class PostingActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 try {
                     val apiService = ApiConfig.getApiService()
-                    val responseSuccess = apiService.postForum(X_API_KEY, multipartBody, requestBody)
-                    Log.e("Posting", "$responseSuccess")
+                    val responseSuccess = apiService.postForum(X_API_KEY, multipartBody, description)
+                    Log.e("Posting", responseSuccess.message)
                     showLoading(false)
                 } catch (e: HttpException) {
                     val errorBody = e.response()?.errorBody()?.string()
                     val errorResponse = Gson().fromJson(errorBody, PostForumResponse::class.java)
-                    Log.e("Posting", "${errorResponse.message}")
+                    Log.e("Posting", errorResponse.message)
                     showLoading(false)
                 }
             }
