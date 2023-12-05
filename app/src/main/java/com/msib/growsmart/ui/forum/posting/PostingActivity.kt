@@ -6,10 +6,26 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.google.gson.Gson
+import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivityPostingBinding
+import com.msib.growsmart.network.ApiConfig
+import com.msib.growsmart.response.PostForumResponse
+import com.msib.growsmart.ui.forum.utils.reduceFileImage
+import com.msib.growsmart.ui.forum.utils.uriToFile
+import com.msib.growsmart.utils.Constant.X_API_KEY
+import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import retrofit2.HttpException
 
 class PostingActivity : AppCompatActivity() {
     private var currentImageUri: Uri? = null
@@ -24,8 +40,13 @@ class PostingActivity : AppCompatActivity() {
 
 
     private fun initObserver() {
-        binding.layoutGambar.setOnClickListener {
-            startGallery()
+        with(binding) {
+            layoutGambar.setOnClickListener {
+                startGallery()
+            }
+            btnPosting.setOnClickListener {
+                uploadImage()
+            }
         }
     }
 
@@ -45,6 +66,47 @@ class PostingActivity : AppCompatActivity() {
             Log.d("Photo Picker", "No media selected")
         }
     }
+
+    private fun uploadImage() {
+        currentImageUri?.let { uri ->
+            val imageFile = uriToFile(uri, this).reduceFileImage()
+            Log.d("Image File", "showImage: ${imageFile.path}")
+            val description = binding.etPosting.text.toString()
+
+            showLoading(true)
+
+            val requestBody = description.toRequestBody("text/plain".toMediaType())
+            val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaTypeOrNull())
+            val multipartBody = MultipartBody.Part.createFormData(
+                "photo",
+                imageFile.name,
+                requestImageFile
+            )
+            lifecycleScope.launch {
+                try {
+                    val apiService = ApiConfig.getApiService()
+                    val responseSuccess = apiService.postForum(X_API_KEY, multipartBody, requestBody)
+                    Log.e("Posting", "$responseSuccess")
+                    showLoading(false)
+                } catch (e: HttpException) {
+                    val errorBody = e.response()?.errorBody()?.string()
+                    val errorResponse = Gson().fromJson(errorBody, PostForumResponse::class.java)
+                    Log.e("Posting", "${errorResponse.message}")
+                    showLoading(false)
+                }
+            }
+        } ?: showToast(getString(R.string.peringatan_gambar_kosong))
+
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
 
     private fun showImage() {
         currentImageUri?.let {

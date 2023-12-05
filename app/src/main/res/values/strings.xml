@@ -88,5 +88,6 @@
     <string name="tv_masukan_gambar">Masukkan gambar</string>
     <string name="btn_posting">Posting</string>
 
-
+    <!-- Forum   -->
+    <string name="peringatan_gambar_kosong">Harap Masukkan Gambar</string>
 </resources>

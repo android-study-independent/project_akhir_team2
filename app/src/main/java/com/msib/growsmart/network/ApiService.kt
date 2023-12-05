@@ -9,15 +9,21 @@ import com.msib.growsmart.response.GetAllArticleResponse
 import com.msib.growsmart.response.GetAllForumResponse
 import com.msib.growsmart.response.GetAllForumResponseItem
 import com.msib.growsmart.response.GetWeatherResponse
+import com.msib.growsmart.response.PostForumResponse
 import com.msib.growsmart.response.PostLoginResponse
 import com.msib.growsmart.response.PostRegisterResponse
 import com.msib.growsmart.response.PutNewPasswordResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Part
 import retrofit2.http.Query
 
 interface ApiService {
@@ -59,4 +65,21 @@ interface ApiService {
     fun getAllForum(
         @Header("x-api-key") apiKey: String,
     ): Call<List<GetAllForumResponseItem>>
+
+    @Multipart
+    @POST("forum/upload_and_add_forum")
+    suspend fun postForum(
+        @Header("x-api-key") apiKey: String,
+        @Part file: MultipartBody.Part,
+        @Part("isi") isi: RequestBody
+    ): Call<PostForumResponse>
+
+//    @FormUrlEncoded
+//    @POST("forum/upload_and_add_forum")
+//    suspend fun postForum(
+//        @Header("x-api-key") apiKey: String,
+//        @Part file: MultipartBody.Part,
+//        @Part("isi") isi: String
+//    ): PostForumResponse
+
 }
