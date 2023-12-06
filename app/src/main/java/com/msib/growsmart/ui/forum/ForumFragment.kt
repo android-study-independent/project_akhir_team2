@@ -27,6 +27,7 @@ class ForumFragment : Fragment() {
     }
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
     private lateinit var token: String
+    private val listItemForum = mutableListOf<GetAllForumResponseItem>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,8 +45,10 @@ class ForumFragment : Fragment() {
     }
 
     private fun initView() {
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvAllForum.layoutManager = layoutManager
+        forumAdapter = ForumAdapter(listItemForum)
+        binding.rvAllForum.adapter = forumAdapter
     }
 
     private fun initObserver(){
@@ -76,10 +79,9 @@ class ForumFragment : Fragment() {
     }
 
     private fun showAllForum(data: List<GetAllForumResponseItem>) {
-        with(binding) {
-            forumAdapter = ForumAdapter(data)
-            rvAllForum.adapter= forumAdapter
-        }
+        listItemForum.clear()
+        listItemForum.addAll(data.reversed())
+        forumAdapter.notifyDataSetChanged()
     }
 
 

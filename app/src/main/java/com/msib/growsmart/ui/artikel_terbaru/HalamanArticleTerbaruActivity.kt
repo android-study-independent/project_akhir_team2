@@ -8,11 +8,10 @@ import com.msib.growsmart.R
 import com.msib.growsmart.ui.artikel_terbaru.data.Article
 import com.msib.growsmart.ui.artikel_terbaru.data.ArticleAdapter
 import okhttp3.*
-import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
 
-class Halaman_Article_Terbaru : AppCompatActivity() {
+class HalamanArticleTerbaruActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ArticleAdapter

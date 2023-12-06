@@ -31,7 +31,7 @@ import com.msib.growsmart.databinding.FragmentBerandaBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.ArticlesItem
 import com.msib.growsmart.ui.artikel.ArtikelActivity
-import com.msib.growsmart.ui.artikel_terbaru.Halaman_Article_Terbaru
+import com.msib.growsmart.ui.artikel_terbaru.HalamanArticleTerbaruActivity
 import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.msib.growsmart.ui.login.LoginActivity
 import com.squareup.picasso.Picasso
@@ -203,7 +203,6 @@ class BerandaFragment : Fragment() {
         preference = UserPreference.getInstance(requireContext().dataStore)
 
         initObserver()
-        mFused()
         initView()
     }
 
@@ -229,11 +228,12 @@ class BerandaFragment : Fragment() {
                 if(it.isLogin) {
                     tvCuaca.text = "Hey, ${it.name}"
                     token = it.token
+                    mFused()
                 }
             }
 
             artikel.setOnClickListener {
-                val intent = Intent(requireContext(), Halaman_Article_Terbaru::class.java)
+                val intent = Intent(requireContext(), HalamanArticleTerbaruActivity::class.java)
                 startActivity(intent)
             }
             lihatsemua.setOnClickListener {

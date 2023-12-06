@@ -88,6 +88,7 @@
     <string name="tv_masukan_gambar">Masukkan gambar</string>
     <string name="btn_posting">Posting</string>
 
+    <!--Deskripsi Forum-->
     <string name="peringatan_gambar_kosong">Harap Masukkan Gambar</string>
     <string name="forum_cara">Buat Postingan</string>
     <string name="post">Posting</string>
@@ -95,5 +96,8 @@
     <string name="cara_artikel">Artikel Pengetahuan Pertanian</string>
     <string name="info_fitur">Fitur Informasi Cuaca</string>
     <string name="masuk_gambar">Masukkan gambar</string>
+    <string name="nav_komentar">Komentar</string>
+    <string name="tv_komen_user">Joel</string>
+    <string name="jumlah_komentar">0 Komentar</string>
 
 </resources>
