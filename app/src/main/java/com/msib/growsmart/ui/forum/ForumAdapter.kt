@@ -9,7 +9,11 @@ import com.msib.growsmart.databinding.RecyclerviewAllForumBinding
 import com.msib.growsmart.response.GetAllForumResponseItem
 import com.squareup.picasso.Picasso
 
-class ForumAdapter(private val listAllForum: List<GetAllForumResponseItem>): RecyclerView.Adapter<ForumAdapter.ViewHolder>(){
+interface DetailKomentarListener {
+    fun onDetailKomentar(forumResponse: GetAllForumResponseItem)
+}
+
+class ForumAdapter(private val listAllForum: List<GetAllForumResponseItem>, private val listener: DetailKomentarListener): RecyclerView.Adapter<ForumAdapter.ViewHolder>(){
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = RecyclerviewAllForumBinding.bind(view)
@@ -19,8 +23,10 @@ class ForumAdapter(private val listAllForum: List<GetAllForumResponseItem>): Rec
                 Picasso.get().load(data.image).into(ivImage)
                 tvPengguna.text = data.nama
                 tvDeskripsi.text = data.isi
+                btnKomentari.setOnClickListener {
+                    listener.onDetailKomentar(data)
+                }
             }
-
         }
 
     }

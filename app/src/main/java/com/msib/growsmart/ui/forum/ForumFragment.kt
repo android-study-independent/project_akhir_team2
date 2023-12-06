@@ -1,6 +1,7 @@
 package com.msib.growsmart.ui.forum
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,9 +17,10 @@ import com.msib.growsmart.databinding.FragmentForumBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.GetAllForumResponseItem
 import com.msib.growsmart.ui.factory.ViewModelFactory
+import com.msib.growsmart.ui.forum.komentar.KomentarActivity
 import com.msib.growsmart.ui.forum.posting.PostingActivity
 
-class ForumFragment : Fragment() {
+class ForumFragment : Fragment(), DetailKomentarListener {
     private var _binding: FragmentForumBinding? = null
     private val binding get() = _binding!!
     private lateinit var forumAdapter: ForumAdapter
@@ -47,7 +49,7 @@ class ForumFragment : Fragment() {
     private fun initView() {
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvAllForum.layoutManager = layoutManager
-        forumAdapter = ForumAdapter(listItemForum)
+        forumAdapter = ForumAdapter(listItemForum, this)
         binding.rvAllForum.adapter = forumAdapter
     }
 
@@ -84,6 +86,11 @@ class ForumFragment : Fragment() {
         forumAdapter.notifyDataSetChanged()
     }
 
+    override fun onDetailKomentar(komentar: GetAllForumResponseItem) {
+        val intent = Intent(requireContext(), KomentarActivity::class.java)
+        intent.putExtra("komentar", komentar)
+        startActivity(intent)
+    }
 
 
 }

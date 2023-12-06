@@ -80,6 +80,7 @@
 
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnKomentari"
                 android:layout_width="@dimen/_200sdp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/grey_1"
