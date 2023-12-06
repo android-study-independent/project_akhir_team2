@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 class ArtikelAdapter(private val articles: List<Article>) : RecyclerView.Adapter<ArtikelAdapter.ArtikelViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtikelViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_all_article, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item_article, parent, false)
         return ArtikelViewHolder(view)
     }
 
