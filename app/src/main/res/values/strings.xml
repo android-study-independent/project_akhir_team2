@@ -83,7 +83,12 @@
     <string name="des3">langkah Awal untuk Petani Pemula</string>
     <string name="title4">Rahasia Pemilihan Benih Wortel yang tepat</string>
     <string name="des4">cara pemilihan benih wortel yang berkualitas untuk pemula</string>
+    <string name="nav_buat_postingan">Buat Postingan</string>
+    <string name="et_posting">Apa yang anda pikirkan?</string>
+    <string name="tv_masukan_gambar">Masukkan gambar</string>
+    <string name="btn_posting">Posting</string>
 
+    <string name="peringatan_gambar_kosong">Harap Masukkan Gambar</string>
     <string name="forum_cara">Buat Postingan</string>
     <string name="post">Posting</string>
     <string name="coba">waaaaaa</string>
