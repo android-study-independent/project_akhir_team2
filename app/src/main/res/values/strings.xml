@@ -92,4 +92,11 @@
     <string name="cara_artikel">Artikel Pengetahuan Pertanian</string>
     <string name="info_fitur">Fitur Informasi Cuaca</string>
     <string name="masuk_gambar">Masukkan gambar</string>
+
+    <string name="tanam_dirumah">Cara Menanam Tanaman di Rumah"</string>
+    <string name="konsep">Konsep dasar menanam tanaman di lingkungan rumah</string>
+    <string name="persiapan">Persiapan Pemilihan Tanah</string>
+    <string name="pilih_lokasi">Pemilihan lokasi yang Tepat</string>
+    <string name="jenis">Jenis Tanaman yang cocok untuk Ditanam di rumah</string>
+
 </resources>
