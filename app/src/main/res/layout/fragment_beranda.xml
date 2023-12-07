@@ -192,7 +192,7 @@
                     <LinearLayout
                         android:id="@+id/layoutLihatArticle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_120sdp"
                         android:layout_gravity="center"
                         android:background="@drawable/bg_white"
@@ -204,22 +204,22 @@
                             android:layout_height="match_parent"
                             android:layout_marginStart="@dimen/_30sdp"
                             android:text="@string/artikel"
-                            android:textSize="@dimen/_13sdp"
+                            android:textSize="@dimen/_12sdp"
                             android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/lihatsemua"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_120sdp"
+                            android:layout_marginStart="@dimen/_110sdp"
                             android:text="@string/lihat"
                             android:textColor="@color/green_nav" />
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginTop="5dp"
                             android:src="@drawable/arrow_right" />
                     </LinearLayout>
 

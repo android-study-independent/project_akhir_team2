@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.msib.growsmart.databinding.FragmentForumBinding
 import com.msib.growsmart.response.GetAllForumResponseItem
+import com.msib.growsmart.ui.forum.posting.PostingActivity
 
 class ForumFragment : Fragment() {
     private var _binding: FragmentForumBinding? = null
@@ -44,6 +45,9 @@ class ForumFragment : Fragment() {
         }
         forumViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
+        }
+        binding.layoutPostForum.setOnClickListener{
+            PostingActivity.start(requireContext())
         }
     }
 
