@@ -25,7 +25,7 @@ class HalamanArticleTerbaruActivity : AppCompatActivity() {
         adapter = ArticleAdapter()
         recyclerView.adapter = adapter
 
-        val id = 1 // Ganti dengan ID yang diinginkan
+        val id = 1
         val url = "http://195.35.32.179:8002/article/article_id/$id"
         val apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyOCwiaWF0IjoxNzAwNzQ2NzIyfQ.ODFt_XcqGHfUGVi5MozPMpoCi67zZGHdUh1zJtCBxbs"
 
