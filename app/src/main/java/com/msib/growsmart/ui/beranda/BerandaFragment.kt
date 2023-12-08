@@ -31,7 +31,7 @@ import com.msib.growsmart.databinding.FragmentBerandaBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.ArticlesItem
 import com.msib.growsmart.ui.artikel.ArtikelActivity
-import com.msib.growsmart.ui.artikel_terbaru.Halaman_Article_Terbaru
+import com.msib.growsmart.ui.artikel_terbaru.HalamanArticleTerbaruActivity
 import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.msib.growsmart.ui.login.LoginActivity
 import com.squareup.picasso.Picasso
@@ -51,6 +51,7 @@ class BerandaFragment : Fragment() {
     private lateinit var preference: UserPreference
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
     private lateinit var mFusedClient: FusedLocationProviderClient
+    private lateinit var token: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -148,7 +149,7 @@ class BerandaFragment : Fragment() {
         mFusedLocation.lastLocation.addOnSuccessListener { location ->
             if(location != null){
                 with(binding) {
-                    berandaViewModel.getWeather(location.longitude, location.latitude)
+                    berandaViewModel.getWeather(token, location.longitude, location.latitude)
                     berandaViewModel.getWeather.observe(viewLifecycleOwner) { data ->
 
                         val date = Date ()
@@ -202,7 +203,6 @@ class BerandaFragment : Fragment() {
         preference = UserPreference.getInstance(requireContext().dataStore)
 
         initObserver()
-        mFused()
         initView()
     }
 
@@ -227,11 +227,13 @@ class BerandaFragment : Fragment() {
             berandaViewModel.getUser().observe(viewLifecycleOwner) {
                 if(it.isLogin) {
                     tvCuaca.text = "Hey, ${it.name}"
+                    token = it.token
+                    mFused()
                 }
             }
 
             artikel.setOnClickListener {
-                val intent = Intent(requireContext(), Halaman_Article_Terbaru::class.java)
+                val intent = Intent(requireContext(), HalamanArticleTerbaruActivity::class.java)
                 startActivity(intent)
             }
             lihatsemua.setOnClickListener {

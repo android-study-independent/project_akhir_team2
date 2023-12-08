@@ -1,6 +1,7 @@
 package com.msib.growsmart.ui.cuaca.perjam
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -16,14 +20,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.LocationServices
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.FragmentCuacaPerjamBinding
+import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.HourlyWeatherItem
+import com.msib.growsmart.ui.factory.ViewModelFactory
 
 
 class CuacaPerjamFragment : Fragment() {
     private var _binding: FragmentCuacaPerjamBinding? = null
     private val binding get() = _binding!!
     private lateinit var cuacaPerjamAdapter: CuacaPerjamAdapter
-    private val cuacaPerjamViewModel by viewModels<CuacaPerjamViewModel>()
+    private val cuacaPerjamViewModel by viewModels<CuacaPerjamViewModel>{
+        ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
+    }
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
+    private lateinit var token: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +46,7 @@ class CuacaPerjamFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initObserver()
         initView()
         mFused()
         filterWeeklyWeather()
@@ -56,7 +67,7 @@ class CuacaPerjamFragment : Fragment() {
 
         mFusedLocation.lastLocation.addOnSuccessListener { location ->
             if(location != null){
-                cuacaPerjamViewModel.getListHourlyWeather(location.longitude, location.latitude)
+                cuacaPerjamViewModel.getListHourlyWeather(token, location.longitude, location.latitude)
                 cuacaPerjamViewModel.getHourlyWeather.observe(viewLifecycleOwner) { list ->
                     showHourlyList(list)
                 }
@@ -75,6 +86,14 @@ class CuacaPerjamFragment : Fragment() {
 
     private fun showLoading(value: Boolean) {
         binding.progressBar.isVisible = value
+    }
+
+    private fun initObserver() {
+        cuacaPerjamViewModel.getUser().observe(viewLifecycleOwner) {
+            if(it.isLogin) {
+                token = it.token
+            }
+        }
     }
 
     private fun initView() {

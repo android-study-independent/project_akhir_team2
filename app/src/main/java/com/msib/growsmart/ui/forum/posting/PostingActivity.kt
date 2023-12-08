@@ -9,16 +9,22 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivityPostingBinding
 import com.msib.growsmart.network.ApiConfig
+import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.PostForumResponse
+import com.msib.growsmart.ui.beranda.BerandaActivity
+import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.msib.growsmart.ui.forum.utils.reduceFileImage
 import com.msib.growsmart.ui.forum.utils.uriToFile
-import com.msib.growsmart.utils.Constant.X_API_KEY
 import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -30,16 +36,32 @@ import retrofit2.HttpException
 class PostingActivity : AppCompatActivity() {
     private var currentImageUri: Uri? = null
     private lateinit var binding: ActivityPostingBinding
+    private val postingViewModel by viewModels<PostingViewModel>{
+        ViewModelFactory(UserPreference.getInstance(dataStore))
+    }
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
+    private lateinit var token: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPostingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         initObserver()
+        initMedia()
     }
 
 
     private fun initObserver() {
+        postingViewModel.getUser().observe(this) {
+            if(it.isLogin) {
+                token = it.token
+                binding.tvUser.text = "Hey, ${it.name}"
+            }
+        }
+    }
+
+    private fun initMedia() {
         with(binding) {
             layoutGambar.setOnClickListener {
                 startGallery()
@@ -85,9 +107,10 @@ class PostingActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 try {
                     val apiService = ApiConfig.getApiService()
-                    val responseSuccess = apiService.postForum(X_API_KEY, multipartBody, requestBody)
+                    val responseSuccess = apiService.postForum(token, multipartBody, requestBody)
                     Log.e("Posting", responseSuccess.message)
                     showLoading(false)
+                    navigateToForum()
                 } catch (e: HttpException) {
                     val errorBody = e.response()?.errorBody()?.string()
                     val errorResponse = Gson().fromJson(errorBody, PostForumResponse::class.java)
@@ -97,6 +120,10 @@ class PostingActivity : AppCompatActivity() {
             }
         } ?: showToast(getString(R.string.peringatan_gambar_kosong))
 
+    }
+
+    private fun navigateToForum() {
+        BerandaActivity.start(this, "Forum")
     }
 
     private fun showLoading(isLoading: Boolean) {

@@ -39,7 +39,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tvCuaca"
+                        android:id="@+id/tvUser"
                         android:layout_width="@dimen/_180sdp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10sdp"
@@ -138,7 +138,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvAllForum"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_20sdp" />
         </LinearLayout>
 

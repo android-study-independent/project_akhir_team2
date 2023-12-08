@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/green_4"
-    tools:context=".ui.lms.lmsCaraMenggunakanAplikasiFragment">
+    tools:context=".ui.lms.LmsCaraMenggunakanAplikasiFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -20,7 +20,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".ui.artikel_terbaru.ArtikelActivityBaru"
+            android:name=".ui.artikel_terbaru.HalamanArticleTerbaruActivity"
             android:exported="false" />
         <activity
             android:name=".ui.artikel.ArtikelActivity"
@@ -42,6 +42,9 @@
             android:exported="false" />
         <activity
             android:name=".ui.beranda.BerandaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.forum.komentar.KomentarActivity"
             android:exported="false" />
         <activity
             android:name=".ui.splash.SplashActivity"

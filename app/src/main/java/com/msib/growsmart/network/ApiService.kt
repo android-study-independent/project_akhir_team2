@@ -1,14 +1,17 @@
 package com.msib.growsmart.network
 
 import com.msib.growsmart.data.request.ForgetPasswordRequest
+import com.msib.growsmart.data.request.KirimKomentarRequest
 import com.msib.growsmart.data.request.LoginRequest
 import com.msib.growsmart.data.request.NewPasswordRequest
 import com.msib.growsmart.data.request.RegisterRequest
 import com.msib.growsmart.response.ForgetPasswordResponse
 import com.msib.growsmart.response.GetAllArticleResponse
 import com.msib.growsmart.response.GetAllForumResponseItem
+import com.msib.growsmart.response.GetKomentarResponse
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.PostForumResponse
+import com.msib.growsmart.response.PostKomentarResponse
 import com.msib.growsmart.response.PostLoginResponse
 import com.msib.growsmart.response.PostRegisterResponse
 import com.msib.growsmart.response.PutNewPasswordResponse
@@ -22,6 +25,7 @@ import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.PUT
 import retrofit2.http.Part
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -71,5 +75,18 @@ interface ApiService {
         @Part file: MultipartBody.Part,
         @Part("isi") isi: RequestBody
     ): PostForumResponse
+
+    @POST("forum/balasan/{id_forum}")
+    fun postKomentar(
+        @Header("x-api-key") apiKey: String,
+        @Path("id_forum") idForum: String,
+        @Body request: KirimKomentarRequest
+    ): Call<PostKomentarResponse>
+
+    @GET("forum/forum/{id}")
+    fun getKomentar(
+        @Header("x-api-key") apiKey: String,
+        @Path("id") id: String,
+    ): Call<GetKomentarResponse>
 
 }
