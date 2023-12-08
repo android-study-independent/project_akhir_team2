@@ -1,5 +1,6 @@
 package com.msib.growsmart.ui.artikel_terbaru.data
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,8 +39,8 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() 
         private val descriptionTextView: TextView = itemView.findViewById(R.id.des1)
 
         fun bind(article: Article) {
-            titleTextView.text = article.title
-            descriptionTextView.text = article.description ?: "No description available"
+            titleTextView.text = Html.fromHtml(article.title)
+            descriptionTextView.text = Html.fromHtml(article.description ?: "Tidak ada deskripsi")
             Picasso.get().load(article.image).into(imageView)
         }
     }

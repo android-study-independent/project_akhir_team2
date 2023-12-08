@@ -1,5 +1,6 @@
 package com.msib.growsmart.ui.artikel.data
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,8 +20,8 @@ class ArtikelAdapter(private val articles: List<Article>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: ArtikelViewHolder, position: Int) {
         val currentArticle = articles[position]
 
-        holder.title.text = currentArticle.title
-        holder.description.text = currentArticle.description
+        holder.title.text = Html.fromHtml(currentArticle.title)
+        holder.description.text = Html.fromHtml(currentArticle.description ?: "Tidak ada deskripsi")
         Picasso.get().load(currentArticle.image).into(holder.image)
     }
 
