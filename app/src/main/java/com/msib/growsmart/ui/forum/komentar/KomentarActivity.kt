@@ -73,10 +73,10 @@ class KomentarActivity : AppCompatActivity()  {
                             idForum,
                             binding.etIsiKomentar.text.toString(),
                         )
-                        komentarViewModel.postKomentar.observe(this) {
-                            postKomentar(it)
-                        }
                         recreate()
+                    }
+                    komentarViewModel.postKomentar.observe(this) {
+                        postKomentar(it)
                     }
                 }
             }
@@ -124,6 +124,7 @@ class KomentarActivity : AppCompatActivity()  {
                 .show()
         }
     }
+
 
     @SuppressLint("CheckResult")
     private fun initListener() {
