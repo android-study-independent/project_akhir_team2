@@ -18,7 +18,7 @@
         android:theme="@style/Theme.GrowSmart"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-      
+
         <activity
             android:name=".ui.artikel_terbaru.ArtikelActivityBaru"
             android:exported="false" />
