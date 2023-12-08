@@ -18,12 +18,7 @@
         android:theme="@style/Theme.GrowSmart"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".ui.artikel_terbaru.Halaman_Article_Terbaru"
-            android:exported="false" />
-        <activity
-            android:name=".ui.lms.LmsCaraMenggunakanAplikasiActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.artikel_terbaru.ArtikelActivityBaru"
             android:exported="false" />

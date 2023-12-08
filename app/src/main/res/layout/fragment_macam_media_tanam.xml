@@ -4,47 +4,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/green_4"
-    tools:context=".ui.lms.lmsCaraMenggunakanAplikasiFragment">
+    tools:context=".ui.lms.MacamMediaTanamFragment"
+    android:background="@color/green_4">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_50sdp"
-        android:background="@drawable/bg_white">
-
-        <ImageView
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:contentDescription="image"
-            android:src="@drawable/arrow_left"
-            tools:ignore="MissingConstraints" />
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:background="@drawable/bg_white">
 
-        <TextView
-            android:id="@+id/tvCuaca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_18sdp"
-            android:fontFamily="@font/poppins_medium"
-            android:textSize="@dimen/_16sdp"
-            android:textStyle="bold"
-            tools:text="@string/lms" />
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:contentDescription="image"
+                android:src="@drawable/arrow_left"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tvCuaca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                tools:text="@string/lms" />
+        </androidx.cardview.widget.CardView>
         <TextView
             android:id="@+id/tvJudulCara"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_70sdp"
-            android:text="@string/cara"
+            android:text="@string/macam_media"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:textStyle="bold"
@@ -69,7 +69,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="@string/info_fitur"
+                android:text="@string/tanah"
                 android:textSize="@dimen/_12sdp"
                 tools:ignore="TextSizeCheck" />
         </androidx.cardview.widget.CardView>
@@ -92,7 +92,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="@string/cara_artikel"
+                android:text="@string/kompos"
                 android:textSize="@dimen/_12sdp"
                 tools:ignore="TextSizeCheck" />
         </androidx.cardview.widget.CardView>
@@ -115,16 +115,38 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:fontFamily="@font/poppins_medium"
-                android:text="@string/forum_diskusi"
+                android:text="@string/Hydroponic"
                 android:textSize="@dimen/_12sdp"
                 tools:ignore="TextSizeCheck" />
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv5"
+            android:layout_below="@id/cv4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/Aeroponic"
+                android:textSize="@dimen/_12sdp"
+                tools:ignore="TextSizeCheck" />
+        </androidx.cardview.widget.CardView>
         <Button
             android:id="@+id/btnMulai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cv4"
+            android:layout_below="@id/cv5"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             android:backgroundTint="@color/green_nav"
@@ -178,6 +200,9 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_20sdp"
             />
-
     </RelativeLayout>
+
+
+
+
 </ScrollView>
