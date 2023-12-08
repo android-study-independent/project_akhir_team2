@@ -13,6 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <LinearLayout
             android:id="@+id/layoutTitleNav"
             android:layout_width="match_parent"
@@ -97,6 +98,33 @@
             app:layout_constraintStart_toStartOf="@+id/layoutProfile"
             app:layout_constraintTop_toBottomOf="@id/layoutProfile" />
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvGambar"
+            android:layout_width="@dimen/_280sdp"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="@+id/layoutProfile"
+            app:layout_constraintStart_toStartOf="@+id/layoutProfile"
+            app:layout_constraintTop_toBottomOf="@id/tvIsiKomentar">
+
+            <ImageView
+                android:id="@+id/ivGambar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@tools:sample/avatars" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvIgnoreId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="id"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            android:visibility="gone"
+            />
+
         <LinearLayout
             android:id="@+id/layoutKomen"
             android:layout_width="@dimen/_140sdp"
@@ -104,7 +132,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="@dimen/_8sdp"
             app:layout_constraintStart_toStartOf="@+id/tvIsiKomentar"
-            app:layout_constraintTop_toBottomOf="@id/tvIsiKomentar">
+            app:layout_constraintTop_toBottomOf="@id/cvGambar">
 
             <ImageView
                 android:layout_width="@dimen/_20sdp"
@@ -187,22 +215,6 @@
 
         </LinearLayout>
 
-
-        <AbsoluteLayout
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_200sdp"
-            app:layout_constraintBottom_toTopOf="@+id/line2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:visibility="gone"
-            app:layout_constraintTop_toTopOf="@+id/rvKomentar">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_200sdp"
-                android:scaleType="fitXY"
-                android:src="@drawable/gallery_add" />
-        </AbsoluteLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

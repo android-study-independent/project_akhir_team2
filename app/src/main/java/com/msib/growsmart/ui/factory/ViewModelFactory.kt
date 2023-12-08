@@ -8,6 +8,7 @@ import com.msib.growsmart.ui.cuaca.CuacaViewModel
 import com.msib.growsmart.ui.cuaca.perjam.CuacaPerjamViewModel
 import com.msib.growsmart.ui.cuaca.perminggu.CuacaPermingguViewModel
 import com.msib.growsmart.ui.forum.ForumViewModel
+import com.msib.growsmart.ui.forum.komentar.KomentarViewModel
 import com.msib.growsmart.ui.forum.posting.PostingViewModel
 import com.msib.growsmart.ui.login.LoginViewModel
 import com.msib.growsmart.ui.splash.SplashViewModel
@@ -40,6 +41,9 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
             }
             modelClass.isAssignableFrom(PostingViewModel::class.java) -> {
                 PostingViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(KomentarViewModel::class.java) -> {
+                KomentarViewModel(pref) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel Class : ${modelClass.name}")
         }
