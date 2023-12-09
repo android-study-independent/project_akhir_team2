@@ -15,13 +15,16 @@ class LmsGuideAplikasiActivity : AppCompatActivity() {
         binding = ActivityLmsGuideAplikasiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initVideo()
+    }
+
+    private fun initVideo() {
         val videoItem = MediaItem.fromUri("https://github.com/dicodingacademy/assets/releases/download/release-video/VideoDicoding.mp4")
         val player = ExoPlayer.Builder(this).build().also { exoPlayer ->
             exoPlayer.setMediaItem(videoItem)
             exoPlayer.prepare()
         }
         binding.playerView.player = player
-
     }
 
 

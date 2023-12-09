@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.lms.LmsMenanamFragment"
+    tools:context=".ui.lms.menanam.LmsMenanamFragment"
     android:background="@color/green_4">
 
     <RelativeLayout
@@ -167,21 +167,21 @@
             android:fontFamily="@font/poppins"
             android:textSize="@dimen/_14sdp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/reBen"
+        <TextView
+            android:id="@+id/tvBen"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_80sdp"
             android:layout_below="@id/tvBenefit"
-            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-            />
+            android:text="Memberikan panduan komprehensif tentang penggunaan fitur cuaca, artikel, dan forum dalam aplikasi petani." />
 
         <TextView
             android:id="@+id/tvUl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/reBen"
+            android:layout_below="@id/tvBen"
             android:layout_marginTop="@dimen/_10sdp"
             android:text="@string/ulasan"
             android:layout_marginStart="@dimen/_20sdp"

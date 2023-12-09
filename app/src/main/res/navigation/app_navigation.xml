@@ -43,19 +43,19 @@
 
     <fragment
         android:id="@+id/navigation_lms_guide"
-        android:name="com.msib.growsmart.ui.lms.LmsCaraMenggunakanAplikasiFragment"
+        android:name="com.msib.growsmart.ui.lms.guide.LmsCaraMenggunakanAplikasiFragment"
         tools:layout="@layout/fragment_lms_cara_menggunakan_aplikasi"
         android:label="@string/tv_nav_lms"/>
 
     <fragment
         android:id="@+id/navigation_lms_menanam"
-        android:name="com.msib.growsmart.ui.lms.LmsMenanamFragment"
+        android:name="com.msib.growsmart.ui.lms.menanam.LmsMenanamFragment"
         tools:layout="@layout/fragment_cara_menanam_di_rumah"
         android:label="@string/tv_nav_lms"/>
 
     <fragment
         android:id="@+id/navigation_lms_metan"
-        android:name="com.msib.growsmart.ui.lms.LmsMediaTanamFragment"
+        android:name="com.msib.growsmart.ui.lms.metan.LmsMediaTanamFragment"
         tools:layout="@layout/fragment_macam_media_tanam"
         android:label="@string/tv_nav_lms"/>
 

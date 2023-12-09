@@ -64,6 +64,7 @@
     <string name="cara5"> Cara Memilih Tanaman yang Tepat untuk dibudidayakan</string>
     <string name="cara4">Cara Merawat Tanaman</string>
     <string name="cara6">Jenis Penyakit dan Pencegahannya</string>
+    <string name="cara_guide">Cara Menggunakan Aplikasi</string>
 
     <!--Modul-->
     <string name="modul">Modul</string>
