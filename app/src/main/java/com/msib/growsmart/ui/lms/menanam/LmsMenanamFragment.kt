@@ -14,12 +14,13 @@ import androidx.fragment.app.viewModels
 import com.msib.growsmart.databinding.FragmentCaraMenanamDiRumahBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.ui.factory.ViewModelFactory
+import com.msib.growsmart.ui.lms.LmsViewModel
 import com.msib.growsmart.ui.lms.modul.menanam.ModulMenanamActivity
 
 class LmsMenanamFragment : Fragment() {
     private var _binding: FragmentCaraMenanamDiRumahBinding? = null
     private val binding get() = _binding!!
-    private val lmsViewModel by viewModels<LmsMenanamViewModel>{
+    private val lmsViewModel by viewModels<LmsViewModel>{
         ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
     }
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")

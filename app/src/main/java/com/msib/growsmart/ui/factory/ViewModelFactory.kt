@@ -10,10 +10,8 @@ import com.msib.growsmart.ui.cuaca.perminggu.CuacaPermingguViewModel
 import com.msib.growsmart.ui.forum.ForumViewModel
 import com.msib.growsmart.ui.forum.komentar.KomentarViewModel
 import com.msib.growsmart.ui.forum.posting.PostingViewModel
-import com.msib.growsmart.ui.lms.guide.LmsGuideViewModel
-import com.msib.growsmart.ui.lms.menanam.LmsMenanamViewModel
-import com.msib.growsmart.ui.lms.metan.LmsMetanViewModel
-import com.msib.growsmart.ui.lms.modul.menanam.ModulMenanamViewModel
+import com.msib.growsmart.ui.lms.LmsViewModel
+import com.msib.growsmart.ui.lms.modul.ModulViewModel
 import com.msib.growsmart.ui.login.LoginViewModel
 import com.msib.growsmart.ui.splash.SplashViewModel
 
@@ -49,17 +47,11 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
             modelClass.isAssignableFrom(KomentarViewModel::class.java) -> {
                 KomentarViewModel(pref) as T
             }
-            modelClass.isAssignableFrom(LmsGuideViewModel::class.java) -> {
-                LmsGuideViewModel(pref) as T
+            modelClass.isAssignableFrom(LmsViewModel::class.java) -> {
+                LmsViewModel(pref) as T
             }
-            modelClass.isAssignableFrom(LmsMenanamViewModel::class.java) -> {
-                LmsMenanamViewModel(pref) as T
-            }
-            modelClass.isAssignableFrom(LmsMetanViewModel::class.java) -> {
-                LmsMetanViewModel(pref) as T
-            }
-            modelClass.isAssignableFrom(ModulMenanamViewModel::class.java) -> {
-                ModulMenanamViewModel(pref) as T
+            modelClass.isAssignableFrom(ModulViewModel::class.java) -> {
+                ModulViewModel(pref) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel Class : ${modelClass.name}")
         }

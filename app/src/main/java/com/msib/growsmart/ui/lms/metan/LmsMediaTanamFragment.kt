@@ -14,12 +14,13 @@ import androidx.fragment.app.viewModels
 import com.msib.growsmart.databinding.FragmentMacamMediaTanamBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.ui.factory.ViewModelFactory
-import com.msib.growsmart.ui.lms.modul.LmsMetanActivity
+import com.msib.growsmart.ui.lms.LmsViewModel
+import com.msib.growsmart.ui.lms.modul.metan.ModulMetanActivity
 
 class LmsMediaTanamFragment : Fragment() {
     private var _binding: FragmentMacamMediaTanamBinding? = null
     private val binding get() = _binding!!
-    private val lmsViewModel by viewModels<LmsMetanViewModel>{
+    private val lmsViewModel by viewModels<LmsViewModel>{
         ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
     }
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
@@ -54,7 +55,7 @@ class LmsMediaTanamFragment : Fragment() {
             }
         }
         binding.btnMulai.setOnClickListener{
-            LmsMetanActivity.start(requireContext())
+            ModulMetanActivity.start(requireContext())
         }
     }
 

@@ -14,13 +14,14 @@ import androidx.fragment.app.viewModels
 import com.msib.growsmart.databinding.FragmentLmsCaraMenggunakanAplikasiBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.ui.factory.ViewModelFactory
-import com.msib.growsmart.ui.lms.modul.LmsGuideAplikasiActivity
+import com.msib.growsmart.ui.lms.LmsViewModel
+import com.msib.growsmart.ui.lms.modul.guide.ModulGuideAplikasiActivity
 
 
 class LmsCaraMenggunakanAplikasiFragment : Fragment() {
     private var _binding: FragmentLmsCaraMenggunakanAplikasiBinding? = null
     private val binding get() = _binding!!
-    private val lmsViewModel by viewModels<LmsGuideViewModel>{
+    private val lmsViewModel by viewModels<LmsViewModel>{
         ViewModelFactory(UserPreference.getInstance(requireContext().dataStore))
     }
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
@@ -54,7 +55,7 @@ class LmsCaraMenggunakanAplikasiFragment : Fragment() {
             }
         }
         binding.btnMulai.setOnClickListener{
-            LmsGuideAplikasiActivity.start(requireContext())
+            ModulGuideAplikasiActivity.start(requireContext())
         }
     }
 

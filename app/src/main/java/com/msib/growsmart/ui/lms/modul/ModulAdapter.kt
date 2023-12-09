@@ -1,4 +1,4 @@
-package com.msib.growsmart.ui.lms.modul.menanam
+package com.msib.growsmart.ui.lms.modul
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +12,7 @@ interface PlayModulVideo {
     fun onPlayModulVideo(modulResponse: ModulItem)
 }
 
-class ModulMenanamAdapter(private val listModul: List<ModulItem>, private val listener: PlayModulVideo): RecyclerView.Adapter<ModulMenanamAdapter.ViewHolder>() {
+class ModulAdapter(private val listModul: List<ModulItem>, private val listener: PlayModulVideo): RecyclerView.Adapter<ModulAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = RecyclerviewModulItemBinding.bind(view)

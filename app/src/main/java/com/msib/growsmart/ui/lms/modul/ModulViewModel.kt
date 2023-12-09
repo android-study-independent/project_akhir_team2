@@ -1,4 +1,4 @@
-package com.msib.growsmart.ui.lms.modul.menanam
+package com.msib.growsmart.ui.lms.modul
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -15,7 +15,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ModulMenanamViewModel(
+class ModulViewModel(
     private val preference : UserPreference
 ): ViewModel() {
 
@@ -54,7 +54,7 @@ class ModulMenanamViewModel(
     }
 
     companion object {
-        const val TAG = "ModulMenanam"
+        const val TAG = "ModulLms"
     }
 
 }
