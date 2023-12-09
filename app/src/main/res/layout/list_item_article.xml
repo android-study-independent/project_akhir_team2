@@ -13,7 +13,7 @@
         android:layout_marginStart="@dimen/_30sdp"
         android:layout_marginEnd="@dimen/_30sdp"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         app:cardCornerRadius="@dimen/_15sdp">
 
         <LinearLayout
@@ -34,8 +34,8 @@
 
             <TextView
                 android:id="@+id/tvJudul"
-                android:layout_width="@dimen/_159sdp"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="40dp"
                 android:layout_marginStart="-20dp"
                 android:layout_marginTop="@dimen/_20sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
@@ -49,8 +49,8 @@
 
         <TextView
             android:id="@+id/tvDeskripsi"
-            android:layout_width="@dimen/_159sdp"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="70dp"
             android:layout_marginStart="@dimen/_95sdp"
             android:layout_marginTop="@dimen/_60sdp"
             android:layout_marginEnd="@dimen/_20sdp"
