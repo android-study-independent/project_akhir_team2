@@ -22,7 +22,7 @@
             android:name=".ui.lms.modul.LmsMetanActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.lms.modul.LmsMenanamActivity"
+            android:name=".ui.lms.modul.menanam.ModulMenanamActivity"
             android:exported="false" />
         <activity
             android:name=".ui.lms.modul.LmsGuideAplikasiActivity"

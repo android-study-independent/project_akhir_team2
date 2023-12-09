@@ -13,6 +13,7 @@ import com.msib.growsmart.ui.forum.posting.PostingViewModel
 import com.msib.growsmart.ui.lms.guide.LmsGuideViewModel
 import com.msib.growsmart.ui.lms.menanam.LmsMenanamViewModel
 import com.msib.growsmart.ui.lms.metan.LmsMetanViewModel
+import com.msib.growsmart.ui.lms.modul.menanam.ModulMenanamViewModel
 import com.msib.growsmart.ui.login.LoginViewModel
 import com.msib.growsmart.ui.splash.SplashViewModel
 
@@ -56,6 +57,9 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
             }
             modelClass.isAssignableFrom(LmsMetanViewModel::class.java) -> {
                 LmsMetanViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(ModulMenanamViewModel::class.java) -> {
+                ModulMenanamViewModel(pref) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel Class : ${modelClass.name}")
         }

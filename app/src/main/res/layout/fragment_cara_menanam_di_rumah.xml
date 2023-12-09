@@ -175,7 +175,7 @@
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_20sdp"
-            android:text="Memberikan panduan komprehensif tentang penggunaan fitur cuaca, artikel, dan forum dalam aplikasi petani." />
+            tools:text="Memberikan panduan komprehensif tentang penggunaan fitur cuaca, artikel, dan forum dalam aplikasi petani." />
 
         <TextView
             android:id="@+id/tvUl"

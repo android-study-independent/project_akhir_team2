@@ -3,9 +3,8 @@ package com.msib.growsmart.ui.lms.modul
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.webkit.WebChromeClient
 import androidx.appcompat.app.AppCompatActivity
-import androidx.media3.common.MediaItem
-import androidx.media3.exoplayer.ExoPlayer
 import com.msib.growsmart.databinding.ActivityLmsGuideAplikasiBinding
 
 class LmsGuideAplikasiActivity : AppCompatActivity() {
@@ -19,12 +18,14 @@ class LmsGuideAplikasiActivity : AppCompatActivity() {
     }
 
     private fun initVideo() {
-        val videoItem = MediaItem.fromUri("https://github.com/dicodingacademy/assets/releases/download/release-video/VideoDicoding.mp4")
-        val player = ExoPlayer.Builder(this).build().also { exoPlayer ->
-            exoPlayer.setMediaItem(videoItem)
-            exoPlayer.prepare()
+        val videoUrl  = "https://youtu.be/Q3tSTO5doJ4?si=d41jTBhJpIHgMHjW"
+        val rep = videoUrl.replace("https://youtu.be", "https://www.youtube.com/embed")
+        val video = "<iframe width=\"350\" height=\"300\" src=\"$rep\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
+        with(binding) {
+            playerView.loadData(video,"text/html", "utf-8")
+            playerView.settings.javaScriptEnabled = true
+            playerView.webChromeClient = WebChromeClient()
         }
-        binding.playerView.player = player
     }
 
 

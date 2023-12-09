@@ -14,7 +14,7 @@ import androidx.fragment.app.viewModels
 import com.msib.growsmart.databinding.FragmentCaraMenanamDiRumahBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.ui.factory.ViewModelFactory
-import com.msib.growsmart.ui.lms.modul.LmsGuideAplikasiActivity
+import com.msib.growsmart.ui.lms.modul.menanam.ModulMenanamActivity
 
 class LmsMenanamFragment : Fragment() {
     private var _binding: FragmentCaraMenanamDiRumahBinding? = null
@@ -53,7 +53,7 @@ class LmsMenanamFragment : Fragment() {
             }
         }
         binding.btnMulai.setOnClickListener{
-            LmsGuideAplikasiActivity.start(requireContext())
+            ModulMenanamActivity.start(requireContext())
         }
     }
 

@@ -14,7 +14,7 @@ import androidx.fragment.app.viewModels
 import com.msib.growsmart.databinding.FragmentMacamMediaTanamBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.ui.factory.ViewModelFactory
-import com.msib.growsmart.ui.lms.modul.LmsGuideAplikasiActivity
+import com.msib.growsmart.ui.lms.modul.LmsMetanActivity
 
 class LmsMediaTanamFragment : Fragment() {
     private var _binding: FragmentMacamMediaTanamBinding? = null
@@ -54,7 +54,7 @@ class LmsMediaTanamFragment : Fragment() {
             }
         }
         binding.btnMulai.setOnClickListener{
-            LmsGuideAplikasiActivity.start(requireContext())
+            LmsMetanActivity.start(requireContext())
         }
     }
 

@@ -10,6 +10,7 @@ import com.msib.growsmart.response.GetAllArticleResponse
 import com.msib.growsmart.response.GetAllForumResponseItem
 import com.msib.growsmart.response.GetKomentarResponse
 import com.msib.growsmart.response.GetLmsGroupResponse
+import com.msib.growsmart.response.GetLmsModuleResponse
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.PostForumResponse
 import com.msib.growsmart.response.PostKomentarResponse
@@ -95,5 +96,11 @@ interface ApiService {
         @Header("x-api-key") apiKey: String,
         @Path("id_group") idGroup: String,
     ): Call<GetLmsGroupResponse>
+
+    @GET("lms/all_modul/{id_group}")
+    fun getLmsModul(
+        @Header("x-api-key") apiKey: String,
+        @Path("id_group") idGroup: String,
+    ): Call<GetLmsModuleResponse>
 
 }
