@@ -1,5 +1,8 @@
 package com.msib.growsmart.ui.beranda
 
+import android.os.Build
+import android.text.Html
+import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,12 +18,19 @@ class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : Recyc
 
         fun bindItem(data: ArticlesItem){
             with(binding) {
-                if(data.description != null || data.title != null) {
-                    tvJudul.text = data.title
-                    tvDeskripsi.text = "${data.description}"
-                }else {
-                    tvJudul.text = "Data masih Kosong"
-                    tvDeskripsi.text = "Data masih Kosong"
+                // Menggunakan Html.fromHtml() untuk teks HTML pada title dan description
+                tvJudul.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Html.fromHtml(data.title ?: "", Html.FROM_HTML_MODE_LEGACY) as Spanned
+                } else {
+                    @Suppress("DEPRECATION")
+                    Html.fromHtml(data.title ?: "") as Spanned
+                }
+
+                tvDeskripsi.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    Html.fromHtml(data.description ?: "", Html.FROM_HTML_MODE_LEGACY) as Spanned
+                } else {
+                    @Suppress("DEPRECATION")
+                    Html.fromHtml(data.description ?: "") as Spanned
                 }
             }
         }
@@ -37,6 +47,4 @@ class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : Recyc
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(listArticle[position])
     }
-
-
 }
