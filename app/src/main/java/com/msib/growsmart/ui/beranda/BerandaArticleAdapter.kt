@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.RecyclerviewAllArticleBinding
 import com.msib.growsmart.response.ArticlesItem
+import com.squareup.picasso.Picasso
 
 class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : RecyclerView.Adapter<BerandaArticleAdapter.ViewHolder>() {
 
@@ -18,7 +19,6 @@ class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : Recyc
 
         fun bindItem(data: ArticlesItem){
             with(binding) {
-                // Menggunakan Html.fromHtml() untuk teks HTML pada title dan description
                 tvJudul.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     Html.fromHtml(data.title ?: "", Html.FROM_HTML_MODE_LEGACY) as Spanned
                 } else {
@@ -32,8 +32,14 @@ class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : Recyc
                     @Suppress("DEPRECATION")
                     Html.fromHtml(data.description ?: "") as Spanned
                 }
+
+                // Memuat gambar jika URL gambar tersedia
+                data.image?.let { imageUrl ->
+                    Picasso.get().load(imageUrl).into(ivArticle)
+                }
             }
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
