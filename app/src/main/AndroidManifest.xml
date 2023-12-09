@@ -22,9 +22,6 @@
             android:name=".ui.detail_artikel.ArtikelDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.detail_artikel.DetailArtikelActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.lms.modul.metan.ModulMetanActivity"
             android:exported="false" />
         <activity
