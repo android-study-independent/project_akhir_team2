@@ -1,5 +1,7 @@
 package com.msib.growsmart.ui.artikel.data
 
+
+import android.content.Intent
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.msib.growsmart.R
+import com.msib.growsmart.ui.detail_artikel.ArtikelDetailActivity
 import com.squareup.picasso.Picasso
 
 class ArtikelAdapter(private val articles: List<Article>) : RecyclerView.Adapter<ArtikelAdapter.ArtikelViewHolder>() {
@@ -23,6 +26,13 @@ class ArtikelAdapter(private val articles: List<Article>) : RecyclerView.Adapter
         holder.title.text = Html.fromHtml(currentArticle.title)
         holder.description.text = Html.fromHtml(currentArticle.description ?: "Tidak ada deskripsi")
         Picasso.get().load(currentArticle.image).into(holder.image)
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, ArtikelDetailActivity::class.java)
+            intent.putExtra(ArtikelDetailActivity.EXTRA_ARTICLE, currentArticle)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

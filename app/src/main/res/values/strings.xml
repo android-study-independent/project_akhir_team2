@@ -115,5 +115,7 @@
     <string name="Hydroponic">Hydroponic</string>
     <string name="Aeroponic">Aeroponic</string>
 
+    <string name="desDetail">~~~~~~~~~~~~Deskripsi~~~~~~~~~~~~</string>
+
 
 </resources>
