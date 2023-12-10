@@ -12,6 +12,7 @@ import com.msib.growsmart.response.GetDetailArtikelResponse
 import com.msib.growsmart.response.GetKomentarResponse
 import com.msib.growsmart.response.GetLmsGroupResponse
 import com.msib.growsmart.response.GetLmsModuleResponse
+import com.msib.growsmart.response.GetNotificationResponse
 import com.msib.growsmart.response.GetWeatherResponse
 import com.msib.growsmart.response.PostForumResponse
 import com.msib.growsmart.response.PostKomentarResponse
@@ -109,5 +110,10 @@ interface ApiService {
         @Header("x-api-key") apiKey: String,
         @Path("id") id: String,
     ): Call<GetDetailArtikelResponse>
+
+    @GET("forum/notifikasi")
+    fun getNotifikasi(
+        @Header("x-api-key") apiKey: String,
+    ): Call<GetNotificationResponse>
 
 }
