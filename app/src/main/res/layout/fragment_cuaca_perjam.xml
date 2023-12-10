@@ -15,7 +15,7 @@
             android:layout_width="@dimen/_200sdp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
-            android:text="@string/title_cuaca_per_minggu"
+            android:text="@string/title_cuaca_per_jam"
             android:textSize="@dimen/_16sdp"
             android:textStyle="bold"
             android:layout_margin="@dimen/_20sdp"

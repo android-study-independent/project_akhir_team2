@@ -21,13 +21,13 @@
         android:id="@+id/navigation_cuaca_perjam"
         android:name="com.msib.growsmart.ui.cuaca.perjam.CuacaPerjamFragment"
         tools:layout="@layout/fragment_cuaca_perjam"
-        android:label="@string/tv_nav_cuaca"/>
+        android:label="@string/tv_nav_lms"/>
 
     <fragment
         android:id="@+id/navigation_cuaca_perMinggu"
         android:name="com.msib.growsmart.ui.cuaca.perminggu.CuacaPermingguFragment"
         tools:layout="@layout/fragment_cuaca_perminggu"
-        android:label="@string/tv_nav_cuaca"/>
+        android:label="@string/tv_nav_lms"/>
 
     <fragment
         android:id="@+id/navigation_forum"
