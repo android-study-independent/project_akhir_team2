@@ -23,8 +23,8 @@ class ArtikelAdapter(private val articles: List<Article>) : RecyclerView.Adapter
     override fun onBindViewHolder(holder: ArtikelViewHolder, position: Int) {
         val currentArticle = articles[position]
 
-        holder.title.text = Html.fromHtml(currentArticle.title)
-        holder.description.text = Html.fromHtml(currentArticle.description ?: "Tidak ada deskripsi")
+        holder.title.text = Html.fromHtml("<h4><small>${currentArticle.title}</small></h4>")
+        holder.description.text = Html.fromHtml("<small>${currentArticle.description}</small>" ?: "Tidak ada deskripsi")
         Picasso.get().load(currentArticle.image).into(holder.image)
 
         holder.itemView.setOnClickListener {
