@@ -1,45 +1,79 @@
 package com.msib.growsmart.ui.detail_artikel
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Html
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.msib.growsmart.R
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import com.msib.growsmart.databinding.ItemDetailArticleBinding
+import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.ui.artikel.data.Article
+import com.msib.growsmart.ui.factory.ViewModelFactory
 import com.squareup.picasso.Picasso
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class ArtikelDetailActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_ARTICLE = "extra_article"
-    }
-
     private lateinit var article: Article
-    private lateinit var titleTextView: TextView
-    private lateinit var authorTextView: TextView
-    private lateinit var dateTextView: TextView
-    private lateinit var descriptionTextView: TextView
-    private lateinit var imageView: ImageView
+    private lateinit var binding: ItemDetailArticleBinding
+    private val artikelViewModel by viewModels<ArtikelDetailViewModel>{
+        ViewModelFactory(UserPreference.getInstance(dataStore))
+    }
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
+    private lateinit var token: String
+    private lateinit var idArtikel: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.item_detail_article)
+        binding = ItemDetailArticleBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        titleTextView = findViewById(R.id.tvJudul)
-        authorTextView = findViewById(R.id.tvAuthor)
-        dateTextView = findViewById(R.id.tvTanggal)
-        descriptionTextView = findViewById(R.id.tvDeskripsi)
-        imageView = findViewById(R.id.imageView)
-
-        // Ambil data artikel yang dikirim dari activity sebelumnya
         article = intent.getParcelableExtra<Article>(EXTRA_ARTICLE)!!
 
-        // Tampilkan detail artikel
-        titleTextView.text = Html.fromHtml(article.title ?: "", Html.FROM_HTML_MODE_LEGACY)
-        authorTextView.text = article.name ?: "Nama Penulis Tidak Tersedia"
-        dateTextView.text = article.timestamp
-        descriptionTextView.text = Html.fromHtml(article.description ?: "", Html.FROM_HTML_MODE_LEGACY)
-        Picasso.get().load(article.image).into(imageView)
+        with(binding){
+            tvAuthor.text = article.name ?: "Nama Penulis Tidak Tersedia"
+            tvTanggal.text = article.timestamp
+            Picasso.get().load(article.image).into(imageView)
+        }
+        initObserver()
+    }
+
+    private fun initObserver(){
+        artikelViewModel.getUser().observe(this) {
+            article = intent.getParcelableExtra<Article>(EXTRA_ARTICLE)!!
+            if(it.isLogin) {
+                    token = it.token
+                    idArtikel = article.id.toString()
+                    article = intent.getParcelableExtra<Article>(EXTRA_ARTICLE)!!
+                artikelViewModel.getDetailArtikel(token, idArtikel)
+                artikelViewModel.getDetailArtikel.observe(this) { artikel ->
+                    with(binding) {
+                        val inputPattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                        val outputPattern = "dd-MM-yyyy"
+                        val inputFormatter = DateTimeFormatter.ofPattern(inputPattern)
+                        val outputFormatter = DateTimeFormatter.ofPattern(outputPattern)
+
+                        val inputDate = artikel.timestamp
+                        val localDate = LocalDate.parse(inputDate, inputFormatter)
+
+                        val outputDate = outputFormatter.format(localDate)
+
+                        tvDeskripsi.text = Html.fromHtml(artikel.article ?: "", Html.FROM_HTML_MODE_LEGACY)
+                        tvJudul.text = Html.fromHtml(artikel.title ?: "", Html.FROM_HTML_MODE_LEGACY)
+                        tvTanggal.text = outputDate
+
+
+                    }
+                }
+            }
+        }
+    }
+
+    companion object {
+        const val EXTRA_ARTICLE = "extra_article"
     }
 }

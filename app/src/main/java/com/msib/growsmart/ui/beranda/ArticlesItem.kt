@@ -8,20 +8,17 @@ data class ArticlesItem(
     val title: String?,
     val description: String?,
     val image: String?
-    // Definisikan properti lainnya sesuai kebutuhan
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
         parcel.readString()
-        // Baca properti lainnya dari Parcel jika ada
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
         parcel.writeString(description)
         parcel.writeString(image)
-        // Tulis properti lainnya ke Parcel jika ada
     }
 
     override fun describeContents(): Int {

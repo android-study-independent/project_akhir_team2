@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.cuaca.CuacaFragment">
+    tools:context=".ui.cuaca.CuacaFragment"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -132,7 +133,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:backgroundTint="@color/blue_5"
-            app:cardCornerRadius="15dp"
+            app:cardCornerRadius="10dp"
             app:cardPreventCornerOverlap="false"
             android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="@+id/cvCuacaSaatIni"

@@ -14,6 +14,7 @@ import com.msib.growsmart.databinding.ActivityLmsGuideAplikasiBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.ModulItem
 import com.msib.growsmart.ui.factory.ViewModelFactory
+import com.msib.growsmart.ui.lms.LmsViewModel
 import com.msib.growsmart.ui.lms.modul.ModulAdapter
 import com.msib.growsmart.ui.lms.modul.ModulViewModel
 import com.msib.growsmart.ui.lms.modul.PlayModulVideo
@@ -22,6 +23,9 @@ class ModulGuideAplikasiActivity : AppCompatActivity(), PlayModulVideo {
     private lateinit var binding: ActivityLmsGuideAplikasiBinding
     private lateinit var modulAdapter: ModulAdapter
     private val modulViewModel by viewModels<ModulViewModel>{
+        ViewModelFactory(UserPreference.getInstance(dataStore))
+    }
+    private val lmsViewModel by viewModels<LmsViewModel>{
         ViewModelFactory(UserPreference.getInstance(dataStore))
     }
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
@@ -48,7 +52,18 @@ class ModulGuideAplikasiActivity : AppCompatActivity(), PlayModulVideo {
                 }
             }
         }
+        lmsViewModel.getUser().observe(this) {
+            if(it.isLogin) {
+                token = it.token
+                val idModul = 1
+                lmsViewModel.getLmsGroup(token, idModul.toString())
+                lmsViewModel.getLmsGroup.observe(this) { group ->
+                    binding.tvIsiDeskripsi.text = group.modul.description
+                }
+            }
+        }
     }
+
 
     private fun initView() {
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -76,18 +91,6 @@ class ModulGuideAplikasiActivity : AppCompatActivity(), PlayModulVideo {
     override fun onPlayModulVideo(modulResponse: ModulItem) {
         initVideo(modulResponse.video)
     }
-
-    private fun initVideo() {
-        val videoUrl  = "https://youtu.be/Q3tSTO5doJ4?si=d41jTBhJpIHgMHjW"
-        val rep = videoUrl.replace("https://youtu.be", "https://www.youtube.com/embed")
-        val video = "<iframe width=\"350\" height=\"300\" src=\"$rep\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>"
-        with(binding) {
-            playerView.loadData(video,"text/html", "utf-8")
-            playerView.settings.javaScriptEnabled = true
-            playerView.webChromeClient = WebChromeClient()
-        }
-    }
-
 
     companion object {
         @JvmStatic
