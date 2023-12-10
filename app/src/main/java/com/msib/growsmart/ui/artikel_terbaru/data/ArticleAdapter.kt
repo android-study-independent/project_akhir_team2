@@ -39,8 +39,8 @@ class ArticleAdapter : RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder>() 
         private val descriptionTextView: TextView = itemView.findViewById(R.id.des1)
 
         fun bind(article: Article) {
-            titleTextView.text = Html.fromHtml(article.title)
-            descriptionTextView.text = Html.fromHtml(article.description ?: "Tidak ada deskripsi")
+            titleTextView.text = Html.fromHtml("<h4><small>${article.title}</small></h4>")
+            descriptionTextView.text = Html.fromHtml("<small>${article.description}</small>" ?: "Tidak ada deskripsi")
             Picasso.get().load(article.image).into(imageView)
         }
     }

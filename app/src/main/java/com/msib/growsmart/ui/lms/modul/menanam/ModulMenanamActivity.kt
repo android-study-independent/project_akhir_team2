@@ -14,6 +14,7 @@ import com.msib.growsmart.databinding.ActivityLmsMenanamBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.ModulItem
 import com.msib.growsmart.ui.factory.ViewModelFactory
+import com.msib.growsmart.ui.lms.LmsViewModel
 import com.msib.growsmart.ui.lms.modul.ModulAdapter
 import com.msib.growsmart.ui.lms.modul.ModulViewModel
 import com.msib.growsmart.ui.lms.modul.PlayModulVideo
@@ -22,6 +23,9 @@ class ModulMenanamActivity : AppCompatActivity(), PlayModulVideo {
     private lateinit var binding: ActivityLmsMenanamBinding
     private lateinit var menanamAdapter: ModulAdapter
     private val menanamViewModel by viewModels<ModulViewModel>{
+        ViewModelFactory(UserPreference.getInstance(dataStore))
+    }
+    private val lmsViewModel by viewModels<LmsViewModel>{
         ViewModelFactory(UserPreference.getInstance(dataStore))
     }
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
@@ -44,6 +48,10 @@ class ModulMenanamActivity : AppCompatActivity(), PlayModulVideo {
                 menanamViewModel.getLmsModul(token, idModul.toString())
                 menanamViewModel.getLmsModul.observe(this) { modul ->
                     showAllModul(modul)
+                }
+                lmsViewModel.getLmsGroup(token, idModul.toString())
+                lmsViewModel.getLmsGroup.observe(this) { group ->
+                    binding.tvIsiDeskripsi.text = group.modul.description
                 }
             }
         }

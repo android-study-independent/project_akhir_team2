@@ -8,6 +8,7 @@ import com.msib.growsmart.data.request.RegisterRequest
 import com.msib.growsmart.response.ForgetPasswordResponse
 import com.msib.growsmart.response.GetAllArticleResponse
 import com.msib.growsmart.response.GetAllForumResponseItem
+import com.msib.growsmart.response.GetDetailArtikelResponse
 import com.msib.growsmart.response.GetKomentarResponse
 import com.msib.growsmart.response.GetLmsGroupResponse
 import com.msib.growsmart.response.GetLmsModuleResponse
@@ -102,5 +103,11 @@ interface ApiService {
         @Header("x-api-key") apiKey: String,
         @Path("id_group") idGroup: String,
     ): Call<GetLmsModuleResponse>
+
+    @GET("article/article_id/{id}")
+    fun getDetailArtikel(
+        @Header("x-api-key") apiKey: String,
+        @Path("id") id: String,
+    ): Call<GetDetailArtikelResponse>
 
 }
