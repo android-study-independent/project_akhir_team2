@@ -2,7 +2,9 @@ package com.msib.growsmart.ui.beranda
 
 import android.os.Build
 import android.text.Html
-import android.text.Spanned
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.AbsoluteSizeSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,19 +21,8 @@ class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : Recyc
 
         fun bindItem(data: ArticlesItem){
             with(binding) {
-                tvJudul.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    Html.fromHtml(data.title ?: "", Html.FROM_HTML_MODE_LEGACY) as Spanned
-                } else {
-                    @Suppress("DEPRECATION")
-                    Html.fromHtml(data.title ?: "") as Spanned
-                }
-
-                tvDeskripsi.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    Html.fromHtml(data.description ?: "", Html.FROM_HTML_MODE_LEGACY) as Spanned
-                } else {
-                    @Suppress("DEPRECATION")
-                    Html.fromHtml(data.description ?: "") as Spanned
-                }
+                tvJudul.text = fromHtmlWithFontSize(data.title ?: "", 14)
+                tvDeskripsi.text = fromHtmlWithFontSize(data.description ?: "Tidak ada deskripsi", 12)
 
                 // Memuat gambar jika URL gambar tersedia
                 data.image?.let { imageUrl ->
@@ -39,7 +30,6 @@ class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : Recyc
                 }
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -52,5 +42,19 @@ class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : Recyc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItem(listArticle[position])
+    }
+
+    private fun fromHtmlWithFontSize(html: String, fontSize: Int): SpannableStringBuilder {
+        val spannable: Spannable = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY, null, null) as Spannable
+        } else {
+            Html.fromHtml(html) as Spannable
+        }
+
+        val start = 0
+        val end = spannable.length
+        spannable.setSpan(AbsoluteSizeSpan(fontSize, true), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        return SpannableStringBuilder(spannable)
     }
 }
