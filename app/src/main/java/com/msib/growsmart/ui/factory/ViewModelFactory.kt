@@ -56,5 +56,4 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
             else -> throw IllegalArgumentException("Unknown ViewModel Class : ${modelClass.name}")
         }
     }
-
 }

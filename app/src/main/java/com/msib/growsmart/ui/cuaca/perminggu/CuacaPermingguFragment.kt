@@ -96,7 +96,7 @@ class CuacaPermingguFragment : Fragment() {
     }
 
     private fun initView() {
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
+        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         binding.rvWeekly.layoutManager = layoutManager
     }
 

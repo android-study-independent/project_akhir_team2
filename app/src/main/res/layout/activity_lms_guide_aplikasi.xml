@@ -59,10 +59,32 @@
             app:layout_constraintStart_toStartOf="@+id/player_view"
             app:layout_constraintTop_toBottomOf="@+id/player_view" />
 
+        <TextView
+            android:id="@+id/tvDeskripsi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/rvModul"
+            app:layout_constraintTop_toBottomOf="@+id/rvModul"
+            android:text="@string/lms_deskripsi" />
+
+        <TextView
+            android:id="@+id/tvIsiDeskripsi"
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:justificationMode="inter_word"
+            app:layout_constraintEnd_toEndOf="@+id/player_view"
+            app:layout_constraintStart_toStartOf="@+id/tvDeskripsi"
+            app:layout_constraintTop_toBottomOf="@+id/tvDeskripsi"
+            tools:text="Deskripsi" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 
 </ScrollView>

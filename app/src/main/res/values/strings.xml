@@ -46,6 +46,8 @@
     <string name="jam17">17:00</string>
     <string name="jam18">18:00</string>
     <string name="suhu_hari_ini">25℃</string>
+    <string name="title_cuaca_per_jam">Cuaca Per Jam</string>
+    <string name="title_cuaca_per_minggu">Cuaca Per Minggu</string>
 
     <!--forum-->
     <string name="txContent">Apa yang anda pikirkan?</string>
@@ -120,6 +122,6 @@
     <string name="lms_learning_management_system">Learning Management System</string>
 
     <string name="desDetail">~~~~~~~~~~~~Deskripsi~~~~~~~~~~~~</string>
-
+    <string name="lms_deskripsi">Deskripsi</string>
 
 </resources>
