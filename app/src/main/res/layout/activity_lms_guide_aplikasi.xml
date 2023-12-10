@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.lms.modul.guide.ModulGuideAplikasiActivity"
+    android:background="@color/green_6">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:contentDescription="image"
+                android:src="@drawable/arrow_left"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tvCuaca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                android:text="@string/cara_guide" />
+        </androidx.cardview.widget.CardView>
+
+        <WebView
+            android:id="@+id/player_view"
+            android:layout_width="@dimen/_270sdp"
+            android:layout_height="@dimen/_240sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvTitle" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvModul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/player_view"
+            app:layout_constraintStart_toStartOf="@+id/player_view"
+            app:layout_constraintTop_toBottomOf="@+id/player_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</ScrollView>

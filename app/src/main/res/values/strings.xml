@@ -60,10 +60,13 @@
     <string name="tanam">Bercocok Tanam</string>
     <string name="cara"> Cara Menggunakan Aplikasi</string>
     <string name="cara2">Cara Menanam Tanaman di Rumah</string>
-    <string name="cara3"> Cara Memilih Tanaman yang Tepat untuk dibudidayakan</string>
+    <string name="cara3">Jenis Media Tanam</string>
+    <string name="cara5"> Cara Memilih Tanaman yang Tepat untuk dibudidayakan</string>
     <string name="cara4">Cara Merawat Tanaman</string>
-    <string name="cara5">Macam-macam Media Tanam</string>
     <string name="cara6">Jenis Penyakit dan Pencegahannya</string>
+    <string name="cara_guide">Cara Menggunakan Aplikasi</string>
+    <string name="cara_menanam">Cara Menanam Tanaman Di Rumah</string>
+    <string name="cara_metan">Berbagai Macam Media Tanam</string>
 
     <!--Modul-->
     <string name="modul">Modul</string>
@@ -114,6 +117,7 @@
     <string name="kompos">Kompos dan Pupuk Organic</string>
     <string name="Hydroponic">Hydroponic</string>
     <string name="Aeroponic">Aeroponic</string>
+    <string name="lms_learning_management_system">Learning Management System</string>
 
     <string name="desDetail">~~~~~~~~~~~~Deskripsi~~~~~~~~~~~~</string>
 

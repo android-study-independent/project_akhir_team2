@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.forum.ForumFragment"
-    android:background="@color/green_bg_forum">
+    android:background="@color/green_6">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

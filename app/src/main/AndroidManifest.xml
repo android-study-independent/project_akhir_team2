@@ -22,10 +22,13 @@
             android:name=".ui.detail_artikel.ArtikelDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.detail_artikel.DetailArtikelActivity"
+            android:name=".ui.lms.modul.metan.ModulMetanActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.detail_artikel.DetailActivity"
+            android:name=".ui.lms.modul.menanam.ModulMenanamActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.lms.modul.guide.ModulGuideAplikasiActivity"
             android:exported="false" />
         <activity
             android:name=".ui.artikel_terbaru.HalamanArticleTerbaruActivity"
