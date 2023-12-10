@@ -19,16 +19,19 @@ data class GetAllForumResponseItem(
 	val forumId: Int,
 
 	@field:SerializedName("isi")
-	val isi: String?
+	val isi: String?,
+
+	@field:SerializedName("waktuUpload")
+	val waktuUpload: String?,
 ) : Parcelable {
 	constructor(parcel: Parcel) : this(
 		parcel.readString(),
 		parcel.readInt(),
 		parcel.readString(),
 		parcel.readInt(),
+		parcel.readString(),
 		parcel.readString()
-	) {
-	}
+	)
 
 	override fun writeToParcel(parcel: Parcel, flags: Int) {
 		parcel.writeString(image)
@@ -36,6 +39,7 @@ data class GetAllForumResponseItem(
 		parcel.writeString(nama)
 		parcel.writeInt(forumId)
 		parcel.writeString(isi)
+		parcel.writeString(waktuUpload)
 	}
 
 	override fun describeContents(): Int {

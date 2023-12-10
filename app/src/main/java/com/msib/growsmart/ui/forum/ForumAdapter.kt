@@ -23,6 +23,7 @@ class ForumAdapter(private val listAllForum: List<GetAllForumResponseItem>, priv
                 Picasso.get().load(data.image).into(ivImage)
                 tvPengguna.text = data.nama
                 tvDeskripsi.text = data.isi
+                tvUpdatePostingan.text = data.waktuUpload
                 btnKomentari.setOnClickListener {
                     listener.onDetailKomentar(data)
                 }
