@@ -39,7 +39,7 @@ class CuacaPerjamFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCuacaPerjamBinding.inflate(inflater, container, true)
+        _binding = FragmentCuacaPerjamBinding.inflate(inflater, container, false)
         return binding.root
     }
 

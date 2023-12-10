@@ -12,7 +12,9 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.msib.growsmart.R
 import com.msib.growsmart.databinding.FragmentForumBinding
 import com.msib.growsmart.preference.UserPreference
 import com.msib.growsmart.response.GetAllForumResponseItem
@@ -58,6 +60,9 @@ class ForumFragment : Fragment(), DetailKomentarListener {
             if(it.isLogin) {
                 token = it.token
                 binding.tvUser.text = "Hey, ${it.name}"
+                binding.ivNotification.setOnClickListener {
+                    findNavController().navigate(R.id.navigation_notifikasi)
+                }
                 initForum()
             }
         }

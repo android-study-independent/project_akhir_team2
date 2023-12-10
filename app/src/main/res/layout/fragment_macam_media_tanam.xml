@@ -37,7 +37,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:textSize="@dimen/_16sdp"
                 android:textStyle="bold"
-                tools:text="@string/lms" />
+                android:text="@string/lms" />
         </androidx.cardview.widget.CardView>
         <TextView
             android:id="@+id/tvJudulCara"

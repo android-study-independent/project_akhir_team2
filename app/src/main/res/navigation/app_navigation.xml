@@ -21,13 +21,13 @@
         android:id="@+id/navigation_cuaca_perjam"
         android:name="com.msib.growsmart.ui.cuaca.perjam.CuacaPerjamFragment"
         tools:layout="@layout/fragment_cuaca_perjam"
-        android:label="@string/tv_nav_beranda"/>
+        android:label="@string/tv_nav_lms"/>
 
     <fragment
         android:id="@+id/navigation_cuaca_perMinggu"
         android:name="com.msib.growsmart.ui.cuaca.perminggu.CuacaPermingguFragment"
         tools:layout="@layout/fragment_cuaca_perminggu"
-        android:label="@string/tv_nav_beranda"/>
+        android:label="@string/tv_nav_lms"/>
 
     <fragment
         android:id="@+id/navigation_forum"
@@ -57,6 +57,12 @@
         android:id="@+id/navigation_lms_metan"
         android:name="com.msib.growsmart.ui.lms.metan.LmsMediaTanamFragment"
         tools:layout="@layout/fragment_macam_media_tanam"
+        android:label="@string/tv_nav_lms"/>
+
+    <fragment
+        android:id="@+id/navigation_notifikasi"
+        android:name="com.msib.growsmart.ui.forum.notifikasi.NotifikasiFragment"
+        tools:layout="@layout/fragment_notifikasi"
         android:label="@string/tv_nav_lms"/>
 
 

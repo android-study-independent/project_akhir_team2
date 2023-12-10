@@ -42,6 +42,7 @@ class KomentarActivity : AppCompatActivity()  {
                 tvUser.text = komentar.nama
                 tvIsiKomentar.text = komentar.isi
                 tvJumlahKomentar.text = "${komentar.jumlahKomentar} Komentar"
+                tvJam.text = komentar.waktuUpload
             }
         }
 
