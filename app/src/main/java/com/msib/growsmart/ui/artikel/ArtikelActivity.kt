@@ -1,6 +1,7 @@
 package com.msib.growsmart.ui.artikel
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ class ArtikelActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ArtikelAdapter
+    private lateinit var ivImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +28,8 @@ class ArtikelActivity : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclearView)
         recyclerView.layoutManager = LinearLayoutManager(this)
+        ivImage = findViewById(R.id.ivImage)
+
 
         getAllArticles()
 

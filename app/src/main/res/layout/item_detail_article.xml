@@ -63,16 +63,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvArticle"
-        android:text="@string/desDetail"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:layout_below="@+id/imageView"
-        android:textStyle="bold"
-        android:textSize="@dimen/_12sdp"
-        android:gravity="center"/>
 
 
     <TextView
@@ -81,7 +71,7 @@
         android:layout_height="wrap_content"
         android:text="deskrpisi"
         android:textSize="16sp"
-        android:layout_below="@id/tvArticle"
+        android:layout_below="@id/imageView"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="16dp"
         android:padding="16dp"/>

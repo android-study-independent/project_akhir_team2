@@ -1,5 +1,6 @@
 package com.msib.growsmart.ui.beranda
 
+import android.content.Intent
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.msib.growsmart.R
 import com.msib.growsmart.databinding.RecyclerviewAllArticleBinding
 import com.msib.growsmart.response.ArticlesItem
+import com.msib.growsmart.ui.artikel.ArtikelActivity
 import com.squareup.picasso.Picasso
 
 class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : RecyclerView.Adapter<BerandaArticleAdapter.ViewHolder>() {
@@ -17,7 +19,7 @@ class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : Recyc
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = RecyclerviewAllArticleBinding.bind(view)
 
-        fun bindItem(data: ArticlesItem){
+        fun bindItem(data: ArticlesItem) {
             with(binding) {
                 tvJudul.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     Html.fromHtml(data.title ?: "", Html.FROM_HTML_MODE_LEGACY) as Spanned
@@ -37,9 +39,14 @@ class BerandaArticleAdapter(private val listArticle: List<ArticlesItem>) : Recyc
                 data.image?.let { imageUrl ->
                     Picasso.get().load(imageUrl).into(ivArticle)
                 }
+
+                // Set onClickListener untuk membuka ArtikelActivity saat item diklik
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, ArtikelActivity::class.java)
+                    itemView.context.startActivity(intent)
+                }
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
