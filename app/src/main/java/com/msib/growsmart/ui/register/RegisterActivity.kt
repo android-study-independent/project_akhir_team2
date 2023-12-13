@@ -1,10 +1,12 @@
 package com.msib.growsmart.ui.register
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +15,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.jakewharton.rxbinding2.widget.RxTextView
+import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivityRegisterBinding
 import com.msib.growsmart.response.PostRegisterResponse
 import com.msib.growsmart.ui.login.LoginActivity
@@ -162,8 +165,21 @@ class RegisterActivity : AppCompatActivity() {
                     .show()
             }
         } else {
+            showSuccessNotification()
+        }
+    }
+
+    private fun showSuccessNotification() {
+        val successDialog = Dialog(this)
+        successDialog.setContentView(R.layout.dialog_sukses_buat_akun)
+
+        val closeButton = successDialog.findViewById<Button>(R.id.btnSukses)
+        closeButton.setOnClickListener {
+            successDialog.dismiss()
             LoginActivity.start(this)
         }
+
+        successDialog.show()
     }
 
     private fun showLoading(value: Boolean) {

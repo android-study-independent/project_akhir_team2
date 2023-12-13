@@ -26,7 +26,7 @@ class HalamanArticleTerbaruActivity : AppCompatActivity() {
         adapter = ArticleAdapter()
         recyclerView.adapter = adapter
 
-        val ids = listOf(1) // List of IDs you want to retrieve
+        val ids = listOf(1, 2, 3) // List of IDs you want to retrieve
         val apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyOCwiaWF0IjoxNzAwNzQ2NzIyfQ.ODFt_XcqGHfUGVi5MozPMpoCi67zZGHdUh1zJtCBxbs"
 
         val client = OkHttpClient()

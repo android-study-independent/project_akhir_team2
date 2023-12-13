@@ -134,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Masukkan kata sandi"
-            android:inputType="textVisiblePassword"
+            android:inputType="textPassword"
             android:textSize="@dimen/et_text_size"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
