@@ -1,10 +1,12 @@
 package com.msib.growsmart.ui.register
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +15,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.jakewharton.rxbinding2.widget.RxTextView
+import com.msib.growsmart.R
 import com.msib.growsmart.databinding.ActivityRegisterBinding
 import com.msib.growsmart.response.PostRegisterResponse
 import com.msib.growsmart.ui.login.LoginActivity
@@ -22,6 +25,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private val registerViewModel by viewModels<RegisterViewModel>()
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -33,28 +37,27 @@ class RegisterActivity : AppCompatActivity() {
 
     @SuppressLint("CheckResult")
     private fun initListener() {
-        with(binding){
+        with(binding) {
             tvRegister.setOnClickListener {
                 LoginActivity.start(this@RegisterActivity)
             }
 
             btnBuatAkun.setOnClickListener {
-                if (binding.etNama.text.toString().isEmpty() && binding.etEmail.text.toString()
-                        .isEmpty() && binding.etSandi.text.toString().isEmpty()
+                if (etNama.text.toString().isEmpty() && etEmail.text.toString()
+                        .isEmpty() && etSandi.text.toString().isEmpty()
                 ) {
                     Toast.makeText(
                         this@RegisterActivity,
                         "Silakan Masukan Nama, Email, dan Password",
                         Toast.LENGTH_SHORT
-                    )
-                        .show()
+                    ).show()
                 } else {
                     registerViewModel.postRegister(
                         this@RegisterActivity,
-                        binding.etNama.text.toString(),
-                        binding.etPengingat.text.toString(),
-                        binding.etEmail.text.toString(),
-                        binding.etSandi.text.toString()
+                        etNama.text.toString(),
+                        etPengingat.text.toString(),
+                        etEmail.text.toString(),
+                        etSandi.text.toString()
                     )
                 }
             }
@@ -103,9 +106,8 @@ class RegisterActivity : AppCompatActivity() {
             ) { namaValid: Boolean, emailValid: Boolean, passwordValid: Boolean ->
                 namaValid && emailValid && passwordValid
             }.subscribe { isButtonValid ->
-                binding.btnBuatAkun.isEnabled = isButtonValid
+                btnBuatAkun.isEnabled = isButtonValid
             }
-
         }
     }
 
@@ -127,6 +129,7 @@ class RegisterActivity : AppCompatActivity() {
             showLoading(it)
         }
     }
+
     private fun postRegister(data: PostRegisterResponse) {
         if (data.error == true) {
             if (binding.etNama.text.toString().isEmpty()) {
@@ -134,36 +137,45 @@ class RegisterActivity : AppCompatActivity() {
                     this@RegisterActivity,
                     "Silakan Masukan Nama dengan Benar",
                     Toast.LENGTH_SHORT
-                )
-                    .show()
+                ).show()
             } else if (binding.etEmail.text.toString().isEmpty()) {
                 Toast.makeText(
                     this@RegisterActivity,
                     "Silakan Masukan Email dengan Benar",
                     Toast.LENGTH_SHORT
-                )
-                    .show()
+                ).show()
             } else if (binding.etPengingat.text.toString().isEmpty()) {
                 Toast.makeText(
                     this@RegisterActivity,
                     "Silakan Masukan pertanyaan dengan Benar",
                     Toast.LENGTH_SHORT
-                )
-                    .show()
+                ).show()
             } else if (binding.etSandi.text.toString().isEmpty()) {
                 Toast.makeText(
                     this@RegisterActivity,
                     "Silakan Masukan Password dengan Benar",
                     Toast.LENGTH_SHORT
-                )
-                    .show()
+                ).show()
             } else {
                 Toast.makeText(this@RegisterActivity, data.message, Toast.LENGTH_SHORT)
                     .show()
             }
         } else {
+            showSuccessNotification() // Menampilkan notifikasi keberhasilan
+        }
+    }
+
+    private fun showSuccessNotification() {
+        val successDialog = Dialog(this)
+        successDialog.setContentView(R.layout.dialog_sukses_buat_akun)
+
+        val closeButton = successDialog.findViewById<Button>(R.id.btnSukses)
+        closeButton.setOnClickListener {
+            successDialog.dismiss()
             LoginActivity.start(this)
         }
+
+        successDialog.show()
     }
 
     private fun showLoading(value: Boolean) {
